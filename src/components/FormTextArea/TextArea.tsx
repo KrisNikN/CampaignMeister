@@ -1,25 +1,30 @@
-import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import type { KeyOfType, HTMLTextAreaProps } from "types";
-import * as S from "./elements";
+import { useController, UseControllerProps, FieldValues } from 'react-hook-form'
+import type { KeyOfType, HTMLTextAreaProps } from 'types'
+import * as S from './elements'
 
 export interface FormTextAreaProps<T extends FieldValues = any>
-  extends Omit<HTMLTextAreaProps, "name" | "defaultValue">,
-    Omit<UseControllerProps<T>, "name"> {
-  name: KeyOfType<T>;
-  label?: string;
+  extends Omit<HTMLTextAreaProps, 'name' | 'defaultValue'>,
+    Omit<UseControllerProps<T>, 'name'> {
+  name: KeyOfType<T>
+  label?: string
 }
 
-export const FormTextArea = ({ name, control, label, ...props }: FormTextAreaProps) => {
+export const FormTextArea = ({
+  name,
+  control,
+  label,
+  ...props
+}: FormTextAreaProps) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
-    formState: { touchedFields, dirtyFields }
+    formState: { touchedFields, dirtyFields },
   } = useController({
     name,
     control,
     rules: { required: true },
-    defaultValue: ""
-  });
+    defaultValue: '',
+  })
 
   return (
     <S.Container>
@@ -38,7 +43,7 @@ export const FormTextArea = ({ name, control, label, ...props }: FormTextAreaPro
       </S.InputWrapper>
       {error && <S.ErrorText>{error.message}</S.ErrorText>}
     </S.Container>
-  );
-};
+  )
+}
 
-FormTextArea.displayName = "FormTextArea";
+FormTextArea.displayName = 'FormTextArea'

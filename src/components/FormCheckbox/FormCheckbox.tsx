@@ -1,26 +1,31 @@
-import * as S from "./elements";
-import { useController, UseControllerProps, FieldValues } from "react-hook-form";
-import { getRandomIntInclusive } from "utils";
-import type { KeyOfType, HTMLInputProps } from "types";
+import * as S from './elements'
+import { useController, UseControllerProps, FieldValues } from 'react-hook-form'
+import { getRandomIntInclusive } from 'utils'
+import type { KeyOfType, HTMLInputProps } from 'types'
 
 export interface FormCheckboxProps<T extends FieldValues = any>
-  extends Omit<HTMLInputProps, "name" | "defaultValue">,
-    Omit<UseControllerProps<T>, "name"> {
-  name: KeyOfType<T>;
-  label?: string;
+  extends Omit<HTMLInputProps, 'name' | 'defaultValue'>,
+    Omit<UseControllerProps<T>, 'name'> {
+  name: KeyOfType<T>
+  label?: string
 }
 
-export const FormCheckbox = ({ name, control, label, ...props }: FormCheckboxProps) => {
+export const FormCheckbox = ({
+  name,
+  control,
+  label,
+  ...props
+}: FormCheckboxProps) => {
   const {
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, isTouched, isDirty, error },
-    formState: { touchedFields, dirtyFields }
+    formState: { touchedFields, dirtyFields },
   } = useController({
     name,
     control,
     rules: { required: true },
-    defaultValue: ""
-  });
+    defaultValue: '',
+  })
 
   return (
     <S.Container {...props}>
@@ -40,7 +45,7 @@ export const FormCheckbox = ({ name, control, label, ...props }: FormCheckboxPro
       </S.InputWrapper>
       {error && <S.ErrorText>{error.message}</S.ErrorText>}
     </S.Container>
-  );
-};
+  )
+}
 
-FormCheckbox.displayName = "FormCheckbox";
+FormCheckbox.displayName = 'FormCheckbox'

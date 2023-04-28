@@ -1,26 +1,40 @@
-import "styled-components";
+import 'styled-components'
 import {
   BreakpointsValuesType,
   MaxWidthBreakpointsType,
   MinWidthBreakpointsType,
-  TypographyStylesProps
-} from "styles";
+  TypographyStylesProps,
+} from 'styles'
 
-declare module "styled-components" {
-  type Colors = "primary" | "secondary" | "black" | "white" | "vividRed";
+declare module 'styled-components' {
+  type Colors =
+    | 'primary'
+    | 'secondary'
+    | 'black'
+    | 'white'
+    | 'vividRed'
+    | 'yellow'
+    | 'darkBlue'
+    | 'redAlert'
+    | 'transparentWhiteBorder'
+    | 'greenConfirm'
+    | 'mainCol'
+    | 'transparentWhite'
+    | 'lightBlue'
+    | 'blue'
 
-  type Gradients = "blueToPurple";
+  type Gradients = 'blueToPurple'
 
   type Breakpoints = {
-    max: MaxWidthBreakpointsType;
-    min: MinWidthBreakpointsType;
-    val: BreakpointsValuesType;
-  };
+    max: MaxWidthBreakpointsType
+    min: MinWidthBreakpointsType
+    val: BreakpointsValuesType
+  }
 
   export interface DefaultTheme {
-    colors: Record<Colors, string>;
-    gradients: Record<Gradients, string>;
-    typography: TypographyStylesProps;
-    breakpoint: Breakpoints;
+    colors: Record<Colors, string>
+    gradients: Record<Gradients, string>
+    typography: TypographyStylesProps
+    breakpoint: Breakpoints
   }
 }

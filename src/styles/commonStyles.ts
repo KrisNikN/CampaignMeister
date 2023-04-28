@@ -1,37 +1,40 @@
-import { css, FlattenSimpleInterpolation } from "styled-components";
+import { css, FlattenSimpleInterpolation } from 'styled-components'
 
 export interface TypographyStylesProps {
-  h1: { regular: FlattenSimpleInterpolation };
-  h2: { regular: FlattenSimpleInterpolation };
-  h3: { regular: FlattenSimpleInterpolation };
-  h4: { regular: FlattenSimpleInterpolation };
-  h5: { regular: FlattenSimpleInterpolation };
-  h6: { regular: FlattenSimpleInterpolation };
+  h1: { regular: FlattenSimpleInterpolation }
+  h2: { regular: FlattenSimpleInterpolation }
+  h3: { regular: FlattenSimpleInterpolation }
+  h4: { regular: FlattenSimpleInterpolation }
+  h5: { regular: FlattenSimpleInterpolation }
+  h6: { regular: FlattenSimpleInterpolation }
   p: {
-    regular: FlattenSimpleInterpolation;
-  };
+    regular: FlattenSimpleInterpolation
+  }
 }
 
 export const typography: TypographyStylesProps = {
   h1: {
-    regular: css``
+    regular: css``,
   },
   h2: {
-    regular: css``
+    regular: css``,
   },
   h3: {
-    regular: css``
+    regular: css``,
   },
   h4: {
-    regular: css``
+    regular: css``,
   },
   h5: {
-    regular: css``
+    regular: css``,
   },
   h6: {
-    regular: css``
+    regular: css``,
   },
   p: {
-    regular: css``
-  }
-};
+    regular: css`
+      padding: 0;
+      margin: 0;
+    `,
+  },
+}

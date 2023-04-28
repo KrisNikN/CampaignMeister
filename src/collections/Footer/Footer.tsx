@@ -1,8 +1,8 @@
-import * as S from "./elements";
-import type { HTMLFooterProps } from "types";
+import * as S from './elements'
+import type { HTMLFooterProps } from 'types'
 
-export interface FooterProps extends HTMLFooterProps { }
+export interface FooterProps extends HTMLFooterProps {}
 
 export const Footer = ({ ...props }: FooterProps) => {
-  return <S.Footer {...props}></S.Footer>;
-};
+  return <S.Footer {...props}></S.Footer>
+}
