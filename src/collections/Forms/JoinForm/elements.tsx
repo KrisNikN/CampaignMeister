@@ -1,4 +1,10 @@
-import * as S from 'components'
+import {
+  Link as _Link,
+  Input as _Input,
+  Paragraph as _Paragraph,
+  Button as _Button,
+  CheckBox as _CheckBox,
+} from 'components'
 
 import styled, { css } from 'styled-components'
 
@@ -15,11 +21,14 @@ export const JoinForm = styled.form(
   `,
 )
 
-export const Input = styled(S.Input)<{ variant: string; placeholder: string }>(
-  ({ theme: { colors, breakpoint }, variant }) => css``,
+export const Input = styled(_Input)<{ variant: string; placeholder: string }>(
+  ({ theme: { colors, breakpoint }, variant }) => css`
+    max-width: 333px;
+    width: 100%;
+  `,
 )
 
-export const Paragraph = styled(S.Paragraph)(
+export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint }, variant }) => css`
     font-weight: 500;
     font-size: 24px;
@@ -28,7 +37,7 @@ export const Paragraph = styled(S.Paragraph)(
   `,
 )
 
-export const SmallParagraph = styled(S.Paragraph)(
+export const SmallParagraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint }, variant }) => css`
     font-weight: 400;
     font-size: 12px;
@@ -44,13 +53,13 @@ export const YellowStyling = styled.span(
     margin: 0;
   `,
 )
-export const Link = styled(S.Link)(
+export const Link = styled(_Link)(
   ({ theme: { colors, breakpoint } }) => css`
     text-decoration: none;
     font-weight: 400;
-    font-size: 12px;
-    color: black;
-    border-bottom: 1px solid black;
+    font-size: 16px;
+    color: ${colors.yellow};
+    border-bottom: 1px solid ${colors.yellow};
   `,
 )
 
@@ -62,7 +71,7 @@ export const InputsContainer = styled.div(
   `,
 )
 
-export const Button = styled(S.Button)(
+export const Button = styled(_Button)(
   ({ theme: { colors, breakpoint }, variant }) => css``,
 )
 
@@ -82,6 +91,6 @@ export const CheckBoxContainer = styled.div(
   `,
 )
 
-export const CheckBox = styled(S.CheckBox)<{}>(
+export const CheckBox = styled(_CheckBox)<{}>(
   ({ theme: { colors, breakpoint }, variant }) => css``,
 )

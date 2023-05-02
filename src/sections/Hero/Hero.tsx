@@ -1,50 +1,41 @@
-import {
-  HeroContainer,
-  Image,
-  YellowStyling,
-  NormalHeading,
-  ContainerText,
-  DivElement,
-  Paragraph,
-  JoinForm,
-} from './elements'
+import * as S from './elements'
 
-export const Hero = () => {
+export const Hero = ({ ...props }) => {
   return (
-    <HeroContainer>
-      <ContainerText>
-        <DivElement>
-          <NormalHeading>
-            <YellowStyling>
+    <S.HeroContainer {...props}>
+      <S.ContainerText>
+        <S.DivElement>
+          <S.NormalHeading>
+            <S.YellowStyling>
               The ugly truth: Your campaign data are a mess.
-            </YellowStyling>
+            </S.YellowStyling>
             By fixing it, you can improve your campaign performance with over
             25%.
-          </NormalHeading>
-        </DivElement>
+          </S.NormalHeading>
+        </S.DivElement>
 
-        <DivElement variant='gap'>
-          <Paragraph>
+        <S.DivElement variant='gap'>
+          <S.Paragraph>
             Optimising campaigns is hard, especially if you lack trustworthy
             data. Unfortunately this is the case for more than 65% of the
             companies.
-          </Paragraph>
-          <Paragraph>
+          </S.Paragraph>
+          <S.Paragraph>
             Boost your performance by fixing your data across all channels,
             brands and agencies.
-          </Paragraph>
-        </DivElement>
-        <JoinForm />
-      </ContainerText>
+          </S.Paragraph>
+        </S.DivElement>
+        <S.JoinForm />
+      </S.ContainerText>
 
-      <Image
+      <S.Image
         src='/imgs/HeroImage.png'
         width={773}
         height={605}
         alt='Hero Image'
         layout='intrinsic'
       />
-    </HeroContainer>
+    </S.HeroContainer>
   )
 }
 /*<Image

@@ -1,8 +1,20 @@
 import * as S from './elements'
 
-interface Props {
+interface InputProps {
   variant: string
 }
-export const Input = ({ children, placeholder, variant }: Props) => {
-  return <S.Input type='text' variant={variant} placeholder={placeholder} />
+export const Input = ({
+  children,
+  placeholder,
+  variant,
+  ...props
+}: InputProps) => {
+  return (
+    <S.Input
+      {...props}
+      type='text'
+      variant={variant}
+      placeholder={placeholder}
+    />
+  )
 }

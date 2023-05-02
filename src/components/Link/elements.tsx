@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import { default as NextLink } from 'next/link'
+import _Link from 'next/link'
 
-export const Link = styled(NextLink)(
+export const Link = styled(_Link)(
   ({ theme: { colors, breakpoints } }) => css`
     text-decoration: none;
     font-family: 'Barlow', sans-serif;
