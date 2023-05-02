@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components'
 import * as S from 'components'
 import * as Collection from 'collections'
 
-export const HeroContainer = styled.div(
+export const HeroContainer = styled.section(
   ({ theme: { breakpoint } }) => css`
-    padding: 30px 40px;
+    padding-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +12,7 @@ export const HeroContainer = styled.div(
     @media ${breakpoint.max.M} {
       flex-direction: column-reverse;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
   `,
 )
