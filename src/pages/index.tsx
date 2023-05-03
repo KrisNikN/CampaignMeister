@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { Container } from 'components'
-import { Hero, Diagram } from 'sections'
+import { Hero, Diagram, Block } from 'sections'
 
 const Home: NextPage = () => {
   return (
@@ -8,6 +8,7 @@ const Home: NextPage = () => {
       <Container>
         <Hero />
         <Diagram />
+        <Block />
       </Container>
     </main>
   )

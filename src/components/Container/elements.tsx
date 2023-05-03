@@ -8,5 +8,7 @@ export const Container = styled.div(
     display: flex;
     flex-direction: column;
     gap: 80px;
+    max-width: 1440px;
+    margin: 0 auto;
   `,
 )
