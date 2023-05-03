@@ -18,6 +18,7 @@ export const theme: DefaultTheme = {
     transparentWhiteBorder: '#ffffff00',
     greenConfirm: '#3BE100',
     mainCol: '#0A1C38',
+    footerBlue: '#081831',
   },
   typography,
   gradients: {
