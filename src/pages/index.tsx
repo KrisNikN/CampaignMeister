@@ -1,10 +1,14 @@
 import { NextPage } from 'next'
-import { Hero } from 'sections'
+import { Container } from 'components'
+import { Hero, Diagram } from 'sections'
 
 const Home: NextPage = () => {
   return (
     <main>
-      <Hero />
+      <Container>
+        <Hero />
+        <Diagram />
+      </Container>
     </main>
   )
 }
