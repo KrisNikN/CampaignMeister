@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import * as S from 'components'
+import { Paragraph as _Paragraph, Image as _Image, H1 as _H1 } from 'components'
 import * as Collection from 'collections'
 
 export const HeroContainer = styled.section(
@@ -48,7 +48,7 @@ export const DivElement = styled.div<{ variant: string }>(
   `,
 )
 
-export const Image = styled(S.Image)(() => css``)
+export const Image = styled(_Image)(() => css``)
 
 export const YellowStyling = styled.span(
   ({ theme: { colors, breakpoint } }) => css`
@@ -58,7 +58,7 @@ export const YellowStyling = styled.span(
   `,
 )
 
-export const NormalHeading = styled(S.H1)(
+export const NormalHeading = styled(_H1)(
   ({ theme: { colors, breakpoint } }) => css`
     padding: 0;
     margin: 0;
@@ -68,7 +68,7 @@ export const NormalHeading = styled(S.H1)(
   `,
 )
 
-export const Paragraph = styled(S.Paragraph)(
+export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
     padding: 0;
     margin: 0;
