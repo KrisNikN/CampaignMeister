@@ -22,6 +22,7 @@ declare module 'styled-components' {
     | 'transparentWhite'
     | 'lightBlue'
     | 'blue'
+    | 'footerBlue'
 
   type Gradients = 'blueToPurple'
 

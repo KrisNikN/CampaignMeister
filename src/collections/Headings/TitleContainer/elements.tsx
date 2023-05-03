@@ -7,6 +7,7 @@ export const TitleContainer = styled.div(
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     padding: 80px 40px;
     gap: 20px;
     border-bottom: 2px solid ${colors.darkBlue};
@@ -19,6 +20,7 @@ export const TitleMain = styled(_H1)(
     font-size: 32px;
     font-weight: 500;
     text-align: center;
+    z-index: 10;
     color: ${colors.white};
   `,
 )
