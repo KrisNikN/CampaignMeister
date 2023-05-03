@@ -7,18 +7,24 @@ export const HeroContainer = styled.section(
     padding-top: 30px;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     align-items: center;
 
     @media ${breakpoint.max.M} {
       flex-direction: column-reverse;
-      justify-content: center;
       align-items: flex-start;
     }
   `,
 )
 
 export const JoinForm = styled(Collection.JoinForm)(
-  ({ theme: { breakpoint, colors } }) => css``,
+  ({ theme: { breakpoint, colors } }) => css`
+    width: 100%;
+    max-width: 501px;
+    @media ${breakpoint.max.M} {
+      max-width: 320px;
+    }
+  `,
 )
 
 export const ContainerText = styled.div(
@@ -26,7 +32,7 @@ export const ContainerText = styled.div(
     color: ${colors.white};
     display: flex;
     gap: 40px;
-    width: 501px;
+    max-width: 501px;
     align-items: center;
     flex-direction: column;
 

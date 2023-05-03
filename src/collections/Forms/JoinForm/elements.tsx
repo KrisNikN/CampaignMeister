@@ -32,8 +32,13 @@ export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint }, variant }) => css`
     font-weight: 500;
     font-size: 24px;
+    width: 100%;
+    max-width: 501px;
     margin: 0;
     padding: 0;
+    @media ${breakpoint.max.M} {
+      max-width: 288px;
+    }
   `,
 )
 
@@ -66,13 +71,18 @@ export const Link = styled(_Link)(
 export const InputsContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
+    gap: 20px;
     justify-content: space-between;
     width: 100%;
   `,
 )
 
 export const Button = styled(_Button)(
-  ({ theme: { colors, breakpoint }, variant }) => css``,
+  ({ theme: { colors, breakpoint }, variant }) => css`
+    @media ${breakpoint.max.M} {
+      max-width: 79px;
+    }
+  `,
 )
 
 export const CheckBoxsContainer = styled.div(

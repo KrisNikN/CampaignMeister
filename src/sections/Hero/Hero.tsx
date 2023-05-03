@@ -25,7 +25,7 @@ export const Hero = ({ ...props }) => {
             brands and agencies.
           </S.Paragraph>
         </S.DivElement>
-        <S.JoinForm />
+        <S.JoinForm {...props} />
       </S.ContainerText>
 
       <S.Image
