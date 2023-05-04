@@ -5,7 +5,6 @@ export const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         background-color: #0a1c38;
-
         font-family: "Barlow", sans-serif;
     }
 

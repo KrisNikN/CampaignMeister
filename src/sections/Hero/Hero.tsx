@@ -34,6 +34,7 @@ export const Hero = ({ ...props }) => {
         height={605}
         alt='Hero Image'
         layout='intrinsic'
+        priority
       />
     </S.HeroContainer>
   )
