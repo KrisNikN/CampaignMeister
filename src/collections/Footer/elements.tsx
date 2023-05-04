@@ -18,6 +18,7 @@ export const Footer = styled('footer')<FooterProps>(
     width: 100%;
     padding-bottom: 90px;
     background-color: ${colors.footerBlue};
+    position: relative;
     @media ${breakpoint.max.M} {
     }
   `,
@@ -124,6 +125,30 @@ export const Link = styled(_Link)(
   ({ theme: { colors, breakpoint }, variant }) => css`
     padding: 0;
     margin: 0;
+    @media ${breakpoint.max.M} {
+    }
+  `,
+)
+
+export const CopyRight = styled.div(
+  ({ theme: { colors, breakpoint }, variant }) => css`
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    color: ${colors.white};
+    font-size: 12px;
+    font-weight: 500;
+    @media ${breakpoint.max.M} {
+    }
+  `,
+)
+
+export const CopyLink = styled(_Link)(
+  ({ theme: { colors, breakpoint }, variant }) => css`
+    border-bottom: 1px solid ${colors.yellow};
+    color: ${colors.yellow};
+    font-size: 12px;
+    font-weight: 500;
     @media ${breakpoint.max.M} {
     }
   `,

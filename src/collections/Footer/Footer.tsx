@@ -42,6 +42,10 @@ export const Footer = ({ ...props }: FooterProps) => {
           </S.Block>
         </S.LegalNavContainer>
       </S.ContainerFooter>
+      <S.CopyRight>
+        © 2022, CampaignMeister is a product of
+        <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
+      </S.CopyRight>
     </S.Footer>
   )
 }
