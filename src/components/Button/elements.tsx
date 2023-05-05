@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Button = styled.button<{ variant: string }>(
+export const Button = styled.button<{ variant?: string }>(
   ({ theme: { colors }, variant }) => css`
     font-family: 'Barlow', sans-serif;
     padding: 16px 40px;

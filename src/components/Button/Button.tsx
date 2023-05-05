@@ -1,5 +1,10 @@
 import * as S from './elements'
 
-export const Button = ({ children, variant }) => {
+interface ButtonTypes {
+  variant?: string
+  children: any
+}
+
+export const Button = ({ children, variant }: ButtonTypes) => {
   return <S.Button variant={variant}>{children}</S.Button>
 }

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const CheckBox = styled.input<{ variant: string; typeM: string }>(
+export const CheckBox = styled.input<{ variant?: string; typeM?: string }>(
   ({ theme: { colors }, variant, typeM }) => css`
     appearance: none;
     -webkit-appearance: none;
