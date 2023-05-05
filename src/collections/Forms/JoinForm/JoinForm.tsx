@@ -7,7 +7,7 @@ export const JoinForm = ({ ...props }) => {
         <S.YellowStyling>Join </S.YellowStyling>waiting list for access
       </S.Paragraph>
       <S.InputsContainer>
-        <S.Input placeholder='Enter Email' />
+        <S.Input variant='' placeholder='Enter Email' />
         <S.Button variant='yellow'>Join</S.Button>
       </S.InputsContainer>
       <S.CheckBoxsContainer>

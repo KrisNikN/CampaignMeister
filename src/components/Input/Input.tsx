@@ -1,14 +1,11 @@
 import * as S from './elements'
 
 interface InputProps {
-  variant: string
+  variant?: string
+  placeholder?: string
 }
-export const Input = ({
-  children,
-  placeholder,
-  variant,
-  ...props
-}: InputProps) => {
+
+export const Input = ({ placeholder, variant, ...props }: InputProps) => {
   return (
     <S.Input
       {...props}

@@ -41,7 +41,7 @@ export const ContainerText = styled.div(
   `,
 )
 
-export const DivElement = styled.div<{ variant: string }>(
+export const DivElement = styled.div<{ variant?: string }>(
   ({ theme: { breakpoint }, variant }) => css`
     display: flex;
     width: 100%;

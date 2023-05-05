@@ -29,7 +29,7 @@ export const Input = styled(_Input)<{ variant: string; placeholder: string }>(
 )
 
 export const Paragraph = styled(_Paragraph)(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     font-weight: 500;
     font-size: 24px;
     width: 100%;
@@ -43,7 +43,7 @@ export const Paragraph = styled(_Paragraph)(
 )
 
 export const SmallParagraph = styled(_Paragraph)(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     font-weight: 400;
     font-size: 12px;
     margin: 0;
@@ -77,8 +77,8 @@ export const InputsContainer = styled.div(
   `,
 )
 
-export const Button = styled(_Button)(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+export const Button = styled(_Button)<{ variant?: string }>(
+  ({ theme: { colors, breakpoint }, variant, ...props }) => css`
     @media ${breakpoint.max.M} {
       max-width: 79px;
     }
@@ -86,7 +86,7 @@ export const Button = styled(_Button)(
 )
 
 export const CheckBoxsContainer = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
     gap: 9.5px;
@@ -94,7 +94,7 @@ export const CheckBoxsContainer = styled.div(
 )
 
 export const CheckBoxContainer = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     gap: 9.5px;
     align-items: center;

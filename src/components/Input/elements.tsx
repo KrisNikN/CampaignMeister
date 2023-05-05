@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Input = styled.input<{ variant: string }>(
+export const Input = styled.input<{ variant?: string }>(
   ({ theme: { colors, breakpoint }, variant }) => css`
     font-family: 'Barlow', sans-serif;
     width: 246px;

@@ -13,18 +13,19 @@ import {
 ))``*/
 
 export const Footer = styled('footer')<FooterProps>(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     padding: 40px;
     width: 100%;
     padding-bottom: 90px;
     background-color: ${colors.footerBlue};
+    position: relative;
     @media ${breakpoint.max.M} {
     }
   `,
 )
 
 export const ContainerFooter = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     position: relative;
     width: 100%;
     max-width: 1440px;
@@ -39,7 +40,7 @@ export const ContainerFooter = styled.div(
 )
 
 export const LogoQueteContainer = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     align-items: center;
     @media ${breakpoint.max.M} {
@@ -50,7 +51,7 @@ export const LogoQueteContainer = styled.div(
 )
 
 export const LogoContainer = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     padding-right: 40px;
 
     border-right: 2px solid ${colors.blue};
@@ -64,7 +65,7 @@ export const LogoContainer = styled.div(
 )
 
 export const QueteContainer = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     padding-left: 40px;
     font-size: 12px;
     font-weight: 500;
@@ -79,7 +80,7 @@ export const QueteContainer = styled.div(
 export const Image = styled(_Image)(() => css``)
 
 export const LegalNavContainer = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     gap: 59px;
     @media ${breakpoint.max.M} {
@@ -89,7 +90,7 @@ export const LegalNavContainer = styled.div(
 )
 
 export const Block = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -99,7 +100,7 @@ export const Block = styled.div(
 )
 
 export const LinksContainer = styled.div(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -109,7 +110,7 @@ export const LinksContainer = styled.div(
 )
 
 export const BlockTitle = styled(_Paragraph)(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     color: ${colors.white};
     font-weight: 500;
     font-size: 20px;
@@ -121,9 +122,33 @@ export const BlockTitle = styled(_Paragraph)(
 )
 
 export const Link = styled(_Link)(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+  ({ theme: { colors, breakpoint } }) => css`
     padding: 0;
     margin: 0;
+    @media ${breakpoint.max.M} {
+    }
+  `,
+)
+
+export const CopyRight = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    color: ${colors.white};
+    font-size: 12px;
+    font-weight: 500;
+    @media ${breakpoint.max.M} {
+    }
+  `,
+)
+
+export const CopyLink = styled(_Link)(
+  ({ theme: { colors, breakpoint } }) => css`
+    border-bottom: 1px solid ${colors.yellow};
+    color: ${colors.yellow};
+    font-size: 12px;
+    font-weight: 500;
     @media ${breakpoint.max.M} {
     }
   `,
