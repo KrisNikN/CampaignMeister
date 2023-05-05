@@ -71,8 +71,20 @@ export const QueteContainer = styled.div(
     font-weight: 500;
     color: ${colors.white};
     @media ${breakpoint.max.M} {
-      padding: 0;
-      padding-top: 16px;
+      display: none;
+    }
+  `,
+)
+
+export const MobileQueteContainer = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0;
+    padding-top: 16px;
+    color: ${colors.white};
+    @media ${breakpoint.min.M} {
+      display: none;
     }
   `,
 )
@@ -121,12 +133,10 @@ export const BlockTitle = styled(_Paragraph)(
   `,
 )
 
-export const Link = styled(_Link)(
-  ({ theme: { colors, breakpoint } }) => css`
+export const Link = styled(_Link)<{ href: string; children: any }>(
+  ({ theme: { colors } }) => css`
     padding: 0;
     margin: 0;
-    @media ${breakpoint.max.M} {
-    }
   `,
 )
 
@@ -143,7 +153,7 @@ export const CopyRight = styled.div(
   `,
 )
 
-export const CopyLink = styled(_Link)(
+export const CopyLink = styled(_Link)<{ children: any }>(
   ({ theme: { colors, breakpoint } }) => css`
     border-bottom: 1px solid ${colors.yellow};
     color: ${colors.yellow};

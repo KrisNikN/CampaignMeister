@@ -1,32 +1,42 @@
-import { LinkProps as _LinkProps } from 'next/link'
+import { default as _Link, LinkProps as _LinkProps } from 'next/link'
 import * as S from './elements'
 
-export type HTMLLinkProps = Omit<
+type HTMLAnchorProps = Omit<
   JSX.IntrinsicElements['a'],
   'href' | 'onClick' | 'onMouseEnter' | 'color' | 'ref'
 >
 
-export interface LinkProps extends Omit<_LinkProps, 'onTouchStart' | 'as'> {}
+export interface LinkCustomProps {
+  ref?: React.Ref<HTMLAnchorElement>
+}
 
-export const Link = ({
+export interface LinkProps
+  extends Omit<_LinkProps, 'href' | 'onTouchStart'>,
+    HTMLAnchorProps,
+    LinkCustomProps {
+  href: _LinkProps['href']
+}
+
+export const Link: React.FC<LinkProps> = ({
   children,
+  as,
   href,
   replace,
   scroll,
   shallow,
-  passHref,
+  passHref = true,
   ...props
-}: LinkProps & HTMLLinkProps) => {
+}) => {
   return (
-    <S.Link
-      href={href}
-      passHref={true}
+    <_Link
+      as={as}
+      href={href as string}
+      passHref={passHref}
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      {...props}
     >
-      {children}
-    </S.Link>
+      <S.Link {...props}>{children}</S.Link>
+    </_Link>
   )
 }

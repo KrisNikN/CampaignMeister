@@ -21,6 +21,9 @@ export const Footer = ({ ...props }: FooterProps) => {
             Boost your campaign performance with over 25% by fixing your
             campaign data
           </S.QueteContainer>
+          <S.MobileQueteContainer>
+            The art of Campaign Optimisation
+          </S.MobileQueteContainer>
         </S.LogoQueteContainer>
         <S.LegalNavContainer>
           <S.Block>

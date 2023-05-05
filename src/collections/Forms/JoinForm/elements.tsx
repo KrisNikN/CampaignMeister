@@ -58,11 +58,11 @@ export const YellowStyling = styled.span(
     margin: 0;
   `,
 )
-export const Link = styled(_Link)(
+export const Link = styled(_Link)<{ children: any; href: string }>(
   ({ theme: { colors, breakpoint } }) => css`
     text-decoration: none;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     color: ${colors.yellow};
     border-bottom: 1px solid ${colors.yellow};
   `,
