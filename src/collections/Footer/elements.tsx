@@ -14,10 +14,11 @@ import {
 
 export const Footer = styled('footer')<FooterProps>(
   ({ theme: { colors, breakpoint } }) => css`
-    padding: 40px;
     width: 100%;
     padding-bottom: 90px;
     background-color: ${colors.footerBlue};
+    display: flex;
+    justify-content: center;
     position: relative;
     @media ${breakpoint.max.M} {
     }
@@ -29,6 +30,7 @@ export const ContainerFooter = styled.div(
     position: relative;
     width: 100%;
     max-width: 1440px;
+    padding: 40px;
     display: flex;
     align-items: flex-start;
     gap: 141px;
