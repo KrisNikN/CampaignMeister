@@ -33,8 +33,6 @@ export const ContainerFooter = styled.div(
     padding: 40px;
     display: flex;
     align-items: flex-start;
-    gap: 141px;
-    padding-bottom: ;
     @media ${breakpoint.max.M} {
       flex-direction: column;
     }
@@ -44,6 +42,7 @@ export const ContainerFooter = styled.div(
 export const LogoQueteContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
+
     align-items: center;
     @media ${breakpoint.max.M} {
       flex-direction: column;
@@ -96,8 +95,10 @@ export const Image = styled(_Image)(() => css``)
 export const LegalNavContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
-    gap: 59px;
+    margin-left: 141px;
     @media ${breakpoint.max.M} {
+      margin-left: 0;
+      margin-top: 141px;
       flex-direction: column;
     }
   `,
@@ -107,7 +108,13 @@ export const Block = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    &:nth-child(2) {
+      margin-left: 59px;
+      @media ${breakpoint.max.M} {
+        margin-left: 0;
+        margin-top: 59px;
+      }
+    }
     @media ${breakpoint.max.M} {
     }
   `,
@@ -117,7 +124,7 @@ export const LinksContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    margin-top: 32px;
     @media ${breakpoint.max.M} {
     }
   `,
@@ -139,10 +146,13 @@ export const Link = styled(_Link)<{ href: string; children: any }>(
   ({ theme: { colors } }) => css`
     padding: 0;
     margin: 0;
+    &:not(:nth-child(1)) {
+      margin-top: 16px;
+    }
   `,
 )
 
-export const CopyRight = styled.div(
+export const CopyRightDestop = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: absolute;
     bottom: 30px;
@@ -151,6 +161,23 @@ export const CopyRight = styled.div(
     font-size: 12px;
     font-weight: 500;
     @media ${breakpoint.max.M} {
+      display: none;
+    }
+  `,
+)
+
+export const CopyRightMobile = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    color: ${colors.white};
+    font-size: 12px;
+    font-weight: 500;
+    display: none;
+    @media ${breakpoint.max.M} {
+      display: flex;
+      flex-direction: column;
     }
   `,
 )
@@ -163,5 +190,11 @@ export const CopyLink = styled(_Link)<{ children: any }>(
     font-weight: 500;
     @media ${breakpoint.max.M} {
     }
+  `,
+)
+
+export const YearSpan = styled.span(
+  () => css`
+    margin-top: 10px;
   `,
 )

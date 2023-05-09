@@ -22,6 +22,7 @@ export const SectionContainer = styled.section(
     width: 100%;
     background-color: ${colors.blue};
     border-radius: 16px;
+    margin-top: 80px;
     @media ${breakpoint.max.M} {
     }
   `,
@@ -34,7 +35,6 @@ export const ColumnConteiner = styled.div(
     align-items: center;
     padding: 80px 60px;
     width: 100%;
-    gap: 80px;
     @media ${breakpoint.max.M} {
       padding: 24px 20px;
     }
@@ -47,10 +47,10 @@ export const RowContainer = styled.div(
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    gap: 120px;
+
+    margin-bottom: 80px;
     max-width: 1240px;
     @media ${breakpoint.max.M} {
-      gap: 80px;
       flex-direction: column;
     }
   `,
@@ -59,8 +59,14 @@ export const RowContainer = styled.div(
 export const BlockContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
-    gap: 20px;
+    &:nth-child(2) {
+      margin-left: 120px;
+    }
     @media ${breakpoint.max.M} {
+      &:nth-child(2) {
+        margin-left: 0px;
+        margin-top: 80px;
+      }
     }
   `,
 )
@@ -69,7 +75,7 @@ export const TextBlock = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    margin-left: 20px;
     max-width: 460px;
     @media ${breakpoint.max.M} {
     }
@@ -92,6 +98,7 @@ export const Paragraph = styled(_Paragraph)(
     margin: 0;
     font-size: 16px;
     font-weight: 400;
+    margin-top: 25px;
     color: ${colors.white};
     @media ${breakpoint.max.M} {
     }

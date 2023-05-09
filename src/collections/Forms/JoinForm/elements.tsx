@@ -14,7 +14,6 @@ export const JoinForm = styled.form(
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 16px;
     width: 100%;
     border-radius: 16px;
     background-color: ${colors.blue};
@@ -25,6 +24,9 @@ export const Input = styled(_Input)<{ variant: string; placeholder: string }>(
   ({ theme: { colors, breakpoint }, variant }) => css`
     max-width: 333px;
     width: 100%;
+    @media ${breakpoint.max.S} {
+      width: 181px;
+    }
   `,
 )
 
@@ -48,6 +50,7 @@ export const SmallParagraph = styled(_Paragraph)(
     font-size: 12px;
     margin: 0;
     padding: 0;
+    margin-left: 9.5px;
   `,
 )
 
@@ -71,7 +74,7 @@ export const Link = styled(_Link)<{ children: any; href: string }>(
 export const InputsContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
-    gap: 20px;
+    margin-top: 16px;
     justify-content: space-between;
     width: 100%;
   `,
@@ -79,8 +82,9 @@ export const InputsContainer = styled.div(
 
 export const Button = styled(_Button)<{ variant?: string }>(
   ({ theme: { colors, breakpoint }, variant, ...props }) => css`
+    margin-left: 20px;
     @media ${breakpoint.max.M} {
-      max-width: 79px;
+      padding: 16px 24px;
     }
   `,
 )
@@ -88,19 +92,22 @@ export const Button = styled(_Button)<{ variant?: string }>(
 export const CheckBoxsContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
+    margin-top: 16px;
     flex-direction: column;
-    gap: 9.5px;
-  `,
-)
-
-export const CheckBoxContainer = styled.div(
-  ({ theme: { colors, breakpoint } }) => css`
-    display: flex;
-    gap: 9.5px;
-    align-items: center;
   `,
 )
 
 export const CheckBox = styled(_CheckBox)<{}>(
   ({ theme: { colors, breakpoint }, variant }) => css``,
+)
+
+export const CheckBoxContainer = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    &:nth-child(2) {
+      margin-top: 9.5px;
+    }
+    display: flex;
+
+    align-items: center;
+  `,
 )

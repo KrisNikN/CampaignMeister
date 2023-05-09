@@ -45,10 +45,18 @@ export const Footer = ({ ...props }: FooterProps) => {
           </S.Block>
         </S.LegalNavContainer>
       </S.ContainerFooter>
-      <S.CopyRight>
+      <S.CopyRightDestop>
         © 2022, CampaignMeister is a product of
         <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
-      </S.CopyRight>
+      </S.CopyRightDestop>
+
+      <S.CopyRightMobile>
+        <div>
+          CampaignMeister is a product of
+          <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
+        </div>
+        <S.YearSpan> © 2022</S.YearSpan>
+      </S.CopyRightMobile>
     </S.Footer>
   )
 }

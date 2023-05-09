@@ -18,6 +18,8 @@ export const SectionContainer = styled.section(
     justify-content: center;
     flex-direction: column;
     position: relative;
+    margin-top: 80px;
+
     padding-bottom: 80px;
     @media ${breakpoint.max.M} {
     }
@@ -28,7 +30,7 @@ export const TitleContainer = styled(_TitleContainer)(
   ({ theme: { colors, breakpoint } }) => css`
     background: transparent;
     position: relative;
-    padding-top: 80px;
+    padding-top: 0;
     padding-bottom: 40px;
     @media ${breakpoint.max.M} {
     }

@@ -28,14 +28,16 @@ export const Hero = ({ ...props }) => {
         <S.JoinForm {...props} />
       </S.ContainerText>
 
-      <S.Image
-        src='/imgs/HeroImage.png'
-        width={773}
-        height={605}
-        alt='Hero Image'
-        layout='intrinsic'
-        priority
-      />
+      <S.ImageContainer>
+        <S.Image
+          src='/imgs/HeroImage.png'
+          width={740}
+          height={498.63}
+          alt='Hero Image'
+          layout='intrinsic'
+          priority
+        />
+      </S.ImageContainer>
     </S.HeroContainer>
   )
 }
