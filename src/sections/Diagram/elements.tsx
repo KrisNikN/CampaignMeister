@@ -49,7 +49,8 @@ export const ParagraphsContainer = styled.div(
     max-width: 894px;
 
     @media ${breakpoint.max.L} {
-      padding-left: 20px;
+      padding-left: 0px;
+      align-items: flex-start;
     }
     @media ${breakpoint.max.S} {
       max-width: 280px;
@@ -106,9 +107,6 @@ export const DiagramContainer = styled.div<{ variant: string }>(
           }
         `}
     @media ${breakpoint.max.L} {
-      &:nth-child(2) {
-        margin-top: 20px;
-      }
     }
   `,
 )
