@@ -85,7 +85,7 @@ export const ImageContainer = styled.div(
     }
     @media ${breakpoint.max.M} {
       margin: 0;
-      width: 120%;
+      width: 100%;
       display: flex;
       justify-content: center;
     }

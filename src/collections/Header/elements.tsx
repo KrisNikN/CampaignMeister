@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import type { HeaderProps } from './Header'
+import { Image as _Image, Button as _Button } from 'components'
 
 export const Header = styled('header')<HeaderProps>(
   ({ theme: { colors } }) => css`
@@ -20,3 +21,14 @@ export const HeaderContainer = styled.div(
     align-items: center;
   `,
 )
+
+export const Button = styled(_Button)(
+  ({ theme: { colors, breakpoint } }) => css`
+    margin-left: 40px;
+    @media ${breakpoint.max.M} {
+      padding: 16px 20px;
+    }
+  `,
+)
+
+export const Image = styled(_Image)(() => css``)
