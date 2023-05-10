@@ -30,7 +30,7 @@ export const ContainerFooter = styled.div(
     position: relative;
     width: 100%;
     max-width: 1440px;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     align-items: flex-start;
     @media ${breakpoint.max.M} {
@@ -173,7 +173,7 @@ export const CopyRightMobile = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: absolute;
     bottom: 30px;
-    left: 20px;
+    left: 40px;
     color: ${colors.white};
     font-size: 12px;
     font-weight: 500;
