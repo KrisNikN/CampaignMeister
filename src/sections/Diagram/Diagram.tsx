@@ -25,50 +25,48 @@ export const Diagram = ({ ...props }) => {
         </S.ParagraphsContainer>
       </S.ElementContainer>
       <S.ContainerBig>
-        <S.DiagramContainer variant='column'>
-          <S.DiagramBlock>
-            <S.TitleSecond>Smart Start</S.TitleSecond>
-            <S.Paragraph>
-              Use all your historic data to predict your Campaign Success
-              Probability so you can optimise on it upfront.
-            </S.Paragraph>
-          </S.DiagramBlock>
-          <S.ImageContainer>
+        <S.DiagramContainer>
+          <S.Column>
+            <S.DiagramBlock>
+              <S.TitleSecond>Smart Learning</S.TitleSecond>
+              <S.Paragraph>
+                Gain advanced insights by combining campaign attribution,
+                marketing mix modeling and learnings from validated experiments.
+              </S.Paragraph>
+            </S.DiagramBlock>
+          </S.Column>
+          <S.Column variant='center'>
+            <S.DiagramBlock>
+              <S.TitleSecond>Smart Start</S.TitleSecond>
+              <S.Paragraph>
+                Use all your historic data to predict your Campaign Success
+                Probability so you can optimise on it upfront.
+              </S.Paragraph>
+            </S.DiagramBlock>
             <S.Image
-              src='/imgs/mobilePlay.png'
-              width={102.03}
-              height={102.03}
-              alt='Play Image'
+              src='/imgs/diagram.png'
+              width={702}
+              height={571.35}
+              alt='diagram Image'
               layout='intrinsic'
             />
-          </S.ImageContainer>
-          <S.Image
-            src='/imgs/diagram.png'
-            width={702}
-            height={571.35}
-            alt='Diagram Image'
-            layout='intrinsic'
-          />
+          </S.Column>
+          <S.Column>
+            <S.DiagramBlock>
+              <S.TitleSecond>Smart Flight</S.TitleSecond>
+              <S.Paragraph>
+                Compare campaign tactics across all channels in real-time and
+                proceed with your winning tactics.
+              </S.Paragraph>
+            </S.DiagramBlock>
+          </S.Column>
         </S.DiagramContainer>
+      </S.ContainerBig>
+    </S.SectionContainer>
+  )
+}
 
-        <S.DiagramContainer variant='row'>
-          <S.ImageContainer>
-            <S.Image
-              src='/imgs/mobilePlain.png'
-              width={102.03}
-              height={102.03}
-              alt='Play Image'
-              layout='intrinsic'
-            />
-          </S.ImageContainer>
-          <S.DiagramBlock>
-            <S.TitleSecond>Smart Learning</S.TitleSecond>
-            <S.Paragraph>
-              Gain advanced insights by combining campaign attribution,
-              marketing mix modeling and learnings from validated experiments.
-            </S.Paragraph>
-          </S.DiagramBlock>
-          <S.ImageContainer>
+/*<S.ImageContainer>
             <S.Image
               src='/imgs/mobileBook.png'
               width={102.03}
@@ -76,16 +74,11 @@ export const Diagram = ({ ...props }) => {
               alt='Play Image'
               layout='intrinsic'
             />
-          </S.ImageContainer>
-          <S.DiagramBlock>
+
+            <S.DiagramBlock>
             <S.TitleSecond>Smart Flight</S.TitleSecond>
             <S.Paragraph>
               Compare campaign tactics across all channels in real-time and
               proceed with your winning tactics.
             </S.Paragraph>
-          </S.DiagramBlock>
-        </S.DiagramContainer>
-      </S.ContainerBig>
-    </S.SectionContainer>
-  )
-}
+          </S.DiagramBlock>*/

@@ -47,13 +47,12 @@ export const ParagraphsContainer = styled.div(
     display: flex;
     flex-direction: column;
     max-width: 894px;
-
+    padding: 20px;
     @media ${breakpoint.max.L} {
-      padding-left: 0px;
       align-items: flex-start;
     }
     @media ${breakpoint.max.S} {
-      max-width: 280px;
+      width: 100%;
     }
   `,
 )
@@ -64,7 +63,7 @@ export const Paragraph = styled(_Paragraph)(
     padding: 0;
     font-size: 20px;
     &:nth-child(2) {
-      margin-top: 20px;
+      margin-top: 18px;
     }
     font-weight: 400;
     color: ${colors.white};
@@ -79,34 +78,16 @@ export const Paragraph = styled(_Paragraph)(
 export const DiagramContainer = styled.div<{ variant: string }>(
   ({ theme: { colors, breakpoint }, variant }) => css`
     width: 100%;
-    ${variant === 'column'
-      ? css`
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          @media ${breakpoint.max.L} {
-            align-items: flex-start;
-            flex-direction: column-reverse;
-          }
-        `
-      : css`
-          position: relative;
-          display: flex;
-          justify-content: space-between;
-          top: -80px;
-          margin: 0 auto;
-          width: 100%;
-          max-width: 899px;
-          left: 40px;
-          @media ${breakpoint.max.L} {
-            left: 0;
-            top: 0;
-            flex-direction: column;
-            align-items: flex-start;
-            margin: 0;
-          }
-        `}
-    @media ${breakpoint.max.L} {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    @media ${breakpoint.max.M} {
+      flex-direction: column;
+      align-items: flex-start;
     }
   `,
 )
@@ -121,15 +102,56 @@ export const TitleSecond = styled(_H2)(
   `,
 )
 
+export const Column = styled.div<{ variant?: string }>(
+  ({ theme: { colors, breakpoint }, variant }) => css`
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    ${variant === 'center' &&
+    css`
+      align-items: center;
+    `}
+    &:nth-child(1) {
+      left: 75px;
+    }
+    &:nth-child(3) {
+      left: -75px;
+    }
+    @media ${breakpoint.max.L} {
+      &:nth-child(1) {
+        left: 10px;
+      }
+      &:nth-child(3) {
+        left: -10px;
+      }
+    }
+    @media ${breakpoint.max.M} {
+      flex: 1;
+      &:nth-child(1) {
+        left: 0;
+        margin-top: 40px;
+      }
+      &:nth-child(3) {
+        left: 0;
+        margin-top: 40px;
+      }
+      &:nth-child(2) {
+        align-items: flex-start;
+        order: -1;
+      }
+      &:nth-child(2) {
+        flex-direction: column-reverse;
+      }
+    }
+  `,
+)
+
 export const DiagramBlock = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     max-width: 280px;
     flex-direction: column;
-
-    @media ${breakpoint.max.L} {
-      margin-top: 20px;
-    }
+    margin-top: 20px;
   `,
 )
 
@@ -140,9 +162,6 @@ export const ContainerBig = styled.div(
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    @media ${breakpoint.max.L} {
-      padding: 40px;
-    }
   `,
 )
 
@@ -152,7 +171,7 @@ export const ImageContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: none;
     margin-top: 20px;
-    @media ${breakpoint.max.L} {
+    @media ${breakpoint.max.M} {
       display: block;
     }
   `,
