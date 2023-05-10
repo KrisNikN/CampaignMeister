@@ -22,6 +22,8 @@ export const SectionContainer = styled.section(
     width: 100%;
     background-color: ${colors.blue};
     border-radius: 16px;
+    margin-top: 80px;
+
     @media ${breakpoint.max.M} {
     }
   `,
@@ -78,7 +80,6 @@ export const Block = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
-    gap: 20px;
 
     @media ${breakpoint.max.M} {
     }
@@ -88,6 +89,7 @@ export const Block = styled.div(
 export const BlockTitle = styled(_H2)(
   ({ theme: { colors, breakpoint } }) => css`
     margin: 0;
+    margin-top: 20px;
     padding: 0;
     font-weight: 500;
     font-size: 24px;
@@ -102,6 +104,7 @@ export const BoldParagraph = styled(_Paragraph)(
     margin: 0;
     padding: 0;
     color: ${colors.white};
+    margin-top: 20px;
     font-weight: 600;
     font-size: 16px;
     @media ${breakpoint.max.M} {
@@ -116,6 +119,7 @@ export const Paragraph = styled(_Paragraph)(
     color: ${colors.white};
     font-weight: 400;
     font-size: 16px;
+    margin-top: 20px;
     @media ${breakpoint.max.M} {
     }
   `,
