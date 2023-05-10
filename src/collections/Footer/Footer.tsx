@@ -51,10 +51,10 @@ export const Footer = ({ ...props }: FooterProps) => {
       </S.CopyRightDestop>
 
       <S.CopyRightMobile>
-        <div>
-          CampaignMeister is a product of
+        <S.Column>
+          <span>CampaignMeister is a product of</span>
           <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
-        </div>
+        </S.Column>
         <S.YearSpan> © 2022</S.YearSpan>
       </S.CopyRightMobile>
     </S.Footer>
