@@ -49,7 +49,10 @@ export const ParagraphsContainer = styled.div(
     max-width: 894px;
 
     @media ${breakpoint.max.L} {
-      padding-left: 40px;
+      padding-left: 20px;
+    }
+    @media ${breakpoint.max.S} {
+      max-width: 280px;
     }
   `,
 )
@@ -64,7 +67,10 @@ export const Paragraph = styled(_Paragraph)(
     }
     font-weight: 400;
     color: ${colors.white};
-    @media ${breakpoint.max.L} {
+    @media ${breakpoint.max.S} {
+      &:nth-child(2) {
+        margin-top: 0;
+      }
     }
   `,
 )
@@ -88,13 +94,15 @@ export const DiagramContainer = styled.div<{ variant: string }>(
           justify-content: space-between;
           top: -80px;
           margin: 0 auto;
-          width: 899px;
+          width: 100%;
+          max-width: 899px;
           left: 40px;
           @media ${breakpoint.max.L} {
             left: 0;
             top: 0;
             flex-direction: column;
             align-items: flex-start;
+            margin: 0;
           }
         `}
     @media ${breakpoint.max.L} {
@@ -133,6 +141,7 @@ export const ContainerBig = styled.div(
     display: flex;
     width: 100%;
     flex-direction: column;
+    align-items: flex-start;
     @media ${breakpoint.max.L} {
       padding: 40px;
     }

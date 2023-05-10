@@ -99,7 +99,7 @@ export const LegalNavContainer = styled.div(
     margin-left: 141px;
     @media ${breakpoint.max.M} {
       margin-left: 0;
-      margin-top: 141px;
+      margin-top: 60px;
       flex-direction: column;
     }
   `,
@@ -171,7 +171,7 @@ export const CopyRightMobile = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: absolute;
     bottom: 30px;
-    left: 40px;
+    left: 20px;
     color: ${colors.white};
     font-size: 12px;
     font-weight: 500;
