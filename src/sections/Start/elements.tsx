@@ -67,7 +67,11 @@ export const JoinForm = styled(_JoinForm)(
   ({ theme: { colors, breakpoint } }) => css`
     position: relative;
     z-index: 100;
+    width: 100%;
     color: ${colors.white};
     max-width: 520px;
+    @media ${breakpoint.max.S} {
+      max-width: 320px;
+    }
   `,
 )

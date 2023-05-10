@@ -30,7 +30,7 @@ export const ContainerFooter = styled.div(
     position: relative;
     width: 100%;
     max-width: 1440px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     align-items: flex-start;
     @media ${breakpoint.max.M} {
@@ -73,6 +73,7 @@ export const QueteContainer = styled.div(
     color: ${colors.white};
     @media ${breakpoint.max.M} {
       display: none;
+      padding-left: 20px;
     }
   `,
 )

@@ -5,6 +5,10 @@ interface ButtonTypes {
   children: any
 }
 
-export const Button = ({ children, variant }: ButtonTypes) => {
-  return <S.Button variant={variant}>{children}</S.Button>
+export const Button = ({ children, variant, ...props }: ButtonTypes) => {
+  return (
+    <S.Button {...props} variant={variant}>
+      {children}
+    </S.Button>
+  )
 }

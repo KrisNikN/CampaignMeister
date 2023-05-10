@@ -58,7 +58,7 @@ export const DivElement = styled.div<{ variant?: string }>(
 export const Image = styled(_Image)(() => css``)
 
 export const ImageContainer = styled.div(
-  ({ theme: { breakpoint, colors }, variant }) => css`
+  ({ theme: { breakpoint, colors } }) => css`
     position: relative;
     margin-left: 20px;
     &::after {
