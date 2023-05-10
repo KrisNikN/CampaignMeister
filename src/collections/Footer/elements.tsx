@@ -47,6 +47,7 @@ export const LogoQueteContainer = styled.div(
     @media ${breakpoint.max.M} {
       flex-direction: column;
       align-items: flex-start;
+      width: 100%;
     }
   `,
 )
@@ -61,6 +62,7 @@ export const LogoContainer = styled.div(
       border-bottom: 2px solid ${colors.blue};
       padding: 0;
       padding-bottom: 16px;
+      width: 100%;
     }
   `,
 )
@@ -197,5 +199,13 @@ export const CopyLink = styled(_Link)<{ children: any }>(
 export const YearSpan = styled.span(
   () => css`
     margin-top: 10px;
+  `,
+)
+
+export const Column = styled.div(
+  () => css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   `,
 )
