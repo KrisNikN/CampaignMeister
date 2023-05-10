@@ -113,3 +113,19 @@ export const ImageContainer = styled.div(
     height: 80px;
   `,
 )
+
+export const MobileSpan = styled.span(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: none;
+    @media ${breakpoint.max.M} {
+      display: inline-block;
+    }
+  `,
+)
+export const DestopSpan = styled.span(
+  ({ theme: { colors, breakpoint } }) => css`
+    @media ${breakpoint.max.M} {
+      display: none;
+    }
+  `,
+)

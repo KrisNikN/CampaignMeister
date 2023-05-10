@@ -35,7 +35,8 @@ export const ContainerText = styled.div(
     align-items: center;
     flex-direction: column;
 
-    @media ${breakpoint.max.M} {
+    @media ${breakpoint.max.L} {
+      max-width: 1002px;
     }
   `,
 )
@@ -66,13 +67,18 @@ export const ImageContainer = styled.div(
       position: absolute;
       left: 0;
       right: 0;
-      top: 50%;
-      bottom: -50%;
+      top: 25%;
+      bottom: -25%;
       background-image: radial-gradient(
         ${colors.white},
-        ${colors.darkBlue} 70%
+        ${colors.darkBlue} 60%
       );
-      opacity: 0.1;
+      opacity: 0.08;
+      @media ${breakpoint.max.L} {
+        margin: 0;
+        top: 50%;
+        bottom: -50%;
+      }
     }
     @media ${breakpoint.max.L} {
       margin: 0;

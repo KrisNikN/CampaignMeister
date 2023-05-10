@@ -4,8 +4,13 @@ export const Block = ({ ...props }) => {
   return (
     <S.SectionContainer {...props}>
       <S.TitleContainer>
-        The <S.YellowStyling>Building Blocks </S.YellowStyling>of
-        CampaignMeister
+        <S.DestopSpan>
+          The <S.YellowStyling>Building Blocks </S.YellowStyling>of
+          CampaignMeister
+        </S.DestopSpan>
+        <S.MobileSpan>
+          Why <S.YellowStyling>use </S.YellowStyling> CampaignMeister ?
+        </S.MobileSpan>
       </S.TitleContainer>
       <S.ColumnConteiner>
         <S.RowContainer>
