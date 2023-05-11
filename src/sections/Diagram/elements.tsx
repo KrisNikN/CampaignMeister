@@ -107,8 +107,8 @@ export const SpecialParagraph = styled(_Paragraph)(
   `,
 )
 
-export const DiagramContainer = styled.div<{ variant: string }>(
-  ({ theme: { colors, breakpoint }, variant }) => css`
+export const DiagramContainer = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
     width: 100%;
     padding-top: 0;
     padding-bottom: 0;
