@@ -36,6 +36,7 @@ export const Paragraph = styled(_Paragraph)(
     font-size: 24px;
     width: 100%;
     max-width: 501px;
+    line-height: 33.6px;
     margin: 0;
     padding: 0;
     @media ${breakpoint.max.M} {
@@ -66,6 +67,7 @@ export const Link = styled(_Link)<{ children: any; href: string }>(
     text-decoration: none;
     font-weight: 400;
     font-size: 12px;
+    margin: 0;
     color: ${colors.yellow};
     border-bottom: 1px solid ${colors.yellow};
   `,
@@ -98,16 +100,21 @@ export const CheckBoxsContainer = styled.div(
 )
 
 export const CheckBox = styled(_CheckBox)<{}>(
-  ({ theme: { colors, breakpoint }, variant }) => css``,
+  ({ theme: { colors, breakpoint }, variant }) => css`
+    margin: 0;
+    @media ${breakpoint.max.M} {
+      height: 32px;
+      min-width: 32px;
+    }
+  `,
 )
 
 export const CheckBoxContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     &:nth-child(2) {
-      margin-top: 9.5px;
+      margin-top: 8px;
     }
     display: flex;
-
     align-items: center;
   `,
 )

@@ -70,6 +70,7 @@ export const JoinForm = styled(_JoinForm)(
     width: 100%;
     color: ${colors.white};
     max-width: 520px;
+    top: 8px;
     @media ${breakpoint.max.S} {
       max-width: 320px;
     }

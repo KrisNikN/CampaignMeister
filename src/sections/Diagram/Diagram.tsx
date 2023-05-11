@@ -10,23 +10,46 @@ export const Diagram = ({ ...props }) => {
 
       <S.ElementContainer>
         <S.ParagraphsContainer>
-          <S.Paragraph>
+          <S.SpecialParagraph>
+            Optimizing campaigns is hard, especially across all your channels,
+            brands and agencies. <br /> Campaign-Meister ensures you and your
+            team have all the insights to boost your campaign performance.
+          </S.SpecialParagraph>
+          <S.SpecialParagraph>
+            Optimizing campaigns is hard, especially across all your channels,
+            brands and agencies. <br />
+            Campaign-Meister ensures you and your team have all the insights to
+            boost your campaign performance. Optimizing campaigns is hard,
+            especially across all your channels, brands and agencies.
+          </S.SpecialParagraph>
+        </S.ParagraphsContainer>
+        <S.MobParagraphsContainer>
+          <S.SpecialParagraph>
             Optimizing campaigns is hard, especially across all your channels,
             brands and agencies. Campaign-Meister ensures you and your team have
             all the insights to boost your campaign performance.
-          </S.Paragraph>
-          <S.Paragraph>
+          </S.SpecialParagraph>
+          <S.SpecialParagraph>
             Optimizing campaigns is hard, especially across all your channels,
             brands and agencies. Campaign-Meister ensures you and your team have
             all the insights to boost your campaign performance. Optimizing
             campaigns is hard, especially across all your channels, brands and
             agencies.
-          </S.Paragraph>
-        </S.ParagraphsContainer>
+          </S.SpecialParagraph>
+        </S.MobParagraphsContainer>
       </S.ElementContainer>
       <S.ContainerBig>
         <S.DiagramContainer>
           <S.Column>
+            <S.ImageContainer>
+              <S.Image
+                src='/imgs/mobilePlain.png'
+                width={102.03}
+                height={102.03}
+                alt='Play Image'
+                layout='intrinsic'
+              />
+            </S.ImageContainer>
             <S.DiagramBlock>
               <S.TitleSecond>Smart Learning</S.TitleSecond>
               <S.Paragraph>
@@ -43,15 +66,35 @@ export const Diagram = ({ ...props }) => {
                 Probability so you can optimise on it upfront.
               </S.Paragraph>
             </S.DiagramBlock>
-            <S.Image
-              src='/imgs/diagram.png'
-              width={702}
-              height={571.35}
-              alt='diagram Image'
-              layout='intrinsic'
-            />
+            <S.ImageContainer>
+              <S.Image
+                src='/imgs/mobilePlay.png'
+                width={102.03}
+                height={102.03}
+                alt='Play Image'
+                layout='intrinsic'
+              />
+            </S.ImageContainer>
+            <S.ImageDiagramContainer>
+              <S.DImage
+                src='/imgs/diagram.png'
+                width={575}
+                height={600}
+                objectFit='cover'
+                alt='diagram Image'
+              />
+            </S.ImageDiagramContainer>
           </S.Column>
           <S.Column>
+            <S.ImageContainer>
+              <S.Image
+                src='/imgs/mobileBook.png'
+                width={102.03}
+                height={102.03}
+                alt='Play Image'
+                layout='intrinsic'
+              />
+            </S.ImageContainer>
             <S.DiagramBlock>
               <S.TitleSecond>Smart Flight</S.TitleSecond>
               <S.Paragraph>
