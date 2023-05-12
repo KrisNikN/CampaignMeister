@@ -19,10 +19,8 @@ export const Hero = ({ ...props }) => {
             Optimising campaigns is hard, especially if you lack trustworthy
             data. Unfortunately this is the case for more than 65% of the
             companies.
-          </S.Paragraph>
-          <S.Paragraph>
-            Boost your performance by fixing your data across all channels,
-            brands and agencies.
+            <br /> <br /> Boost your performance by fixing your data across all
+            channels, brands and agencies.
           </S.Paragraph>
         </S.DivElement>
         <S.JoinForm {...props} />

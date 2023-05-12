@@ -74,6 +74,7 @@ export const MobParagraphsContainer = styled.div(
     }
     @media ${breakpoint.max.M} {
       display: block;
+      padding: 0;
     }
   `,
 )
@@ -95,9 +96,6 @@ export const SpecialParagraph = styled(_Paragraph)(
     margin: 0;
     padding: 0;
     font-size: 20px;
-    &:nth-child(2) {
-      margin-top: 29px;
-    }
     line-height: 28px;
     font-weight: 400;
     color: ${colors.white};
@@ -147,21 +145,25 @@ export const Column = styled.div<{ variant?: string }>(
     `}
     /* &:nth-child(1) {
       left: 75px;
+    }
     }*/
-    
+    &:nth-child(3) {
+      top: -21.5px;
+    }
     @media ${breakpoint.max.M} {
       width: 100%;
       /*&:nth-child(1) {
         left: 10px;
-      }
-      &:nth-child(3) {
-        left: -10px;
       }*/
+      &:nth-child(3) {
+        top: 0;
+      }
     }
     @media ${breakpoint.max.M} {
       flex: 1;
       &:nth-child(1) {
         left: 0;
+        order: +1;
       }
       &:nth-child(3) {
         left: 0;
@@ -197,6 +199,7 @@ export const ContainerBig = styled.div(
     align-items: flex-start;
     @media ${breakpoint.max.M} {
       padding-bottom: 40px;
+      margin-top: 0;
     }
   `,
 )
@@ -237,7 +240,7 @@ export const ImageDiagramContainer = styled.div(
       margin-top: 0;
     }
 
-    /* max-width: 702px;
+    /*max-width: 702px;  
     max-height: 571.35px;
     min-width: 280.05px;
     min-height: 280.05px;*/

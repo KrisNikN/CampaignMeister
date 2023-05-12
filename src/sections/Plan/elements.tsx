@@ -72,6 +72,10 @@ export const Element = styled.div(
     flex-direction: column;
 
     @media ${breakpoint.max.M} {
+      padding-bottom: 40px;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 24px;
     }
   `,
 )
