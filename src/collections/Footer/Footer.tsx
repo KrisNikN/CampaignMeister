@@ -11,8 +11,8 @@ export const Footer = ({ ...props }: FooterProps) => {
           <S.LogoContainer>
             <S.Image
               src='/imgs/logo.png'
-              width={220}
-              height={28}
+              width={193}
+              height={24.27}
               alt='logo'
               layout='intrinsic'
             />

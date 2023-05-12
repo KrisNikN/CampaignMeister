@@ -158,7 +158,7 @@ export const Link = styled(_Link)<{ href: string; children: any }>(
 export const CopyRightDestop = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: absolute;
-    bottom: -60px;
+    bottom: -40px;
     left: 40px;
     color: ${colors.white};
     font-size: 12px;
