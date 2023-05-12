@@ -13,7 +13,8 @@ export const Diagram = ({ ...props }) => {
           <S.SpecialParagraph>
             Optimizing campaigns is hard, especially across all your channels,
             brands and agencies. <br /> Campaign-Meister ensures you and your
-            team have all the insights to boost your campaign performance.
+            team have all the insights to boost your campaign <br />
+            performance.
           </S.SpecialParagraph>
           <S.SpecialParagraph>
             Optimizing campaigns is hard, especially across all your channels,

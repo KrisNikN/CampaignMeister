@@ -34,14 +34,15 @@ export const TitleContainer = styled(_TitleContainer)(
 
 export const ElementContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
-    padding: 40px 0px;
     display: flex;
     justify-content: center;
-    padding-bottom: 0;
+    width: 100%;
 
-    max-width: 894px;
     margin: 0 auto;
-    padding-top: 20px;
+
+    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   `,
 )
 
@@ -50,10 +51,9 @@ export const ParagraphsContainer = styled.div(
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
-    @media ${breakpoint.max.L} {
-      align-items: flex-start;
-    }
+    max-width: 894px;
+    align-items: flex-start;
+
     @media ${breakpoint.max.M} {
       display: none;
     }
@@ -66,6 +66,8 @@ export const MobParagraphsContainer = styled.div(
     flex-direction: column;
     width: 100%;
     padding: 20px;
+    padding-left: 0;
+    padding-right: 0;
     display: none;
     @media ${breakpoint.max.L} {
       align-items: flex-start;
@@ -94,7 +96,7 @@ export const SpecialParagraph = styled(_Paragraph)(
     padding: 0;
     font-size: 20px;
     &:nth-child(2) {
-      margin-top: 32px;
+      margin-top: 29px;
     }
     line-height: 28px;
     font-weight: 400;
