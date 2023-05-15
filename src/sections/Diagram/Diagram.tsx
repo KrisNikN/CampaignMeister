@@ -1,122 +1,49 @@
 import * as S from './elements'
+import { HTMLSectionProps } from 'types'
+import { DiagramCard, DiagramCardProps } from 'cards'
 
-export const Diagram = ({ ...props }) => {
+interface DiagramProps {
+  title: string
+  paragraphs: string[]
+  cards: DiagramCardProps[]
+  mobileParagraph: string
+}
+
+export const Diagram = ({
+  title,
+  paragraphs,
+  mobileParagraph,
+  cards,
+  ...props
+}: DiagramProps & HTMLSectionProps) => {
   return (
     <S.SectionContainer {...props}>
       <S.TitleContainer>
-        How to <S.YellowStyling>boost your performance </S.YellowStyling>
-        with flawless data
+        <span dangerouslySetInnerHTML={{ __html: title }} />
       </S.TitleContainer>
 
       <S.ElementContainer>
         <S.ParagraphsContainer>
           <S.SpecialParagraph>
-            Optimizing campaigns is hard, especially across all your channels,
-            brands and agencies. <br /> Campaign-Meister ensures you and your
-            team have all the insights to boost your campaign <br />
-            performance. <br />
+            <span dangerouslySetInnerHTML={{ __html: paragraphs[0] }} /> <br />
             <br />
-            Optimizing campaigns is hard, especially across all your channels,
-            brands and agencies. <br />
-            Campaign-Meister ensures you and your team have all the insights to
-            boost your campaign
-            <br /> performance. Optimizing campaigns is hard, especially across
-            all your channels, brands and agencies.
+            <span dangerouslySetInnerHTML={{ __html: paragraphs[1] }} />
           </S.SpecialParagraph>
         </S.ParagraphsContainer>
         <S.MobParagraphsContainer>
           <S.SpecialParagraph>
-            Optimizing campaigns is hard, especially across all your channels,
-            brands and agencies. CampaignMeister ensures you and your team have
-            all the insights to boost your campaign performance.
+            <span dangerouslySetInnerHTML={{ __html: mobileParagraph }} />
           </S.SpecialParagraph>
         </S.MobParagraphsContainer>
       </S.ElementContainer>
+
       <S.ContainerBig>
         <S.DiagramContainer>
-          <S.Column>
-            <S.ImageContainer>
-              <S.Image
-                src='/imgs/mobileBook.png'
-                width={102.03}
-                height={102.03}
-                alt='Play Image'
-                layout='intrinsic'
-              />
-            </S.ImageContainer>
-
-            <S.DiagramBlock>
-              <S.TitleSecond>Smart Learning</S.TitleSecond>
-              <S.Paragraph>
-                Gain advanced insights by combining campaign attribution,
-                marketing mix modeling and learnings from validated experiments.
-              </S.Paragraph>
-            </S.DiagramBlock>
-          </S.Column>
-          <S.Column variant='center'>
-            <S.DiagramBlock>
-              <S.TitleSecond>Smart Start</S.TitleSecond>
-              <S.Paragraph>
-                Use all your historic data to predict your Campaign Success
-                Probability so you can optimise on it upfront.
-              </S.Paragraph>
-            </S.DiagramBlock>
-            <S.ImageContainer>
-              <S.Image
-                src='/imgs/mobilePlay.png'
-                width={102.03}
-                height={102.03}
-                alt='Play Image'
-                layout='intrinsic'
-              />
-            </S.ImageContainer>
-            <S.ImageDiagramContainer>
-              <S.DImage
-                src='/imgs/diagram.png'
-                width={575}
-                height={575}
-                objectFit='cover'
-                alt='diagram Image'
-              />
-            </S.ImageDiagramContainer>
-          </S.Column>
-          <S.Column>
-            <S.ImageContainer>
-              <S.Image
-                src='/imgs/mobilePlain.png'
-                width={102.03}
-                height={102.03}
-                alt='Play Image'
-                layout='intrinsic'
-              />
-            </S.ImageContainer>
-            <S.DiagramBlock>
-              <S.TitleSecond>Smart Flight</S.TitleSecond>
-              <S.Paragraph>
-                Compare campaign tactics across all channels in real-time and
-                proceed with your winning tactics.
-              </S.Paragraph>
-            </S.DiagramBlock>
-          </S.Column>
+          {cards.map((card) => {
+            return <DiagramCard key={card.image.alt} {...card} />
+          })}
         </S.DiagramContainer>
       </S.ContainerBig>
     </S.SectionContainer>
   )
 }
-
-/*<S.ImageContainer>
-            <S.Image
-              src='/imgs/mobileBook.png'
-              width={102.03}
-              height={102.03}
-              alt='Play Image'
-              layout='intrinsic'
-            />
-
-            <S.DiagramBlock>
-            <S.TitleSecond>Smart Flight</S.TitleSecond>
-            <S.Paragraph>
-              Compare campaign tactics across all channels in real-time and
-              proceed with your winning tactics.
-            </S.Paragraph>
-          </S.DiagramBlock>*/
