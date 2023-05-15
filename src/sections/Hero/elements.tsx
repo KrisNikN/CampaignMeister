@@ -107,6 +107,7 @@ export const NormalHeading = styled(_H1)(
     display: inline;
     font-weight: 500;
     font-size: 32px;
+    line-height: 38px;
   `,
 )
 
@@ -116,8 +117,9 @@ export const Paragraph = styled(_Paragraph)(
     margin: 0;
     font-weight: 400;
     font-size: 20px;
+    line-height: 140%;
     &:nth-child(2) {
-      margin-top: 40px;
+      margin-top: 27px;
     }
   `,
 )

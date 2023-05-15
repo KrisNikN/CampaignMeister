@@ -72,6 +72,10 @@ export const Element = styled.div(
     flex-direction: column;
 
     @media ${breakpoint.max.M} {
+      padding-bottom: 40px;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 24px;
     }
   `,
 )
@@ -107,6 +111,7 @@ export const BoldParagraph = styled(_Paragraph)(
     margin-top: 20px;
     font-weight: 600;
     font-size: 16px;
+    line-height: 22.4px;
     @media ${breakpoint.max.M} {
     }
   `,
@@ -120,6 +125,7 @@ export const Paragraph = styled(_Paragraph)(
     font-weight: 400;
     font-size: 16px;
     margin-top: 20px;
+    line-height: 22.4px;
     @media ${breakpoint.max.M} {
     }
   `,
@@ -133,8 +139,8 @@ export const Number = styled.div(
     background-color: ${colors.darkBlue};
     color: ${colors.yellow};
     font-weight: 700;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     @media ${breakpoint.max.M} {
     }

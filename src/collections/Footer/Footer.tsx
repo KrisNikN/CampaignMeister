@@ -11,8 +11,8 @@ export const Footer = ({ ...props }: FooterProps) => {
           <S.LogoContainer>
             <S.Image
               src='/imgs/logo.png'
-              width={220}
-              height={28}
+              width={193}
+              height={24.27}
               alt='logo'
               layout='intrinsic'
             />
@@ -44,19 +44,19 @@ export const Footer = ({ ...props }: FooterProps) => {
             </S.LinksContainer>
           </S.Block>
         </S.LegalNavContainer>
-      </S.ContainerFooter>
-      <S.CopyRightDestop>
-        © 2022, CampaignMeister is a product of
-        <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
-      </S.CopyRightDestop>
-
-      <S.CopyRightMobile>
-        <S.Column>
-          <span>CampaignMeister is a product of</span>
+        <S.CopyRightDestop>
+          © 2022, CampaignMeister is a product of
           <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
-        </S.Column>
-        <S.YearSpan> © 2022</S.YearSpan>
-      </S.CopyRightMobile>
+        </S.CopyRightDestop>
+
+        <S.CopyRightMobile>
+          <S.Column>
+            <span>CampaignMeister is a product of</span>
+            <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
+          </S.Column>
+          <S.YearSpan> © 2022</S.YearSpan>
+        </S.CopyRightMobile>
+      </S.ContainerFooter>
     </S.Footer>
   )
 }
