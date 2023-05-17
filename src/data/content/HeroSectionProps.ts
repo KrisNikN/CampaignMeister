@@ -1,4 +1,4 @@
-export const HeroSectionProps = {
+export const heroSectionProps = {
   title:
     '<span style="color: #FCD130;">The ugly truth: Your campaign data are a mess.</span> By fixing it, you can improve your campaign performance with over 25%.',
   subHeading: [

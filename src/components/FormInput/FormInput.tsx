@@ -1,14 +1,18 @@
-import { ForwardedRef } from 'react'
-import { useController, UseControllerProps, FieldValues } from 'react-hook-form'
-import type { KeyOfType, HTMLInputProps } from 'types'
-import * as S from './elements'
+import { ForwardedRef } from 'react';
+import {
+  useController,
+  UseControllerProps,
+  FieldValues,
+} from 'react-hook-form';
+import type { KeyOfType, HTMLInputProps } from 'types';
+import * as S from './elements';
 
 export interface FormInputProps<T extends FieldValues = any>
   extends Omit<HTMLInputProps, 'name' | 'defaultValue'>,
     Omit<UseControllerProps<T>, 'name'> {
-  name: KeyOfType<T>
-  label?: string
-  ref?: ForwardedRef<HTMLInputElement>
+  name: KeyOfType<T>;
+  label?: string;
+  ref?: ForwardedRef<HTMLInputElement>;
 }
 
 export const FormInput = ({
@@ -26,7 +30,7 @@ export const FormInput = ({
     control,
     rules: { required: true },
     defaultValue: '',
-  })
+  });
 
   return (
     <S.Container {...props}>
@@ -45,7 +49,7 @@ export const FormInput = ({
       </S.InputWrapper>
       {error && <S.ErrorText>{error.message}</S.ErrorText>}
     </S.Container>
-  )
-}
+  );
+};
 
-FormInput.displayName = 'FormInput'
+FormInput.displayName = 'FormInput';

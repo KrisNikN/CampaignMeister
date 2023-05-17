@@ -1,21 +1,21 @@
-import * as S from './elements'
+import * as S from './elements';
 
 export interface DiagramCardProps {
-  variant: string
-  title: string
-  text: string
+  variant: string;
+  title: string;
+  text: string;
   image: {
-    src: string
-    width: number
-    height: number
-    alt: string
-  }
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
   diagramImage?: {
-    src: string
-    width: number
-    height: number
-    alt: string
-  }
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
 }
 
 export const DiagramCard = ({
@@ -51,7 +51,7 @@ export const DiagramCard = ({
           />
         </S.ImageDiagramContainer>
       </S.Column>
-    )
+    );
 
   return (
     <S.Column>
@@ -69,5 +69,5 @@ export const DiagramCard = ({
         <S.Paragraph>{text}</S.Paragraph>
       </S.DiagramBlock>
     </S.Column>
-  )
-}
+  );
+};

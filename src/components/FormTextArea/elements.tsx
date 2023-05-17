@@ -1,13 +1,13 @@
-import styled from 'styled-components'
-import type { FormTextAreaProps } from './TextArea'
+import styled from 'styled-components';
+import type { FormTextAreaProps } from './TextArea';
 
-export const Container = styled('div')``
+export const Container = styled('div')``;
 
 export const InputWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   width: 100%;
-`
+`;
 
 export const Label = styled('label')`
   color: ${({ theme }) => theme.colors.black};
@@ -17,7 +17,7 @@ export const Label = styled('label')`
   font-weight: 400;
   line-height: 1.8;
   margin-bottom: 0.2em;
-`
+`;
 
 export const ErrorText = styled('p')`
   color: ${({ theme }) => theme.colors.vividRed};
@@ -28,7 +28,7 @@ export const ErrorText = styled('p')`
   line-height: 1.8;
   margin-bottom: 5px;
   margin: 0;
-`
+`;
 
 export const TextArea = styled('textarea')<FormTextAreaProps>`
   appearance: none;
@@ -53,4 +53,4 @@ export const TextArea = styled('textarea')<FormTextAreaProps>`
   }
 
   transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-`
+`;

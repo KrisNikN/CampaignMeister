@@ -1,10 +1,8 @@
-export const DiagramSectionProps = {
+export const diagramSectionProps = {
   title:
     'How to <span style="color: #FCD130;">boost your performance </span>with flawless data',
-  paragraphs: [
-    'Optimizing campaigns is hard, especially across all your channels, brands and agencies. <br /> Campaign-Meister ensures you and your team have all the insights to boost your campaign <br /> performance.',
-    'Optimizing campaigns is hard, especially across all your channels, brands and agencies.<br /> Campaign-Meister ensures you and your team have all the insights to boost your campaign <br />  performance. Optimizing campaigns is hard, especially across all your channels, brands and agencies.',
-  ],
+  paragraphs:
+    'Optimizing campaigns is hard, especially across all your channels, brands and agencies. <br /> Campaign-Meister ensures you and your team have all the insights to boost your campaign <br /> performance.<br /> <br /> Optimizing campaigns is hard, especially across all your channels, brands and agencies.<br /> Campaign-Meister ensures you and your team have all the insights to boost your campaign <br />  performance. Optimizing campaigns is hard, especially across all your channels, brands and agencies.',
   mobileParagraph:
     'Optimizing campaigns is hard, especially across all your channels, brands and agencies.  Campaign-Meister ensures you and your team have all the insights to boost your campaign performance.',
   cards: [

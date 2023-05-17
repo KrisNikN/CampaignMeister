@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     html,
@@ -8,7 +8,10 @@ export const GlobalStyles = createGlobalStyle`
         font-family: "Barlow", sans-serif;
     }
 
-    
+    a{
+        text-decoration: none;
+        
+    }
 
     * {
         box-sizing: border-box;
@@ -18,4 +21,4 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
     }
-`
+`;

@@ -86,4 +86,4 @@
 //   line-height: 1.8;
 // `;
 
-export {}
+export {};

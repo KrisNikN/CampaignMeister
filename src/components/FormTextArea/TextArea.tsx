@@ -1,12 +1,16 @@
-import { useController, UseControllerProps, FieldValues } from 'react-hook-form'
-import type { KeyOfType, HTMLTextAreaProps } from 'types'
-import * as S from './elements'
+import {
+  useController,
+  UseControllerProps,
+  FieldValues,
+} from 'react-hook-form';
+import type { KeyOfType, HTMLTextAreaProps } from 'types';
+import * as S from './elements';
 
 export interface FormTextAreaProps<T extends FieldValues = any>
   extends Omit<HTMLTextAreaProps, 'name' | 'defaultValue'>,
     Omit<UseControllerProps<T>, 'name'> {
-  name: KeyOfType<T>
-  label?: string
+  name: KeyOfType<T>;
+  label?: string;
 }
 
 export const FormTextArea = ({
@@ -24,7 +28,7 @@ export const FormTextArea = ({
     control,
     rules: { required: true },
     defaultValue: '',
-  })
+  });
 
   return (
     <S.Container>
@@ -43,7 +47,7 @@ export const FormTextArea = ({
       </S.InputWrapper>
       {error && <S.ErrorText>{error.message}</S.ErrorText>}
     </S.Container>
-  )
-}
+  );
+};
 
-FormTextArea.displayName = 'FormTextArea'
+FormTextArea.displayName = 'FormTextArea';

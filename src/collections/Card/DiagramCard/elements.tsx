@@ -1,11 +1,10 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
-} from 'components'
-import { TitleContainer as _TitleContainer } from 'collections'
+} from 'components';
 
 export const Column = styled.div<{ variant?: string }>(
   ({ theme: { colors, breakpoint }, variant }) => css`
@@ -50,15 +49,15 @@ export const Column = styled.div<{ variant?: string }>(
       }
     }
   `,
-)
+);
 
-export const Image = styled(_Image)(() => css``)
+export const Image = styled(_Image)(() => css``);
 
 export const DImage = styled(_Image)(
   () => css`
     margin-top: 20px;
   `,
-)
+);
 
 export const ImageContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -68,7 +67,7 @@ export const ImageContainer = styled.div(
       display: block;
     }
   `,
-)
+);
 
 export const ImageDiagramContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -93,7 +92,7 @@ export const ImageDiagramContainer = styled.div(
     min-width: 280.05px;
     min-height: 280.05px;*/
   `,
-)
+);
 
 export const DiagramBlock = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -102,7 +101,7 @@ export const DiagramBlock = styled.div(
     flex-direction: column;
     margin-top: 20px;
   `,
-)
+);
 
 export const TitleSecond = styled(_H2)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -112,7 +111,7 @@ export const TitleSecond = styled(_H2)(
     @media ${breakpoint.max.L} {
     }
   `,
-)
+);
 
 export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -124,4 +123,4 @@ export const Paragraph = styled(_Paragraph)(
     font-weight: 400;
     color: ${colors.white};
   `,
-)
+);

@@ -1,16 +1,16 @@
-import * as S from './elements'
+import * as S from './elements';
 
 export interface PlanCardProps {
-  number: number
+  number: number;
   image: {
-    src: string
-    width: number
-    height: number
-    alt: string
-  }
-  title: string
-  boldPar: string
-  paragraph: string
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  title: string;
+  boldPar: string;
+  paragraph: string;
 }
 
 export const PlanCard = ({
@@ -34,12 +34,12 @@ export const PlanCard = ({
           />
         </S.ImageContainer>
         <S.Block>
-          <S.Number>1</S.Number>
+          <S.Number>{number}</S.Number>
           <S.BlockTitle>{title}</S.BlockTitle>
           <S.BoldParagraph>{boldPar}</S.BoldParagraph>
           <S.Paragraph>{paragraph}</S.Paragraph>
         </S.Block>
       </S.Element>
     </S.ElementContainer>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const Button = styled.button<{ variant?: string }>(
   ({ theme: { colors }, variant }) => css`
@@ -30,4 +30,4 @@ export const Button = styled.button<{ variant?: string }>(
         border-color: ${colors.darkBlue};
       `)}
   `,
-)
+);

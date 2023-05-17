@@ -1,11 +1,11 @@
-import * as S from './elements'
-import { HTMLSectionProps } from 'types'
-import { BlockCard, BlockCardProps } from 'cards'
+import * as S from './elements';
+import { HTMLSectionProps } from 'types';
+import { BlockCard, BlockCardProps } from 'collections/Card';
 
 export interface BlockProps {
-  titleDesktop: string
-  titleMobile: string
-  rows: BlockCardProps[]
+  titleDesktop: string;
+  titleMobile: string;
+  rows: BlockCardProps[];
 }
 
 export const Block = ({
@@ -17,15 +17,17 @@ export const Block = ({
   return (
     <S.SectionContainer {...props}>
       <S.TitleContainer>
-        <S.DestopSpan dangerouslySetInnerHTML={{ __html: titleDesktop }} />
-        <S.MobileSpan dangerouslySetInnerHTML={{ __html: titleMobile }} />
+        <S.DesktopTitleMain
+          dangerouslySetInnerHTML={{ __html: titleDesktop }}
+        />
+        <S.MobileTitleMain dangerouslySetInnerHTML={{ __html: titleMobile }} />
       </S.TitleContainer>
 
       <S.ColumnConteiner>
         {rows.map(({ blocks }) => {
-          return <BlockCard blocks={blocks} key={blocks[0].title} />
+          return <BlockCard blocks={blocks} key={blocks[0].title} />;
         })}
       </S.ColumnConteiner>
     </S.SectionContainer>
-  )
-}
+  );
+};

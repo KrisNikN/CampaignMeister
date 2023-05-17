@@ -1,25 +1,26 @@
-import { NextPage } from 'next'
-import { Container } from 'components'
-import { Hero, Diagram, Block, Plan, Start } from 'sections'
+import { NextPage } from 'next';
+import { Container } from 'components';
+import { Hero, Diagram, Block, Plan, Start } from 'sections';
 import {
-  HeroSectionProps,
-  DiagramSectionProps,
-  BlocksSectionProps,
-  PlanSectionProps,
-} from 'data'
+  heroSectionProps,
+  diagramSectionProps,
+  blocksSectionProps,
+  planSectionProps,
+  startSectionProps,
+} from 'data';
 
 const Home: NextPage = () => {
   return (
     <main>
       <Container>
-        <Hero {...HeroSectionProps} />
-        <Diagram {...DiagramSectionProps} />
-        <Block {...BlocksSectionProps} />
-        <Plan {...PlanSectionProps} />
-        <Start />
+        <Hero {...heroSectionProps} />
+        <Diagram {...diagramSectionProps} />
+        <Block {...blocksSectionProps} />
+        <Plan {...planSectionProps} />
+        <Start {...startSectionProps} />
       </Container>
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

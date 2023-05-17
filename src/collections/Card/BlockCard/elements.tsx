@@ -1,11 +1,10 @@
-import { TitleContainer as _TitleContainer } from 'collections'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
-} from 'components'
+} from 'components';
 
 export const RowContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -23,7 +22,7 @@ export const RowContainer = styled.div(
       flex-direction: column;
     }
   `,
-)
+);
 export const BlockContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
@@ -37,7 +36,7 @@ export const BlockContainer = styled.div(
       }
     }
   `,
-)
+);
 export const TextBlock = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
@@ -49,7 +48,7 @@ export const TextBlock = styled.div(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const BlockTitle = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -60,7 +59,7 @@ export const BlockTitle = styled(_Paragraph)(
     font-weight: 600;
     line-height: 22.4px;
   `,
-)
+);
 
 export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -74,13 +73,13 @@ export const Paragraph = styled(_Paragraph)(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
-export const Image = styled(_Image)(() => css``)
+export const Image = styled(_Image)(() => css``);
 
 export const ImageContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     width: 80px;
     height: 80px;
   `,
-)
+);

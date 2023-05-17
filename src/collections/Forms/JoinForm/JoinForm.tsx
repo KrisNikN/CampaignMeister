@@ -1,6 +1,21 @@
-import * as S from './elements'
+import * as S from './elements';
 
-export const JoinForm = ({ ...props }) => {
+export interface joinFormProps {
+  title: string;
+  inputPlaceHolder: string;
+  buttonText: string;
+  linkPrivacy: string;
+  linkTerms: string;
+}
+
+export const JoinForm = ({
+  /*title,
+  inputPlaceHolder,
+  buttonText,
+  linkPrivacy,
+  linkTerms,*/
+  ...props
+}) => {
   return (
     <S.JoinForm {...props}>
       <S.Paragraph>
@@ -26,5 +41,5 @@ export const JoinForm = ({ ...props }) => {
         </S.CheckBoxContainer>
       </S.CheckBoxsContainer>
     </S.JoinForm>
-  )
-}
+  );
+};

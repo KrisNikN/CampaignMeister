@@ -1,20 +1,20 @@
-import { default as _Link, LinkProps as _LinkProps } from 'next/link'
-import * as S from './elements'
+import { default as _Link, LinkProps as _LinkProps } from 'next/link';
+import * as S from './elements';
 
 type HTMLAnchorProps = Omit<
   JSX.IntrinsicElements['a'],
   'href' | 'onClick' | 'onMouseEnter' | 'color' | 'ref'
->
+>;
 
 export interface LinkCustomProps {
-  ref?: React.Ref<HTMLAnchorElement>
+  ref?: React.Ref<HTMLAnchorElement>;
 }
 
 export interface LinkProps
   extends Omit<_LinkProps, 'href' | 'onTouchStart'>,
     HTMLAnchorProps,
     LinkCustomProps {
-  href: _LinkProps['href']
+  href: _LinkProps['href'];
 }
 
 export const Link: React.FC<LinkProps> = ({
@@ -38,5 +38,5 @@ export const Link: React.FC<LinkProps> = ({
     >
       <S.Link {...props}>{children}</S.Link>
     </_Link>
-  )
-}
+  );
+};

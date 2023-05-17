@@ -1,4 +1,4 @@
-export const BlocksSectionProps = {
+export const blocksSectionProps = {
   titleDesktop:
     'The <span style="color: #FCD130;">Building Blocks</span> of CampaignMeister',
   titleMobile:

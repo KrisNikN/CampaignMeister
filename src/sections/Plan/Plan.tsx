@@ -1,10 +1,10 @@
-import * as S from './elements'
-import { PlanCard, PlanCardProps } from 'cards'
-import { HTMLSectionProps } from 'types'
+import * as S from './elements';
+import { PlanCard, PlanCardProps } from 'collections/Card';
+import { HTMLSectionProps } from 'types';
 
 export interface PlanSectionProps {
-  title: string
-  blocks: PlanCardProps[]
+  title: string;
+  blocks: PlanCardProps[];
 }
 
 export const Plan = ({
@@ -14,12 +14,12 @@ export const Plan = ({
 }: PlanSectionProps & HTMLSectionProps) => (
   <S.SectionContainer {...props}>
     <S.TitleContainer>
-      <span dangerouslySetInnerHTML={{ __html: title }} />
+      <S.TitleMain dangerouslySetInnerHTML={{ __html: title }} />
     </S.TitleContainer>
     <S.RowContainer>
       {blocks.map((block) => {
-        return <PlanCard key={block.number} {...block} />
+        return <PlanCard key={block.number} {...block} />;
       })}
     </S.RowContainer>
   </S.SectionContainer>
-)
+);

@@ -1,4 +1,4 @@
-export const PlanSectionProps = {
+export const planSectionProps = {
   title:
     'You can achieve this in just <span style="color: #FCD130;">three easy steps</span>',
   blocks: [

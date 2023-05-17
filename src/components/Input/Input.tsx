@@ -1,8 +1,8 @@
-import * as S from './elements'
+import * as S from './elements';
 
 interface InputProps {
-  variant?: string
-  placeholder?: string
+  variant?: string;
+  placeholder?: string;
 }
 
 export const Input = ({ placeholder, variant, ...props }: InputProps) => {
@@ -13,5 +13,5 @@ export const Input = ({ placeholder, variant, ...props }: InputProps) => {
       variant={variant}
       placeholder={placeholder}
     />
-  )
-}
+  );
+};

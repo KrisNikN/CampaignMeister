@@ -1,14 +1,11 @@
-import {
-  TitleContainer as _TitleContainer,
-  JoinForm as _JoinForm,
-} from 'collections'
-import styled, { css } from 'styled-components'
+import { JoinForm as _JoinForm } from 'collections';
+import styled, { css } from 'styled-components';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
-} from 'components'
+} from 'components';
 
 export const SectionContainer = styled.section(
   ({ theme: { colors, breakpoint } }) => css`
@@ -22,33 +19,45 @@ export const SectionContainer = styled.section(
 
     padding-bottom: 80px;
     @media ${breakpoint.max.M} {
+      margin-top: 40px;
     }
   `,
-)
+);
 
-export const TitleContainer = styled(_TitleContainer)(
+export const TitleContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 80px 40px;
     background: transparent;
     position: relative;
     padding-top: 0;
     padding-bottom: 40px;
+    border-bottom: 2px solid ${colors.darkBlue};
     @media ${breakpoint.max.M} {
     }
   `,
-)
-
-export const YellowStyling = styled.span(
+);
+export const TitleMain = styled(_H1)(
   ({ theme: { colors, breakpoint } }) => css`
-    color: ${colors.yellow};
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
+    z-index: 10;
+    color: ${colors.white};
   `,
-)
+);
 
 export const Image = styled(_Image)(
   ({ theme: { colors, breakpoint } }) => css`
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const ImageContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -56,12 +65,12 @@ export const ImageContainer = styled.div(
     top: -85px;
     left: 50%;
     transform: translateX(-50%) rotate(180deg);
-    z-index: -1;
+    z-index: 0;
 
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const JoinForm = styled(_JoinForm)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -75,4 +84,4 @@ export const JoinForm = styled(_JoinForm)(
       max-width: 320px;
     }
   `,
-)
+);

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react';
 
 /**
  * @remarks used to fix unexpected behavior of css value 100vh on mobile devices
@@ -6,19 +6,19 @@ import { useCallback, useEffect, useState } from 'react'
  * @example const [deviceHeight] = useDeviceHeight();
  */
 export const useDeviceHeight = () => {
-  const [deviceHeight, setDeviceHeight] = useState(0)
+  const [deviceHeight, setDeviceHeight] = useState(0);
 
   const resizeHandler = useCallback(() => {
-    setDeviceHeight(window.innerHeight)
-  }, [])
+    setDeviceHeight(window.innerHeight);
+  }, []);
 
   useEffect(() => {
-    setDeviceHeight(window.innerHeight)
+    setDeviceHeight(window.innerHeight);
 
-    window.addEventListener('resize', resizeHandler)
+    window.addEventListener('resize', resizeHandler);
 
-    return () => window.removeEventListener('resize', resizeHandler)
-  }, [resizeHandler])
+    return () => window.removeEventListener('resize', resizeHandler);
+  }, [resizeHandler]);
 
-  return [deviceHeight]
-}
+  return [deviceHeight];
+};

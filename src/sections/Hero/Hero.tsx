@@ -1,14 +1,14 @@
-import * as S from './elements'
-import { HTMLSectionProps } from 'types'
+import * as S from './elements';
+import { HTMLSectionProps } from 'types';
 
 export interface HeroProps {
-  title: string
-  subHeading: string[]
+  title: string;
+  subHeading: string[];
   image: {
-    src: string
-    width: number
-    height: number
-  }
+    src: string;
+    width: number;
+    height: number;
+  };
 }
 
 export const Hero = ({
@@ -44,8 +44,8 @@ export const Hero = ({
         />
       </S.ImageContainer>
     </S.HeroContainer>
-  )
-}
+  );
+};
 /*<Image
   src='/imgs/logo.png'
   width={220}

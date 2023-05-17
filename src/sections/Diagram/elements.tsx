@@ -1,11 +1,10 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
-} from 'components'
-import { TitleContainer as _TitleContainer } from 'collections'
+} from 'components';
 
 export const SectionContainer = styled.section(
   ({ theme: { colors, breakpoint } }) => css`
@@ -20,11 +19,32 @@ export const SectionContainer = styled.section(
     @media ${breakpoint.max.L} {
     }
   `,
-)
+);
 
-export const TitleContainer = styled(_TitleContainer)(
-  ({ theme: { colors, breakpoint } }) => css``,
-)
+export const TitleContainer = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 80px 40px;
+    gap: 20px;
+    border-bottom: 2px solid ${colors.darkBlue};
+    @media ${breakpoint.max.M} {
+    }
+  `,
+);
+
+export const TitleMain = styled(_H1)(
+  ({ theme: { colors, breakpoint } }) => css`
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    z-index: 10;
+    color: ${colors.white};
+  `,
+);
 
 export const ElementContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -38,9 +58,9 @@ export const ElementContainer = styled.div(
     padding-top: 40px;
     padding-bottom: 40px;
   `,
-)
+);
 
-export const ParagraphsContainer = styled.div(
+export const DesktopParagraphsContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
@@ -52,7 +72,7 @@ export const ParagraphsContainer = styled.div(
       display: none;
     }
   `,
-)
+);
 
 export const MobParagraphsContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -71,7 +91,7 @@ export const MobParagraphsContainer = styled.div(
       padding: 0;
     }
   `,
-)
+);
 
 export const SpecialParagraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -87,7 +107,7 @@ export const SpecialParagraph = styled(_Paragraph)(
       }
     }
   `,
-)
+);
 
 export const DiagramContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -104,7 +124,7 @@ export const DiagramContainer = styled.div(
       align-items: flex-start;
     }
   `,
-)
+);
 
 export const ContainerBig = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -120,4 +140,4 @@ export const ContainerBig = styled.div(
       margin-top: 0;
     }
   `,
-)
+);

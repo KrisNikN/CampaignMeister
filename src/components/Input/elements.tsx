@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const Input = styled.input<{ variant?: string }>(
   ({ theme: { colors, breakpoint }, variant }) => css`
@@ -45,4 +45,4 @@ export const Input = styled.input<{ variant?: string }>(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);

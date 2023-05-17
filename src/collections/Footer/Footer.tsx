@@ -1,62 +1,119 @@
-import * as S from './elements'
-import type { HTMLFooterProps } from 'types'
+import * as S from './elements';
+import type { HTMLFooterProps } from 'types';
 
+/*export interface FooterProps extends HTMLFooterProps {
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  quoteDestop: string;
+  quoteMobile: string;
+
+  navigationLiksDesktop: {
+    text: string;
+    path: string;
+  }[];
+
+  navigationLiksMobile: {
+    text: string;
+    path: string;
+  }[];
+
+  legalLinks: {
+    text: string;
+    path: string;
+  }[];
+
+  copyRightDesktop: string;
+  copyRightMobile: string;
+}
+*/
 export interface FooterProps extends HTMLFooterProps {}
 
-export const Footer = ({ ...props }: FooterProps) => {
+export const Footer = ({
+  /*image,
+  quoteDestop,
+  quoteMobile,
+  navigationLiksDesktop,
+  navigationLiksMobile,
+  legalLinks,
+  copyRightDesktop,
+  copyRightMobile,*/
+  ...props
+}: FooterProps) => {
   return (
     <S.Footer {...props}>
       <S.ContainerFooter>
         <S.LogoQueteContainer>
           <S.LogoContainer>
             <S.Image
-              src='/imgs/logo.png'
-              width={193}
-              height={24.27}
-              alt='logo'
+              src={image.src}
+              width={image.width}
+              height={image.height}
+              alt={image.alt}
               layout='intrinsic'
             />
           </S.LogoContainer>
-          <S.QueteContainer>
-            Boost your campaign performance with over 25% by fixing your
-            campaign data
-          </S.QueteContainer>
-          <S.MobileQueteContainer>
-            The art of Campaign Optimisation
-          </S.MobileQueteContainer>
+
+          <S.QuoteContainer>{quoteDestop}</S.QuoteContainer>
+
+          <S.MobileQueteContainer>{quoteMobile}</S.MobileQueteContainer>
         </S.LogoQueteContainer>
         <S.LegalNavContainer>
           <S.Block>
             <S.BlockTitle>Navigation</S.BlockTitle>
-            <S.LinksContainer>
-              <S.Link href='#'>The art of optimising</S.Link>
-              <S.Link href='#'>Boost your campaigns</S.Link>
-              <S.Link href='#'>Start optimising now</S.Link>
-              <S.Link href='#'>CampaignMeisters building blocks</S.Link>
-            </S.LinksContainer>
+            <S.LinksContainerDesktop>
+              {navigationLiksDesktop.map(({ text, path }) => {
+                return (
+                  <S.Link href={path} key={text}>
+                    {text}
+                  </S.Link>
+                );
+              })}
+            </S.LinksContainerDesktop>
+            <S.LinksContainerMobile>
+              {navigationLiksMobile.map(({ text, path }) => {
+                return (
+                  <S.Link href={path} key={text}>
+                    {text}
+                  </S.Link>
+                );
+              })}
+            </S.LinksContainerMobile>
           </S.Block>
           <S.Block>
             <S.BlockTitle>Legal</S.BlockTitle>
             <S.LinksContainer>
-              <S.Link href='#'>Privacy Policy</S.Link>
-              <S.Link href='#'>Cookie Policy</S.Link>
-              <S.Link href='#'>Terms & Conditions</S.Link>
+              {legalLinks.map(({ text, path }) => {
+                return (
+                  <S.Link href={path} key={text}>
+                    {text}
+                  </S.Link>
+                );
+              })}
             </S.LinksContainer>
           </S.Block>
         </S.LegalNavContainer>
-        <S.CopyRightDestop>
-          © 2022, CampaignMeister is a product of
-          <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
-        </S.CopyRightDestop>
 
-        <S.CopyRightMobile>
-          <S.Column>
-            <span>CampaignMeister is a product of</span>
-            <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
-          </S.Column>
-          <S.YearSpan> © 2022</S.YearSpan>
-        </S.CopyRightMobile>
+        <S.CopyRightDestop
+          dangerouslySetInnerHTML={{
+            __html: copyRightDesktop,
+          }}
+        />
+
+        <S.CopyRightMobile
+          dangerouslySetInnerHTML={{
+            __html: copyRightMobile,
+          }}
+        />
       </S.ContainerFooter>
     </S.Footer>
-  )
-}
+  );
+};
+
+/*<S.CopyRightDestop>
+          © 2022, CampaignMeister is a product of
+          <S.CopyLink href='/'> Human Data Associates</S.CopyLink>
+        </S.CopyRightDestop>*/

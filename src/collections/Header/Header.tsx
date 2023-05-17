@@ -1,22 +1,34 @@
-import * as S from './elements'
+import * as S from './elements';
 
-import type { HTMLHeaderProps } from 'types'
+import type { HTMLHeaderProps } from 'types';
 
-export interface HeaderProps extends HTMLHeaderProps {}
+export interface HeaderProps {
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  buttonText: string;
+}
 
-export const Header = ({ ...props }: HeaderProps) => {
+export const Header = ({
+  image,
+  buttonText,
+  ...props
+}: HeaderProps & HTMLHeaderProps) => {
   return (
     <S.Header {...props}>
       <S.HeaderContainer>
         <S.Image
-          src='/imgs/logo.png'
-          width={220}
-          height={28}
-          alt='logo'
+          src={image.src}
+          width={image.width}
+          height={image.height}
+          alt={image.alt}
           layout='intrinsic'
         />
-        <S.Button>Login</S.Button>
+        <S.Button>{buttonText}</S.Button>
       </S.HeaderContainer>
     </S.Header>
-  )
-}
+  );
+};

@@ -1,12 +1,12 @@
-import styled, { css } from 'styled-components'
-import { FooterProps } from './Footer'
+import styled, { css } from 'styled-components';
+import { FooterProps } from './Footer';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
   Link as _Link,
-} from 'components'
+} from 'components';
 
 /*export const Footer = styled(({ ...props }: FooterProps) => (
   <footer {...props} />
@@ -23,7 +23,7 @@ export const Footer = styled('footer')<FooterProps>(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const ContainerFooter = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -37,7 +37,7 @@ export const ContainerFooter = styled.div(
       flex-direction: column;
     }
   `,
-)
+);
 
 export const LogoQueteContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -50,7 +50,7 @@ export const LogoQueteContainer = styled.div(
       width: 100%;
     }
   `,
-)
+);
 
 export const LogoContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -65,9 +65,9 @@ export const LogoContainer = styled.div(
       width: 100%;
     }
   `,
-)
+);
 
-export const QueteContainer = styled.div(
+export const QuoteContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     padding-left: 40px;
     font-size: 12px;
@@ -78,7 +78,7 @@ export const QueteContainer = styled.div(
       padding-left: 20px;
     }
   `,
-)
+);
 
 export const MobileQueteContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -91,9 +91,9 @@ export const MobileQueteContainer = styled.div(
       display: none;
     }
   `,
-)
+);
 
-export const Image = styled(_Image)(() => css``)
+export const Image = styled(_Image)(() => css``);
 
 export const LegalNavContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -105,7 +105,7 @@ export const LegalNavContainer = styled.div(
       flex-direction: column;
     }
   `,
-)
+);
 
 export const Block = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -121,17 +121,30 @@ export const Block = styled.div(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
-export const LinksContainer = styled.div(
+export const LinksContainerDesktop = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
     margin-top: 32px;
     @media ${breakpoint.max.M} {
+      display: none;
     }
   `,
-)
+);
+
+export const LinksContainerMobile = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    display: none;
+    @media ${breakpoint.max.M} {
+      display: block;
+    }
+  `,
+);
 
 export const BlockTitle = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -143,7 +156,7 @@ export const BlockTitle = styled(_Paragraph)(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const Link = styled(_Link)<{ href: string; children: any }>(
   ({ theme: { colors } }) => css`
@@ -153,12 +166,12 @@ export const Link = styled(_Link)<{ href: string; children: any }>(
       margin-top: 16px;
     }
   `,
-)
+);
 
 export const CopyRightDestop = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: absolute;
-    bottom: -40px;
+    bottom: -60px;
     left: 40px;
     color: ${colors.white};
     font-size: 12px;
@@ -167,7 +180,7 @@ export const CopyRightDestop = styled.div(
       display: none;
     }
   `,
-)
+);
 
 export const CopyRightMobile = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -183,29 +196,4 @@ export const CopyRightMobile = styled.div(
       flex-direction: column;
     }
   `,
-)
-
-export const CopyLink = styled(_Link)<{ children: any }>(
-  ({ theme: { colors, breakpoint } }) => css`
-    border-bottom: 1px solid ${colors.yellow};
-    color: ${colors.yellow};
-    font-size: 12px;
-    font-weight: 500;
-    @media ${breakpoint.max.M} {
-    }
-  `,
-)
-
-export const YearSpan = styled.span(
-  () => css`
-    margin-top: 10px;
-  `,
-)
-
-export const Column = styled.div(
-  () => css`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  `,
-)
+);

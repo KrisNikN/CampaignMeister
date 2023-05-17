@@ -1,16 +1,16 @@
-import * as S from './elements'
+import * as S from './elements';
 
 export interface BlockCardProps {
   blocks: {
-    title: string
-    text: string
+    title: string;
+    text: string;
     image: {
-      src: string
-      width: number
-      height: number
-      alt: string
-    }
-  }[]
+      src: string;
+      width: number;
+      height: number;
+      alt: string;
+    };
+  }[];
 }
 
 export const BlockCard = ({ blocks, ...props }: BlockCardProps) => {
@@ -49,5 +49,5 @@ export const BlockCard = ({ blocks, ...props }: BlockCardProps) => {
         </S.TextBlock>
       </S.BlockContainer>
     </S.RowContainer>
-  )
-}
+  );
+};
