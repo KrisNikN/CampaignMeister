@@ -1,10 +1,13 @@
 import styled, { css } from 'styled-components';
+import { PlanCard as _PlanCard } from 'collections/Card';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
 } from 'components';
+
+export const PlanCard = styled(_PlanCard)(() => css``);
 
 export const TitleContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -29,6 +32,9 @@ export const TitleMain = styled(_H1)(
     text-align: center;
     z-index: 10;
     color: ${colors.white};
+    span {
+      color: ${colors.yellow};
+    }
   `,
 );
 

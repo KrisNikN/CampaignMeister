@@ -1,7 +1,8 @@
 import * as S from './elements';
 import type { HTMLFooterProps } from 'types';
+import { LinkProps } from 'next/link';
 
-/*export interface FooterProps extends HTMLFooterProps {
+export interface FooterProps {
   image: {
     src: string;
     width: number;
@@ -11,38 +12,23 @@ import type { HTMLFooterProps } from 'types';
   quoteDestop: string;
   quoteMobile: string;
 
-  navigationLiksDesktop: {
-    text: string;
-    path: string;
-  }[];
-
-  navigationLiksMobile: {
-    text: string;
-    path: string;
-  }[];
-
-  legalLinks: {
-    text: string;
-    path: string;
-  }[];
+  columns: { title: string; links: (LinkProps & { text: string })[] }[];
 
   copyRightDesktop: string;
   copyRightMobile: string;
 }
-*/
-export interface FooterProps extends HTMLFooterProps {}
+
+/*export interface FooterProps extends HTMLFooterProps {}*/
 
 export const Footer = ({
-  /*image,
+  image,
   quoteDestop,
   quoteMobile,
-  navigationLiksDesktop,
-  navigationLiksMobile,
-  legalLinks,
+  columns,
   copyRightDesktop,
-  copyRightMobile,*/
+  copyRightMobile,
   ...props
-}: FooterProps) => {
+}: FooterProps & HTMLFooterProps) => {
   return (
     <S.Footer {...props}>
       <S.ContainerFooter>
@@ -62,39 +48,22 @@ export const Footer = ({
           <S.MobileQueteContainer>{quoteMobile}</S.MobileQueteContainer>
         </S.LogoQueteContainer>
         <S.LegalNavContainer>
-          <S.Block>
-            <S.BlockTitle>Navigation</S.BlockTitle>
-            <S.LinksContainerDesktop>
-              {navigationLiksDesktop.map(({ text, path }) => {
-                return (
-                  <S.Link href={path} key={text}>
-                    {text}
-                  </S.Link>
-                );
-              })}
-            </S.LinksContainerDesktop>
-            <S.LinksContainerMobile>
-              {navigationLiksMobile.map(({ text, path }) => {
-                return (
-                  <S.Link href={path} key={text}>
-                    {text}
-                  </S.Link>
-                );
-              })}
-            </S.LinksContainerMobile>
-          </S.Block>
-          <S.Block>
-            <S.BlockTitle>Legal</S.BlockTitle>
-            <S.LinksContainer>
-              {legalLinks.map(({ text, path }) => {
-                return (
-                  <S.Link href={path} key={text}>
-                    {text}
-                  </S.Link>
-                );
-              })}
-            </S.LinksContainer>
-          </S.Block>
+          {columns.map((column) => {
+            return (
+              <S.Block key={column.title}>
+                <S.BlockTitle>{column.title}</S.BlockTitle>
+                <S.LinksContainer>
+                  {column.links.map(({ text, ...props }) => {
+                    return (
+                      <S.Link href={props.href.toString()} key={text}>
+                        {text}
+                      </S.Link>
+                    );
+                  })}
+                </S.LinksContainer>
+              </S.Block>
+            );
+          })}
         </S.LegalNavContainer>
 
         <S.CopyRightDestop

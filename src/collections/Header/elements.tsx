@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import type { HeaderProps } from './Header';
+import { HTMLHeaderProps } from 'types';
 import { Image as _Image, Button as _Button } from 'components';
 
-export const Header = styled('header')<HeaderProps>(
+export const Header = styled('header')<HTMLHeaderProps>(
   ({ theme: { colors } }) => css`
     width: 100%;
     display: flex;

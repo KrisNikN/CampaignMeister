@@ -1,6 +1,6 @@
 import * as S from './elements';
 import { HTMLSectionProps } from 'types';
-import { BlockCard, BlockCardProps } from 'collections/Card';
+import { BlockCardProps } from 'collections/Card';
 
 export interface BlockProps {
   titleDesktop: string;
@@ -25,7 +25,7 @@ export const Block = ({
 
       <S.ColumnConteiner>
         {rows.map(({ blocks }) => {
-          return <BlockCard blocks={blocks} key={blocks[0].title} />;
+          return <S.BlockCard blocks={blocks} key={blocks[0].title} />;
         })}
       </S.ColumnConteiner>
     </S.SectionContainer>

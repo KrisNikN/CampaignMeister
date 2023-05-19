@@ -26,7 +26,7 @@ export const JoinForm = styled(Collection.JoinForm)(
     width: 100%;
     max-width: 501px;
     @media ${breakpoint.max.S} {
-      max-width: 320px;
+      width: 100%;
     }
   `,
 );
@@ -57,6 +57,9 @@ export const DivElement = styled.div<{ variant?: string }>(
       flex-direction: column;
     `}
     justify-content:flex-start;
+    @media ${breakpoint.max.M} {
+      padding-right: 32px;
+    }
   `,
 );
 
@@ -112,6 +115,9 @@ export const NormalHeading = styled(_H1)(
     font-weight: 500;
     font-size: 32px;
     line-height: 38px;
+    span {
+      color: ${colors.yellow};
+    }
   `,
 );
 

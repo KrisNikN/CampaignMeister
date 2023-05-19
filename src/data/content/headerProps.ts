@@ -1,4 +1,6 @@
-export const headerProps = {
+import { HeaderProps } from 'collections';
+
+export const headerProps: HeaderProps = {
   image: {
     src: '/imgs/logo.png',
     width: 220,
@@ -6,4 +8,4 @@ export const headerProps = {
     alt: 'logo',
   },
   buttonText: 'Login',
-}
+};

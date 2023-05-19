@@ -1,8 +1,8 @@
-export const blocksSectionProps = {
-  titleDesktop:
-    'The <span style="color: #FCD130;">Building Blocks</span> of CampaignMeister',
-  titleMobile:
-    'Why <span style="color: #FCD130;"> use </span>CampaignMeister ?',
+import { BlockProps } from 'sections';
+
+export const blocksSectionProps: BlockProps = {
+  titleDesktop: 'The <span >Building Blocks</span> of CampaignMeister',
+  titleMobile: 'Why <span > use </span>CampaignMeister ?',
   rows: [
     {
       blocks: [
@@ -77,4 +77,4 @@ export const blocksSectionProps = {
       ],
     },
   ],
-}
+};

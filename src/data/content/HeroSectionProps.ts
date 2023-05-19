@@ -1,6 +1,9 @@
-export const heroSectionProps = {
+import { HeroProps } from 'sections';
+import { joinFormProps } from './joinFormProps';
+
+export const heroSectionProps: HeroProps = {
   title:
-    '<span style="color: #FCD130;">The ugly truth: Your campaign data are a mess.</span> By fixing it, you can improve your campaign performance with over 25%.',
+    '<span >The ugly truth: Your campaign data are a mess.</span> By fixing it, you can improve your campaign performance with over 25%.',
   subHeading: [
     'Optimising campaigns is hard, especially if you lack trustworthy data. Unfortunately this is the case for more than 65% of the companies.',
 
@@ -11,4 +14,5 @@ export const heroSectionProps = {
     width: 740,
     height: 498.63,
   },
-}
+  joinFormProps: joinFormProps,
+};

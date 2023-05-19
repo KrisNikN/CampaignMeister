@@ -1,10 +1,13 @@
 import styled, { css } from 'styled-components';
+import { BlockCard as _BlockCard } from 'collections/Card';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
 } from 'components';
+
+export const BlockCard = styled(_BlockCard)(() => css``);
 
 export const SectionContainer = styled.section(
   ({ theme: { colors, breakpoint } }) => css`
@@ -69,6 +72,10 @@ export const MobileTitleMain = styled(_H1)(
     z-index: 10;
     color: ${colors.white};
     display: none;
+    span {
+      color: ${colors.yellow};
+    }
+
     @media ${breakpoint.max.M} {
       display: inline-block;
     }
@@ -84,6 +91,9 @@ export const DesktopTitleMain = styled(_H1)(
     color: ${colors.white};
     @media ${breakpoint.max.M} {
       display: none;
+    }
+    span {
+      color: ${colors.yellow};
     }
   `,
 );

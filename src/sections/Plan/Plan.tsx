@@ -1,5 +1,5 @@
 import * as S from './elements';
-import { PlanCard, PlanCardProps } from 'collections/Card';
+import { PlanCardProps } from 'collections/Card';
 import { HTMLSectionProps } from 'types';
 
 export interface PlanSectionProps {
@@ -18,7 +18,7 @@ export const Plan = ({
     </S.TitleContainer>
     <S.RowContainer>
       {blocks.map((block) => {
-        return <PlanCard key={block.number} {...block} />;
+        return <S.PlanCard key={block.number} {...block} />;
       })}
     </S.RowContainer>
   </S.SectionContainer>

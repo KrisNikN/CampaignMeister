@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { DiagramCard as _DiagramCard } from 'collections/Card';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
@@ -20,6 +21,8 @@ export const SectionContainer = styled.section(
     }
   `,
 );
+
+export const DiagramCard = styled(_DiagramCard)(() => css``);
 
 export const TitleContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -43,6 +46,9 @@ export const TitleMain = styled(_H1)(
     text-align: center;
     z-index: 10;
     color: ${colors.white};
+    span {
+      color: ${colors.yellow};
+    }
   `,
 );
 

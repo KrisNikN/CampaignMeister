@@ -1,8 +1,8 @@
 import * as S from './elements';
 import { HTMLSectionProps } from 'types';
-import { DiagramCard, DiagramCardProps } from 'collections/Card';
+import { DiagramCardProps } from 'collections/Card';
 
-interface DiagramProps {
+export interface DiagramProps {
   title: string;
   paragraphs: string;
   cards: DiagramCardProps[];
@@ -39,7 +39,7 @@ export const Diagram = ({
       <S.ContainerBig>
         <S.DiagramContainer>
           {cards.map((card) => {
-            return <DiagramCard key={card.image.alt} {...card} />;
+            return <S.DiagramCard key={card.image.alt} {...card} />;
           })}
         </S.DiagramContainer>
       </S.ContainerBig>

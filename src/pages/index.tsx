@@ -7,6 +7,7 @@ import {
   blocksSectionProps,
   planSectionProps,
   startSectionProps,
+  joinFormProps,
 } from 'data';
 
 const Home: NextPage = () => {

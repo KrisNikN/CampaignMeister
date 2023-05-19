@@ -1,5 +1,6 @@
 import * as S from './elements';
 import { HTMLSectionProps } from 'types';
+import { JoinFormProps } from 'collections';
 
 export interface HeroProps {
   title: string;
@@ -9,12 +10,14 @@ export interface HeroProps {
     width: number;
     height: number;
   };
+  joinFormProps: JoinFormProps;
 }
 
 export const Hero = ({
   title,
   subHeading,
   image,
+  joinFormProps,
   ...props
 }: HTMLSectionProps & HeroProps) => {
   return (
@@ -30,7 +33,7 @@ export const Hero = ({
             {subHeading[1]}
           </S.Paragraph>
         </S.DivElement>
-        <S.JoinForm {...props} />
+        <S.JoinForm {...joinFormProps} />
       </S.ContainerText>
 
       <S.ImageContainer>

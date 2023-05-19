@@ -41,14 +41,37 @@ export const TitleContainer = styled.div(
     }
   `,
 );
-export const TitleMain = styled(_H1)(
+export const TitleMainDektop = styled(_H1)(
   ({ theme: { colors, breakpoint } }) => css`
     font-size: 32px;
     font-weight: 500;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0;
     z-index: 10;
     color: ${colors.white};
+    span {
+      color: ${colors.yellow};
+    }
+    @media ${breakpoint.max.M} {
+      display: none;
+    }
+  `,
+);
+export const TitleMainMobile = styled(_H1)(
+  ({ theme: { colors, breakpoint } }) => css`
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+    z-index: 10;
+    color: ${colors.white};
+    display: none;
+    span {
+      color: ${colors.yellow};
+    }
+    @media ${breakpoint.max.M} {
+      display: block;
+    }
   `,
 );
 
@@ -68,6 +91,7 @@ export const ImageContainer = styled.div(
     z-index: 0;
 
     @media ${breakpoint.max.M} {
+      z-index: 0;
     }
   `,
 );
@@ -81,7 +105,7 @@ export const JoinForm = styled(_JoinForm)(
     max-width: 520px;
     top: 8px;
     @media ${breakpoint.max.S} {
-      max-width: 320px;
+      width: 100%;
     }
   `,
 );

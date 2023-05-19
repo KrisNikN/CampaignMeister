@@ -1,43 +1,38 @@
 import * as S from './elements';
 
-export interface joinFormProps {
+export interface JoinFormProps {
   title: string;
-  inputPlaceHolder: string;
+  inputPlaceholder: string;
   buttonText: string;
-  linkPrivacy: string;
-  linkTerms: string;
+  checkboxes: string[];
 }
 
 export const JoinForm = ({
-  /*title,
-  inputPlaceHolder,
+  title,
+  inputPlaceholder,
   buttonText,
-  linkPrivacy,
-  linkTerms,*/
+  checkboxes,
   ...props
-}) => {
+}: JoinFormProps) => {
   return (
     <S.JoinForm {...props}>
-      <S.Paragraph>
-        <S.YellowStyling>Join </S.YellowStyling>waiting list for access
-      </S.Paragraph>
+      <S.Title dangerouslySetInnerHTML={{ __html: title }} />
       <S.InputsContainer>
-        <S.Input variant='' placeholder='Enter Email' />
-        <S.Button variant='yellow'>Join</S.Button>
+        <S.Input variant='' placeholder={inputPlaceholder} />
+        <S.Button variant='yellow'>{buttonText}</S.Button>
       </S.InputsContainer>
       <S.CheckBoxsContainer>
         <S.CheckBoxContainer>
           <S.CheckBox />
-          <S.SmallParagraph>
-            I agree to the <S.Link href='#'>Terms & Conditions </S.Link> and the
-            <S.Link href='#'> Privacy Policy</S.Link>
-          </S.SmallParagraph>
+          <S.SmallParagraph
+            dangerouslySetInnerHTML={{ __html: checkboxes[0] }}
+          />
         </S.CheckBoxContainer>
         <S.CheckBoxContainer>
           <S.CheckBox />
-          <S.SmallParagraph>
-            I want to subsribe to the newsletter
-          </S.SmallParagraph>
+          <S.SmallParagraph
+            dangerouslySetInnerHTML={{ __html: checkboxes[1] }}
+          />
         </S.CheckBoxContainer>
       </S.CheckBoxsContainer>
     </S.JoinForm>

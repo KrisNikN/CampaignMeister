@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { FooterProps } from './Footer';
+import { HTMLFooterProps } from 'types';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
@@ -7,12 +7,20 @@ import {
   H2 as _H2,
   Link as _Link,
 } from 'components';
+import { LinkProps } from 'next/link';
 
-/*export const Footer = styled(({ ...props }: FooterProps) => (
+export const Footer = styled(({ ...props }: HTMLFooterProps) => (
   <footer {...props} />
-))``*/
+))`
+  width: 100%;
+  padding-bottom: 90px;
+  background-color: ${({ theme: { colors, breakpoint } }) => colors.footerBlue};
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
 
-export const Footer = styled('footer')<FooterProps>(
+/*export const Footer = styled('footer')<FooterProps>(
   ({ theme: { colors, breakpoint } }) => css`
     width: 100%;
     padding-bottom: 90px;
@@ -20,10 +28,8 @@ export const Footer = styled('footer')<FooterProps>(
     display: flex;
     justify-content: center;
     position: relative;
-    @media ${breakpoint.max.M} {
-    }
   `,
-);
+);*/
 
 export const ContainerFooter = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -35,6 +41,7 @@ export const ContainerFooter = styled.div(
     align-items: flex-start;
     @media ${breakpoint.max.M} {
       flex-direction: column;
+      padding-bottom: 70px;
     }
   `,
 );
@@ -134,6 +141,14 @@ export const LinksContainerDesktop = styled.div(
   `,
 );
 
+export const LinksContainer = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+  `,
+);
+
 export const LinksContainerMobile = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
@@ -158,12 +173,17 @@ export const BlockTitle = styled(_Paragraph)(
   `,
 );
 
-export const Link = styled(_Link)<{ href: string; children: any }>(
-  ({ theme: { colors } }) => css`
+export const Link = styled(_Link)<LinkProps>(
+  ({ theme: { colors, breakpoint } }) => css`
     padding: 0;
     margin: 0;
     &:not(:nth-child(1)) {
       margin-top: 16px;
+    }
+    &:nth-child(4) {
+      @media ${breakpoint.max.M} {
+        display: none;
+      }
     }
   `,
 );

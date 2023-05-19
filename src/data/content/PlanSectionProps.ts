@@ -1,6 +1,7 @@
-export const planSectionProps = {
-  title:
-    'You can achieve this in just <span style="color: #FCD130;">three easy steps</span>',
+import { PlanSectionProps } from 'sections';
+
+export const planSectionProps: PlanSectionProps = {
+  title: 'You can achieve this in just <span >three easy steps</span>',
   blocks: [
     {
       number: 1,
@@ -45,4 +46,4 @@ export const planSectionProps = {
         'Our Smart Insights Engine will combine historic campaign performance, marketing mix modeling and validated learnings to give you a clear holistic understanding in marketing performance and incrementality.',
     },
   ],
-}
+};

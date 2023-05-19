@@ -22,15 +22,13 @@ export const JoinForm = styled.form(
 
 export const Input = styled(_Input)<{ variant: string; placeholder: string }>(
   ({ theme: { colors, breakpoint }, variant }) => css`
-    max-width: 333px;
     width: 100%;
     @media ${breakpoint.max.S} {
-      width: 181px;
     }
   `,
 );
 
-export const Paragraph = styled(_Paragraph)(
+export const Title = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
     font-weight: 500;
     font-size: 24px;
@@ -52,6 +50,13 @@ export const SmallParagraph = styled(_Paragraph)(
     margin: 0;
     padding: 0;
     margin-left: 9.5px;
+    span {
+      color: #fcd130;
+      border-bottom: 1px solid #fcd130;
+      color: #fcd130;
+      font-size: 12px;
+      font-weight: 400;
+    }
   `,
 );
 
