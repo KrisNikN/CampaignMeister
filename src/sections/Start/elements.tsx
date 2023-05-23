@@ -24,10 +24,10 @@ export const SectionContainer = styled.section(
       top: -50%;
       bottom: 95%;
       background-image: radial-gradient(
-        ${colors.footerBlue},
-        ${colors.darkBlue} 40%
+        ${colors.black},
+        ${colors.darkBlue} 70%
       );
-      opacity: 0.9;
+      opacity: 0.4;
     }
     padding-bottom: 80px;
     @media ${breakpoint.max.M} {
