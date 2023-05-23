@@ -16,7 +16,19 @@ export const SectionContainer = styled.section(
     flex-direction: column;
     position: relative;
     margin-top: 80px;
-
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -50%;
+      bottom: 95%;
+      background-image: radial-gradient(
+        ${colors.footerBlue},
+        ${colors.darkBlue} 40%
+      );
+      opacity: 0.9;
+    }
     padding-bottom: 80px;
     @media ${breakpoint.max.M} {
       margin-top: 40px;
