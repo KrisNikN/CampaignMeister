@@ -1,13 +1,13 @@
-import styled from 'styled-components'
-import type { FormCheckboxProps } from './FormCheckbox'
+import styled from 'styled-components';
+import type { FormCheckboxProps } from './FormCheckbox';
 
-export const Container = styled('div')``
+export const Container = styled('div')``;
 
 export const InputWrapper = styled('div')`
   display: flex;
   width: 100%;
   align-items: center;
-`
+`;
 
 export const Label = styled('label')`
   color: ${({ theme }) => theme.colors.black};
@@ -16,7 +16,7 @@ export const Label = styled('label')`
   font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
-`
+`;
 
 export const ErrorText = styled('p')`
   color: ${({ theme }) => theme.colors.vividRed};
@@ -27,6 +27,6 @@ export const ErrorText = styled('p')`
   line-height: 1.8;
   margin-bottom: 5px;
   margin: 0;
-`
+`;
 
-export const Input = styled('input')<FormCheckboxProps>``
+export const Input = styled('input')<FormCheckboxProps>``;

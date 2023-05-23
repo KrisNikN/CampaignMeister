@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
-import { default as NextImage } from 'next/image'
+import styled, { css } from 'styled-components';
+import { default as NextImage } from 'next/image';
 
-export const Image = styled(NextImage)(() => css``)
+export const Image = styled(NextImage)(() => css``);

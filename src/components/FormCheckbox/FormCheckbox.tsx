@@ -1,13 +1,17 @@
-import * as S from './elements'
-import { useController, UseControllerProps, FieldValues } from 'react-hook-form'
-import { getRandomIntInclusive } from 'utils'
-import type { KeyOfType, HTMLInputProps } from 'types'
+import * as S from './elements';
+import {
+  useController,
+  UseControllerProps,
+  FieldValues,
+} from 'react-hook-form';
+import { getRandomIntInclusive } from 'utils';
+import type { KeyOfType, HTMLInputProps } from 'types';
 
 export interface FormCheckboxProps<T extends FieldValues = any>
   extends Omit<HTMLInputProps, 'name' | 'defaultValue'>,
     Omit<UseControllerProps<T>, 'name'> {
-  name: KeyOfType<T>
-  label?: string
+  name: KeyOfType<T>;
+  label?: string;
 }
 
 export const FormCheckbox = ({
@@ -25,7 +29,7 @@ export const FormCheckbox = ({
     control,
     rules: { required: true },
     defaultValue: '',
-  })
+  });
 
   return (
     <S.Container {...props}>
@@ -45,7 +49,7 @@ export const FormCheckbox = ({
       </S.InputWrapper>
       {error && <S.ErrorText>{error.message}</S.ErrorText>}
     </S.Container>
-  )
-}
+  );
+};
 
-FormCheckbox.displayName = 'FormCheckbox'
+FormCheckbox.displayName = 'FormCheckbox';

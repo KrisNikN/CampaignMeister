@@ -1,16 +1,35 @@
-import * as S from './elements'
+import * as S from './elements';
+import { HTMLSectionProps } from 'types';
+import { JoinFormProps } from 'collections';
 
-export const Start = ({ ...props }) => {
+export interface StartProps {
+  desktopTitle: string;
+  mobileTitle: string;
+  image: {
+    src: string;
+    width: number;
+    height: number;
+  };
+  joinFormProps: JoinFormProps;
+}
+
+export const Start = ({
+  desktopTitle,
+  mobileTitle,
+  image,
+  joinFormProps,
+  ...props
+}: HTMLSectionProps & StartProps) => {
   return (
     <S.SectionContainer>
       <S.TitleContainer>
         <S.ImageContainer>
-          <S.Image src='/imgs/lines.png' width={88.47} height={373.24} />
+          <S.Image src={image.src} width={image.width} height={image.height} />
         </S.ImageContainer>
-        <S.YellowStyling>Start</S.YellowStyling> optimising
-        <S.YellowStyling> now</S.YellowStyling>
+        <S.TitleMainDektop dangerouslySetInnerHTML={{ __html: desktopTitle }} />
+        <S.TitleMainMobile dangerouslySetInnerHTML={{ __html: mobileTitle }} />
       </S.TitleContainer>
-      <S.JoinForm />
+      <S.JoinForm {...joinFormProps} />
     </S.SectionContainer>
-  )
-}
+  );
+};

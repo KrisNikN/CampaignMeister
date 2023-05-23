@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -15,4 +15,4 @@ export const Container = styled.div(
       padding-right: 20px;
     }
   `,
-)
+);

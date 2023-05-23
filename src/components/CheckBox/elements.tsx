@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const CheckBox = styled.input<{ variant?: string; typeM?: string }>(
   ({ theme: { colors }, variant, typeM }) => css`
@@ -58,4 +58,4 @@ export const CheckBox = styled.input<{ variant?: string; typeM?: string }>(
     display: grid;
     place-content: center;
   `,
-)
+);

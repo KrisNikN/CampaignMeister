@@ -1,6 +1,10 @@
-import styled, { css } from 'styled-components'
-import { Paragraph as _Paragraph, Image as _Image, H1 as _H1 } from 'components'
-import * as Collection from 'collections'
+import styled, { css } from 'styled-components';
+import {
+  Paragraph as _Paragraph,
+  Image as _Image,
+  H1 as _H1,
+} from 'components';
+import * as Collection from 'collections';
 
 export const HeroContainer = styled.section(
   ({ theme: { breakpoint } }) => css`
@@ -14,7 +18,7 @@ export const HeroContainer = styled.section(
       flex-direction: column-reverse;
     }
   `,
-)
+);
 
 export const JoinForm = styled(Collection.JoinForm)(
   ({ theme: { breakpoint, colors } }) => css`
@@ -22,10 +26,10 @@ export const JoinForm = styled(Collection.JoinForm)(
     width: 100%;
     max-width: 501px;
     @media ${breakpoint.max.S} {
-      max-width: 320px;
+      width: 100%;
     }
   `,
-)
+);
 
 export const ContainerText = styled.div(
   ({ theme: { breakpoint, colors } }) => css`
@@ -39,7 +43,7 @@ export const ContainerText = styled.div(
       max-width: 1002px;
     }
   `,
-)
+);
 
 export const DivElement = styled.div<{ variant?: string }>(
   ({ theme: { breakpoint }, variant }) => css`
@@ -53,10 +57,13 @@ export const DivElement = styled.div<{ variant?: string }>(
       flex-direction: column;
     `}
     justify-content:flex-start;
+    @media ${breakpoint.max.M} {
+      padding-right: 32px;
+    }
   `,
-)
+);
 
-export const Image = styled(_Image)(() => css``)
+export const Image = styled(_Image)(() => css``);
 
 export const ImageContainer = styled.div(
   ({ theme: { breakpoint, colors } }) => css`
@@ -90,7 +97,7 @@ export const ImageContainer = styled.div(
       justify-content: center;
     }
   `,
-)
+);
 
 export const YellowStyling = styled.span(
   ({ theme: { colors, breakpoint } }) => css`
@@ -98,7 +105,7 @@ export const YellowStyling = styled.span(
     padding: 0;
     margin: 0;
   `,
-)
+);
 
 export const NormalHeading = styled(_H1)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -108,8 +115,11 @@ export const NormalHeading = styled(_H1)(
     font-weight: 500;
     font-size: 32px;
     line-height: 38px;
+    span {
+      color: ${colors.yellow};
+    }
   `,
-)
+);
 
 export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -122,4 +132,4 @@ export const Paragraph = styled(_Paragraph)(
       margin-top: 27px;
     }
   `,
-)
+);

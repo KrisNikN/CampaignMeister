@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { default as NextLink } from 'next/link'
+import styled, { css } from 'styled-components';
+import { default as NextLink } from 'next/link';
 
 export const Link = styled.a(
   ({ theme: { colors, breakpoint } }) => css`
@@ -13,4 +13,4 @@ export const Link = styled.a(
       cursor: pointer;
     }
   `,
-)
+);

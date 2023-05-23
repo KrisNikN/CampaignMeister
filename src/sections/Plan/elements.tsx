@@ -1,21 +1,42 @@
-import { TitleContainer as _TitleContainer } from 'collections'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
+import { PlanCard as _PlanCard } from 'collections/Card';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
-} from 'components'
+} from 'components';
 
-export const TitleContainer = styled(_TitleContainer)(
-  ({ theme: { colors, breakpoint } }) => css``,
-)
+export const PlanCard = styled(_PlanCard)(() => css``);
 
-export const YellowStyling = styled.span(
+export const TitleContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
-    color: ${colors.yellow};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 80px 40px;
+    gap: 20px;
+
+    border-bottom: 2px solid ${colors.darkBlue};
+    @media ${breakpoint.max.M} {
+    }
   `,
-)
+);
+
+export const TitleMain = styled(_H1)(
+  ({ theme: { colors, breakpoint } }) => css`
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    z-index: 10;
+    color: ${colors.white};
+    span {
+      color: ${colors.yellow};
+    }
+  `,
+);
 
 export const SectionContainer = styled.section(
   ({ theme: { colors, breakpoint } }) => css`
@@ -23,11 +44,11 @@ export const SectionContainer = styled.section(
     background-color: ${colors.blue};
     border-radius: 16px;
     margin-top: 80px;
-
+    z-index: 1;
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const RowContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -38,7 +59,7 @@ export const RowContainer = styled.div(
       flex-direction: column;
     }
   `,
-)
+);
 
 export const ElementContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -63,7 +84,7 @@ export const ElementContainer = styled.div(
       }
     }
   `,
-)
+);
 
 export const Element = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -78,7 +99,7 @@ export const Element = styled.div(
       padding-top: 24px;
     }
   `,
-)
+);
 
 export const Block = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -88,7 +109,7 @@ export const Block = styled.div(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const BlockTitle = styled(_H2)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -101,7 +122,7 @@ export const BlockTitle = styled(_H2)(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const BoldParagraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -115,7 +136,7 @@ export const BoldParagraph = styled(_Paragraph)(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const Paragraph = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -129,7 +150,7 @@ export const Paragraph = styled(_Paragraph)(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
 export const Number = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -145,9 +166,9 @@ export const Number = styled.div(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
-export const Image = styled(_Image)(() => css``)
+export const Image = styled(_Image)(() => css``);
 export const ImageContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
@@ -158,4 +179,4 @@ export const ImageContainer = styled.div(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);

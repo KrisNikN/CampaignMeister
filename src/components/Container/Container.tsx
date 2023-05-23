@@ -1,5 +1,5 @@
-import * as S from './elements'
+import * as S from './elements';
 
 export const Container = ({ children, ...props }) => {
-  return <S.Container>{children}</S.Container>
-}
+  return <S.Container>{children}</S.Container>;
+};

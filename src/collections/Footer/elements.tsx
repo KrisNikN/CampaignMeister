@@ -1,18 +1,26 @@
-import styled, { css } from 'styled-components'
-import { FooterProps } from './Footer'
+import styled, { css } from 'styled-components';
+import { HTMLFooterProps } from 'types';
 import {
   H1 as _H1,
   Paragraph as _Paragraph,
   Image as _Image,
   H2 as _H2,
   Link as _Link,
-} from 'components'
+} from 'components';
+import { LinkProps } from 'next/link';
 
-/*export const Footer = styled(({ ...props }: FooterProps) => (
+export const Footer = styled(({ ...props }: HTMLFooterProps) => (
   <footer {...props} />
-))``*/
+))`
+  width: 100%;
+  padding-bottom: 90px;
+  background-color: ${({ theme: { colors, breakpoint } }) => colors.footerBlue};
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
 
-export const Footer = styled('footer')<FooterProps>(
+/*export const Footer = styled('footer')<FooterProps>(
   ({ theme: { colors, breakpoint } }) => css`
     width: 100%;
     padding-bottom: 90px;
@@ -20,10 +28,8 @@ export const Footer = styled('footer')<FooterProps>(
     display: flex;
     justify-content: center;
     position: relative;
-    @media ${breakpoint.max.M} {
-    }
   `,
-)
+);*/
 
 export const ContainerFooter = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -35,9 +41,10 @@ export const ContainerFooter = styled.div(
     align-items: flex-start;
     @media ${breakpoint.max.M} {
       flex-direction: column;
+      padding-bottom: 70px;
     }
   `,
-)
+);
 
 export const LogoQueteContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -50,7 +57,7 @@ export const LogoQueteContainer = styled.div(
       width: 100%;
     }
   `,
-)
+);
 
 export const LogoContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -65,9 +72,9 @@ export const LogoContainer = styled.div(
       width: 100%;
     }
   `,
-)
+);
 
-export const QueteContainer = styled.div(
+export const QuoteContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     padding-left: 40px;
     font-size: 12px;
@@ -78,7 +85,7 @@ export const QueteContainer = styled.div(
       padding-left: 20px;
     }
   `,
-)
+);
 
 export const MobileQueteContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -91,9 +98,9 @@ export const MobileQueteContainer = styled.div(
       display: none;
     }
   `,
-)
+);
 
-export const Image = styled(_Image)(() => css``)
+export const Image = styled(_Image)(() => css``);
 
 export const LegalNavContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -105,7 +112,7 @@ export const LegalNavContainer = styled.div(
       flex-direction: column;
     }
   `,
-)
+);
 
 export const Block = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -121,17 +128,38 @@ export const Block = styled.div(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
+
+export const LinksContainerDesktop = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    @media ${breakpoint.max.M} {
+      display: none;
+    }
+  `,
+);
 
 export const LinksContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     display: flex;
     flex-direction: column;
     margin-top: 32px;
+  `,
+);
+
+export const LinksContainerMobile = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    display: none;
     @media ${breakpoint.max.M} {
+      display: block;
     }
   `,
-)
+);
 
 export const BlockTitle = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -143,22 +171,27 @@ export const BlockTitle = styled(_Paragraph)(
     @media ${breakpoint.max.M} {
     }
   `,
-)
+);
 
-export const Link = styled(_Link)<{ href: string; children: any }>(
-  ({ theme: { colors } }) => css`
+export const Link = styled(_Link)<LinkProps>(
+  ({ theme: { colors, breakpoint } }) => css`
     padding: 0;
     margin: 0;
     &:not(:nth-child(1)) {
       margin-top: 16px;
     }
+    &:nth-child(4) {
+      @media ${breakpoint.max.M} {
+        display: none;
+      }
+    }
   `,
-)
+);
 
 export const CopyRightDestop = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: absolute;
-    bottom: -40px;
+    bottom: -60px;
     left: 40px;
     color: ${colors.white};
     font-size: 12px;
@@ -167,7 +200,7 @@ export const CopyRightDestop = styled.div(
       display: none;
     }
   `,
-)
+);
 
 export const CopyRightMobile = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
@@ -183,29 +216,4 @@ export const CopyRightMobile = styled.div(
       flex-direction: column;
     }
   `,
-)
-
-export const CopyLink = styled(_Link)<{ children: any }>(
-  ({ theme: { colors, breakpoint } }) => css`
-    border-bottom: 1px solid ${colors.yellow};
-    color: ${colors.yellow};
-    font-size: 12px;
-    font-weight: 500;
-    @media ${breakpoint.max.M} {
-    }
-  `,
-)
-
-export const YearSpan = styled.span(
-  () => css`
-    margin-top: 10px;
-  `,
-)
-
-export const Column = styled.div(
-  () => css`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  `,
-)
+);
