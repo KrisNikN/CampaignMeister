@@ -3,8 +3,14 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyles } from 'styles';
 import { Header, Footer } from 'collections';
-
 import { headerProps, footerProps } from 'data';
+
+import { storyblokInit, apiPlugin } from '@storyblok/react';
+
+storyblokInit({
+  accessToken: process.env.storyblokApiToken,
+  use: [apiPlugin],
+});
 
 function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
   return (

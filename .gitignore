@@ -37,3 +37,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# HTTPS Proxy certificates
+localhost.pem
+localhost-key.pem
