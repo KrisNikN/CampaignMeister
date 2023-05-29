@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { getStoryblokApi } from '@storyblok/react';
+import { getStoryblokApi, ISbStoriesParams } from '@storyblok/react';
 import { Container } from 'components';
 import { Hero, Diagram, Block, Plan, Start } from 'sections';
 
@@ -38,7 +38,7 @@ export async function getStaticProps() {
   let slug = 'home';
 
   // load the draft version
-  let sbParams = {
+  let sbParams: ISbStoriesParams = {
     version: 'draft', // or 'published'
   };
 
