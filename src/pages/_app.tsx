@@ -4,15 +4,16 @@ import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyles } from 'styles';
 import { Header, Footer } from 'collections';
 import { headerProps, footerProps } from 'data';
+import { getStoryblokApi, ISbStoriesParams } from '@storyblok/react';
+// import { storyblokInit, apiPlugin } from '@storyblok/react';
 
-import { storyblokInit, apiPlugin } from '@storyblok/react';
+// storyblokInit({
+//   accessToken: process.env.storyblokApiToken,
+//   use: [apiPlugin],
+// });
 
-storyblokInit({
-  accessToken: process.env.storyblokApiToken,
-  use: [apiPlugin],
-});
-
-function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
+function MyApp({ story, Component, pageProps: { ...pageProps } }: AppProps) {
+  console.log(story);
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -33,3 +34,24 @@ function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
 }
 
 export default MyApp;
+
+export async function getStaticProps() {
+  // home is the default slug for the homepage in Storyblok
+  let slug = 'headerfooter';
+
+  // load the draft version
+  let sbParams: ISbStoriesParams = {
+    version: 'draft', // or 'published'
+  };
+
+  const storyblokApi = getStoryblokApi();
+  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  console.log('getStaticProps executed');
+  return {
+    props: {
+      story: data ? data.story : false,
+      key: data ? data.story.id : false,
+    },
+    revalidate: 3600, // revalidate every hour
+  };
+}

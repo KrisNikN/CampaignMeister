@@ -8,7 +8,7 @@ export const startSectionProps: StartProps = {
   image: {
     src: '/imgs/lines.png',
     width: 88.47,
-    height: 373.24,
+    height: 280.24,
   },
   joinFormProps: joinFormProps,
 };

@@ -4,7 +4,7 @@ import { JoinFormProps } from 'collections';
 
 export interface HeroProps {
   title: string;
-  subHeading: string[];
+  subHeading: string;
   image: {
     src: string;
     width: number;
@@ -27,11 +27,7 @@ export const Hero = ({
           <S.NormalHeading dangerouslySetInnerHTML={{ __html: title }} />
         </S.DivElement>
         <S.DivElement variant='gap'>
-          <S.Paragraph>
-            {subHeading[0]}
-            <br /> <br />
-            {subHeading[1]}
-          </S.Paragraph>
+          <S.Paragraph dangerouslySetInnerHTML={{ __html: subHeading }} />
         </S.DivElement>
         <S.JoinForm {...joinFormProps} />
       </S.ContainerText>
