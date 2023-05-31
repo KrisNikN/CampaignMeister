@@ -2,7 +2,7 @@ import * as S from './elements';
 import { extractDimensionsFromUrl } from 'functions';
 
 export interface BlockCardProps {
-  blocks: {
+  bloks: {
     title: string;
     text: string;
     image: {
@@ -12,7 +12,7 @@ export interface BlockCardProps {
   }[];
 }
 
-export const BlockCard = ({ blocks, ...props }: BlockCardProps) => {
+export const BlockCard = ({ bloks: blocks, ...props }: BlockCardProps) => {
   const image1 = extractDimensionsFromUrl(blocks[0].image.filename);
   const image2 = extractDimensionsFromUrl(blocks[1].image.filename);
 

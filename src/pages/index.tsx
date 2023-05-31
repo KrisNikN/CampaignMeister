@@ -1,9 +1,19 @@
 import { NextPage } from 'next';
 import { getStoryblokApi, ISbStoriesParams } from '@storyblok/react';
 import { Container } from 'components';
-import { Hero, Diagram, Block, Plan, Start } from 'sections';
 import Image from 'next/image';
-
+import {
+  Hero,
+  Diagram,
+  Block,
+  Plan,
+  Start,
+  HeroProps,
+  DiagramProps,
+  BlockProps,
+  PlanProps,
+  StartProps,
+} from 'sections';
 // import {
 //   heroSectionProps,
 //   diagramSectionProps,
@@ -12,13 +22,6 @@ import Image from 'next/image';
 //   startSectionProps,
 //   joinFormProps,
 // } from 'data';
-import {
-  HeroProps,
-  DiagramProps,
-  BlockProps,
-  PlanProps,
-  StartProps,
-} from 'sections';
 
 interface HomeProps {
   story: any;

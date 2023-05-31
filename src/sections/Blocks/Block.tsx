@@ -25,7 +25,7 @@ export const Block = ({
 
       <S.ColumnConteiner>
         {rows.map(({ bloks }) => {
-          return <S.BlockCard blocks={bloks} key={bloks[0].title} />;
+          return <S.BlockCard bloks={bloks} key={bloks[0].title} />;
         })}
       </S.ColumnConteiner>
     </S.SectionContainer>
