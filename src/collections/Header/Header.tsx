@@ -1,12 +1,11 @@
 import * as S from './elements';
+import { extractDimensionsFromUrl } from 'functions';
 
 import type { HTMLHeaderProps } from 'types';
 
 export interface HeaderProps {
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   buttonText: string;
@@ -17,13 +16,15 @@ export const Header = ({
   buttonText,
   ...props
 }: HeaderProps & HTMLHeaderProps) => {
+  // console.log(image);
+  const { height, width } = extractDimensionsFromUrl(image.filename);
   return (
     <S.Header {...props}>
       <S.HeaderContainer>
         <S.Image
-          src={image.src}
-          width={image.width}
-          height={image.height}
+          src={image.filename}
+          width={width}
+          height={height}
           alt={image.alt}
           layout='intrinsic'
         />

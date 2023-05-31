@@ -1,12 +1,11 @@
 import * as S from './elements';
 import type { HTMLFooterProps } from 'types';
 import { LinkProps } from 'next/link';
+import { extractDimensionsFromUrl } from 'functions';
 
 export interface FooterProps {
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   quoteDestop: string;
@@ -29,15 +28,16 @@ export const Footer = ({
   copyRightMobile,
   ...props
 }: FooterProps & HTMLFooterProps) => {
+  const { height, width } = extractDimensionsFromUrl(image.filename);
   return (
     <S.Footer {...props}>
       <S.ContainerFooter>
         <S.LogoQueteContainer>
           <S.LogoContainer>
             <S.Image
-              src={image.src}
-              width={image.width}
-              height={image.height}
+              src={image.filename}
+              width={width}
+              height={height}
               alt={image.alt}
               layout='intrinsic'
             />

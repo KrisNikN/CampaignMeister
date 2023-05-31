@@ -2,7 +2,7 @@ import * as S from './elements';
 import { PlanCardProps } from 'collections/Card';
 import { HTMLSectionProps } from 'types';
 
-export interface PlanSectionProps {
+export interface PlanProps {
   title: string;
   blocks: PlanCardProps[];
 }
@@ -11,7 +11,7 @@ export const Plan = ({
   title,
   blocks,
   ...props
-}: PlanSectionProps & HTMLSectionProps) => (
+}: PlanProps & HTMLSectionProps) => (
   <S.SectionContainer {...props}>
     <S.TitleContainer>
       <S.TitleMain dangerouslySetInnerHTML={{ __html: title }} />

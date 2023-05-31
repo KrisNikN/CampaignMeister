@@ -1,6 +1,6 @@
-import { PlanSectionProps } from 'sections';
+import { PlanProps } from 'sections';
 
-export const planSectionProps: PlanSectionProps = {
+export const planSectionProps: PlanProps = {
   title: 'You can achieve this in just <span >three easy steps</span>',
   blocks: [
     {

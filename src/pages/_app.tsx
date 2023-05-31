@@ -1,19 +1,14 @@
-import type { AppProps } from 'next/app';
+import type { AppProps, AppContext } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
+import App from 'next/app';
 import { theme, GlobalStyles } from 'styles';
-import { Header, Footer } from 'collections';
-import { headerProps, footerProps } from 'data';
+import { Header, Footer, HeaderProps, FooterProps } from 'collections';
 import { getStoryblokApi, ISbStoriesParams } from '@storyblok/react';
-// import { storyblokInit, apiPlugin } from '@storyblok/react';
 
-// storyblokInit({
-//   accessToken: process.env.storyblokApiToken,
-//   use: [apiPlugin],
-// });
-
-function MyApp({ story, Component, pageProps: { ...pageProps } }: AppProps) {
-  console.log(story);
+function MyApp({ Component, pageProps, data }: AppProps & { data: any }) {
+  const headerProps: HeaderProps = data.content.Blocks[0];
+  const footerProps: FooterProps = data.content.Blocks[1];
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -33,25 +28,25 @@ function MyApp({ story, Component, pageProps: { ...pageProps } }: AppProps) {
   );
 }
 
-export default MyApp;
-
-export async function getStaticProps() {
-  // home is the default slug for the homepage in Storyblok
-  let slug = 'headerfooter';
-
-  // load the draft version
-  let sbParams: ISbStoriesParams = {
-    version: 'draft', // or 'published'
-  };
-
+MyApp.getInitialProps = async (appContext: AppContext) => {
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  console.log('getStaticProps executed');
-  return {
-    props: {
-      story: data ? data.story : false,
-      key: data ? data.story.id : false,
-    },
-    revalidate: 3600, // revalidate every hour
+  const slug = 'headerfooter';
+  const sbParams: ISbStoriesParams = {
+    version: 'draft',
   };
-}
+
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  // console.log('getInitialProps executed');
+
+  let appProps = {};
+  if (typeof App.getInitialProps === 'function') {
+    appProps = await App.getInitialProps(appContext);
+  }
+
+  return {
+    ...appProps,
+    data: data ? data.story : null,
+  };
+};
+
+export default MyApp;

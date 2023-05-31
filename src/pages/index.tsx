@@ -4,45 +4,36 @@ import { Container } from 'components';
 import { Hero, Diagram, Block, Plan, Start } from 'sections';
 import Image from 'next/image';
 
+// import {
+//   heroSectionProps,
+//   diagramSectionProps,
+//   blocksSectionProps,
+//   planSectionProps,
+//   startSectionProps,
+//   joinFormProps,
+// } from 'data';
 import {
-  heroSectionProps,
-  diagramSectionProps,
-  blocksSectionProps,
-  planSectionProps,
-  startSectionProps,
-  joinFormProps,
-} from 'data';
+  HeroProps,
+  DiagramProps,
+  BlockProps,
+  PlanProps,
+  StartProps,
+} from 'sections';
 
 interface HomeProps {
   story: any;
 }
 
-const extractDimensionsFromUrl = (
-  url: string,
-): { width: number; height: number } | null => {
-  const matches = url.match(/\/(\d+)x(\d+)\//);
-  if (matches && matches.length === 3) {
-    const width = parseInt(matches[1], 10);
-    const height = parseInt(matches[2], 10);
-    return { width, height };
-  }
-  return null;
-};
-
 const Home: NextPage<HomeProps> = ({ story }) => {
-  // console.log(story.content.Sections[0].image.filename);
-  const image = story.content.Sections[0].image;
-  const src = story.content.Sections[0].image.filename;
-  const props = extractDimensionsFromUrl(src);
+  const Sections = story.content.Sections;
+  const heroSectionProps: HeroProps = Sections[0];
+  const diagramSectionProps: DiagramProps = Sections[1];
+  const blocksSectionProps: BlockProps = Sections[2];
+  const planSectionProps: PlanProps = Sections[3];
+  const startSectionProps: StartProps = Sections[4];
+  // console.log(heroSectionProps.forms[0]);
   return (
     <main>
-      <Image
-        {...image}
-        src={src}
-        {...props}
-        layout='intrinsic'
-        is_external_url='false'
-      />
       <Container>
         <Hero {...heroSectionProps} />
         <Diagram {...diagramSectionProps} />
