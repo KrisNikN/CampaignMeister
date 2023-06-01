@@ -1,5 +1,9 @@
 import { NextPage } from 'next';
-import { getStoryblokApi, ISbStoriesParams } from '@storyblok/react';
+import {
+  getStoryblokApi,
+  ISbStoriesParams,
+  storyblokEditable,
+} from '@storyblok/react';
 import { Container } from 'components';
 import Image from 'next/image';
 import {
@@ -14,17 +18,13 @@ import {
   PlanProps,
   StartProps,
 } from 'sections';
-// import {
-//   heroSectionProps,
-//   diagramSectionProps,
-//   blocksSectionProps,
-//   planSectionProps,
-//   startSectionProps,
-//   joinFormProps,
-// } from 'data';
 
 interface HomeProps {
-  story: any;
+  story: {
+    content: {
+      Sections: any[];
+    };
+  };
 }
 
 const Home: NextPage<HomeProps> = ({ story }) => {
@@ -34,9 +34,10 @@ const Home: NextPage<HomeProps> = ({ story }) => {
   const blocksSectionProps: BlockProps = Sections[2];
   const planSectionProps: PlanProps = Sections[3];
   const startSectionProps: StartProps = Sections[4];
-  // console.log(heroSectionProps.forms[0]);
+  // console.log(heroSectionProps);
+  // console.log(story);
   return (
-    <main>
+    <main {...storyblokEditable(story.content)}>
       <Container>
         <Hero {...heroSectionProps} />
         <Diagram {...diagramSectionProps} />

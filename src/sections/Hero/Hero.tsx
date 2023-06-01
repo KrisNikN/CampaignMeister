@@ -20,6 +20,7 @@ export const Hero = ({
   forms,
   ...props
 }: HTMLSectionProps & HeroProps) => {
+  //console.log(image);
   const { height, width } = extractDimensionsFromUrl(image.filename);
   return (
     <S.HeroContainer {...props}>
@@ -46,10 +47,3 @@ export const Hero = ({
     </S.HeroContainer>
   );
 };
-/*<Image
-  src='/imgs/logo.png'
-  width={220}
-  height={28}
-  alt='logo'
-  layout='intrinsic'
-/> */

@@ -6,9 +6,25 @@ import { theme, GlobalStyles } from 'styles';
 import { Header, Footer, HeaderProps, FooterProps } from 'collections';
 import { getStoryblokApi, ISbStoriesParams } from '@storyblok/react';
 
-function MyApp({ Component, pageProps, data }: AppProps & { data: any }) {
+interface MoreProps {
+  data: {
+    content: {
+      Blocks: any[];
+    };
+  };
+}
+
+import { storyblokInit, apiPlugin } from '@storyblok/react';
+
+storyblokInit({
+  accessToken: process.env.storyblokApiToken,
+  use: [apiPlugin],
+});
+
+function MyApp({ Component, pageProps, data }: AppProps & MoreProps) {
   const headerProps: HeaderProps = data.content.Blocks[0];
   const footerProps: FooterProps = data.content.Blocks[1];
+
   return (
     <ThemeProvider theme={theme}>
       <Head>

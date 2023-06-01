@@ -2,6 +2,7 @@ import * as S from './elements';
 import type { HTMLFooterProps } from 'types';
 import { LinkProps } from 'next/link';
 import { extractDimensionsFromUrl } from 'functions';
+import { storyblokEditable } from '@storyblok/react';
 
 export interface FooterProps {
   image: {
@@ -11,7 +12,10 @@ export interface FooterProps {
   quoteDestop: string;
   quoteMobile: string;
 
-  columns: { title: string; links: (LinkProps & { text: string })[] }[];
+  columns: {
+    title: string;
+    links: { text: string; href: LinkProps & { url: string } }[];
+  }[];
 
   copyRightDesktop: string;
   copyRightMobile: string;
@@ -55,7 +59,7 @@ export const Footer = ({
                 <S.LinksContainer>
                   {column.links.map(({ text, ...props }) => {
                     return (
-                      <S.Link href={props.href.toString()} key={text}>
+                      <S.Link href={props.href.url} key={text}>
                         {text}
                       </S.Link>
                     );
