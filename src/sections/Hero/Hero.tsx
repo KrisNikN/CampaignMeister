@@ -2,8 +2,13 @@ import * as S from './elements';
 import { HTMLSectionProps } from 'types';
 import { JoinFormProps } from 'collections';
 import { extractDimensionsFromUrl } from 'functions';
+import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface HeroProps {
+  blok: ISbHero;
+}
+
+interface ISbHero extends SbBlokData {
   title: string;
   subHeading: string;
   image: {
@@ -13,33 +18,28 @@ export interface HeroProps {
   forms: JoinFormProps[];
 }
 
-export const Hero = ({
-  title,
-  subHeading,
-  image,
-  forms,
-  ...props
-}: HTMLSectionProps & HeroProps) => {
-  //console.log(image);
-  const { height, width } = extractDimensionsFromUrl(image.filename);
+export const Hero = ({ blok, ...props }: HTMLSectionProps & HeroProps) => {
+  // console.log(blok);
+
+  const { height, width } = extractDimensionsFromUrl(blok.image?.filename);
   return (
-    <S.HeroContainer {...props}>
+    <S.HeroContainer {...props} {...storyblokEditable(blok)}>
       <S.ContainerText>
         <S.DivElement>
-          <S.NormalHeading dangerouslySetInnerHTML={{ __html: title }} />
+          <S.NormalHeading dangerouslySetInnerHTML={{ __html: blok.title }} />
         </S.DivElement>
         <S.DivElement variant='gap'>
-          <S.Paragraph dangerouslySetInnerHTML={{ __html: subHeading }} />
+          <S.Paragraph dangerouslySetInnerHTML={{ __html: blok.subHeading }} />
         </S.DivElement>
-        <S.JoinForm {...forms[0]} />
+        <S.JoinForm {...blok.forms[0]} />
       </S.ContainerText>
 
       <S.ImageContainer>
         <S.Image
-          src={image.filename}
+          src={blok.image.filename}
           width={width}
           height={height}
-          alt={image.alt}
+          alt={blok.image.alt}
           layout='intrinsic'
           priority
         />

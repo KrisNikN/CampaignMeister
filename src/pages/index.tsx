@@ -3,6 +3,8 @@ import {
   getStoryblokApi,
   ISbStoriesParams,
   storyblokEditable,
+  StoryblokComponent,
+  useStoryblokState,
 } from '@storyblok/react';
 import { Container } from 'components';
 import Image from 'next/image';
@@ -28,22 +30,12 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ story }) => {
-  const Sections = story.content.Sections;
-  const heroSectionProps: HeroProps = Sections[0];
-  const diagramSectionProps: DiagramProps = Sections[1];
-  const blocksSectionProps: BlockProps = Sections[2];
-  const planSectionProps: PlanProps = Sections[3];
-  const startSectionProps: StartProps = Sections[4];
-  // console.log(heroSectionProps);
-  // console.log(story);
+  const _story = useStoryblokState(story);
+  // console.log(_story.content);
   return (
-    <main {...storyblokEditable(story.content)}>
+    <main>
       <Container>
-        <Hero {...heroSectionProps} />
-        <Diagram {...diagramSectionProps} />
-        <Block {...blocksSectionProps} />
-        <Plan {...planSectionProps} />
-        <Start {...startSectionProps} />
+        <StoryblokComponent blok={_story.content} />
       </Container>
     </main>
   );
@@ -66,7 +58,6 @@ export async function getStaticProps() {
   return {
     props: {
       story: data ? data.story : false,
-      key: data ? data.story.id : false,
     },
     revalidate: 3600, // revalidate every hour
   };

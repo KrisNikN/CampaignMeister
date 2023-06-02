@@ -4,27 +4,43 @@ import { ThemeProvider } from 'styled-components';
 import App from 'next/app';
 import { theme, GlobalStyles } from 'styles';
 import { Header, Footer, HeaderProps, FooterProps } from 'collections';
-import { getStoryblokApi, ISbStoriesParams } from '@storyblok/react';
+import { Start, Block, Hero, Plan, Diagram } from 'sections';
+import {
+  getStoryblokApi,
+  ISbStoriesParams,
+  storyblokInit,
+  apiPlugin,
+  StoryblokComponent,
+  useStoryblokState,
+} from '@storyblok/react';
+import Page from 'components/Page/Page';
 
 interface MoreProps {
   data: {
-    content: {
-      Blocks: any[];
-    };
+    content: any;
   };
 }
 
-import { storyblokInit, apiPlugin } from '@storyblok/react';
+const components = {
+  hero: Hero,
+  page: Page,
+  start: Start,
+  blocks: Block,
+  diagram: Diagram,
+  header: Header,
+  footer: Footer,
+  plan: Plan,
+};
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
   use: [apiPlugin],
+  components,
 });
 
 function MyApp({ Component, pageProps, data }: AppProps & MoreProps) {
-  const headerProps: HeaderProps = data.content.Blocks[0];
-  const footerProps: FooterProps = data.content.Blocks[1];
-
+  data = useStoryblokState(data);
+  const headerProps = data.content;
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -37,22 +53,23 @@ function MyApp({ Component, pageProps, data }: AppProps & MoreProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <GlobalStyles />
-      <Header {...headerProps} />
+      <StoryblokComponent blok={headerProps} />
       <Component {...pageProps} />
-      <Footer {...footerProps} />
+      {/* <Footer {...footerProps} /> */}
     </ThemeProvider>
   );
 }
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const storyblokApi = getStoryblokApi();
-  const slug = 'headerfooter';
+  const slug = 'header';
+
   const sbParams: ISbStoriesParams = {
     version: 'draft',
   };
 
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  // console.log('getInitialProps executed');
+  console.log(data);
 
   let appProps = {};
   if (typeof App.getInitialProps === 'function') {
@@ -61,7 +78,28 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
 
   return {
     ...appProps,
-    data: data ? data.story : null,
+    header: data ? data.story : null,
+  };
+};
+
+MyApp.getInitialProps = async (appContext: AppContext) => {
+  const storyblokApi = getStoryblokApi();
+  const slug = 'footer';
+  const sbParams: ISbStoriesParams = {
+    version: 'draft',
+  };
+
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  console.log(data);
+
+  let appProps = {};
+  if (typeof App.getInitialProps === 'function') {
+    appProps = await App.getInitialProps(appContext);
+  }
+
+  return {
+    ...appProps,
+    footer: data ? data.story : null,
   };
 };
 
