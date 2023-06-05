@@ -16,7 +16,7 @@ export const SectionContainer = styled.section(
     flex-direction: column;
     position: relative;
     margin-top: 80px;
-    &::after {
+    /* &::after {
       content: '';
       position: absolute;
       left: 0;
@@ -28,7 +28,7 @@ export const SectionContainer = styled.section(
         ${colors.darkBlue} 40%
       );
       opacity: 0.9;
-    }
+    } */
     padding-bottom: 80px;
     @media ${breakpoint.max.M} {
       margin-top: 40px;

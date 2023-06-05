@@ -7,5 +7,6 @@ export const headerProps: HeaderProps = {
     height: 28,
     alt: 'logo',
   },
-  buttonText: 'Login',
+  buttonText1: 'Login',
+  buttonText2: 'Register',
 };

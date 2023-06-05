@@ -9,25 +9,33 @@ export interface HeaderProps {
     height: number;
     alt: string;
   };
-  buttonText: string;
+  buttonText1: string;
+  buttonText2: string;
 }
 
 export const Header = ({
   image,
-  buttonText,
+  buttonText1,
+  buttonText2,
   ...props
 }: HeaderProps & HTMLHeaderProps) => {
   return (
     <S.Header {...props}>
       <S.HeaderContainer>
-        <S.Image
-          src={image.src}
-          width={image.width}
-          height={image.height}
-          alt={image.alt}
-          layout='intrinsic'
-        />
-        <S.Button>{buttonText}</S.Button>
+        <S.ImageContainer>
+          <S.Image
+            src={image.src}
+            width={image.width}
+            height={image.height}
+            alt={image.alt}
+            layout='intrinsic'
+          />
+        </S.ImageContainer>
+
+        <S.ButtonsContainer>
+          <S.Button>{buttonText1}</S.Button>
+          <S.Button>{buttonText2}</S.Button>
+        </S.ButtonsContainer>
       </S.HeaderContainer>
     </S.Header>
   );

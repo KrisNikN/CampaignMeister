@@ -25,10 +25,39 @@ export const HeaderContainer = styled.div(
 export const Button = styled(_Button)(
   ({ theme: { colors, breakpoint } }) => css`
     margin-left: 40px;
-    @media ${breakpoint.max.M} {
+    :nth-child(2) {
+      margin-left: 20px;
+    }
+    @media ${breakpoint.max.S} {
       padding: 16px 20px;
+
+      :nth-child(1) {
+        margin-left: 20px;
+      }
+      :nth-child(2) {
+        margin-top: 10px;
+      }
     }
   `,
 );
 
-export const Image = styled(_Image)(() => css``);
+export const Image = styled(_Image)(
+  () => css`
+    min-width: 500px;
+  `,
+);
+
+export const ButtonsContainer = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    display: flex;
+    @media ${breakpoint.max.S} {
+      flex-direction: column;
+    }
+  `,
+);
+
+export const ImageContainer = styled.div(
+  () => css`
+    min-width: 100px;
+  `,
+);
