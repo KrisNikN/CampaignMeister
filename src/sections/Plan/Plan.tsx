@@ -4,10 +4,10 @@ import { HTMLSectionProps } from 'types';
 import { storyblokEditable, SbBlokData } from '@storyblok/react';
 
 export interface PlanProps {
-  blok: ISbplan;
+  blok: ISbPlan;
 }
 
-export interface ISbplan extends SbBlokData {
+export interface ISbPlan extends SbBlokData {
   title: string;
   blocks: PlanCardProps[];
 }

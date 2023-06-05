@@ -5,10 +5,10 @@ import { extractDimensionsFromUrl } from 'functions';
 import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface StartProps {
-  blok: ISbstart;
+  blok: ISbStart;
 }
 
-interface ISbstart extends SbBlokData {
+interface ISbStart extends SbBlokData {
   desktopTitle: string;
   mobileTitle: string;
   image: {

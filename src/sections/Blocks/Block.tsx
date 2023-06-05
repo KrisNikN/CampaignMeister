@@ -4,10 +4,10 @@ import { BlockCardProps } from 'collections/Card';
 import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface BlockProps {
-  blok: ISbblock;
+  blok: ISbBlock;
 }
 
-export interface ISbblock extends SbBlokData {
+export interface ISbBlock extends SbBlokData {
   titleDesktop: string;
   titleMobile: string;
   rows: BlockCardProps[];

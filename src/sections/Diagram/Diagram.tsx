@@ -4,10 +4,10 @@ import { DiagramCardProps } from 'collections/Card';
 import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface DiagramProps {
-  blok: ISbdiagram;
+  blok: ISbDiagram;
 }
 
-interface ISbdiagram extends SbBlokData {
+interface ISbDiagram extends SbBlokData {
   title: string;
   paragraphs: string;
   cards: DiagramCardProps[];

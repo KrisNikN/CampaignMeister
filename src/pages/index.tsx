@@ -5,6 +5,7 @@ import {
   storyblokEditable,
   StoryblokComponent,
   useStoryblokState,
+  ISbStoryData,
 } from '@storyblok/react';
 import { Container } from 'components';
 import Image from 'next/image';
@@ -22,20 +23,15 @@ import {
 } from 'sections';
 
 interface HomeProps {
-  story: {
-    content: {
-      Sections: any[];
-    };
-  };
+  story: ISbStoryData<{ Sections: any[] }> | null;
 }
 
 const Home: NextPage<HomeProps> = ({ story }) => {
   const _story = useStoryblokState(story);
-  // console.log(_story.content);
   return (
     <main>
       <Container>
-        <StoryblokComponent blok={_story.content} />
+        {_story && <StoryblokComponent blok={_story.content} />}
       </Container>
     </main>
   );
