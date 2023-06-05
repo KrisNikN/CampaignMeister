@@ -4,7 +4,7 @@ export interface JoinFormProps {
   title: string;
   inputPlaceholder: string;
   buttonText: string;
-  checkboxes: string[];
+  checkboxes: { text: string }[];
 }
 
 export const JoinForm = ({
@@ -25,13 +25,13 @@ export const JoinForm = ({
         <S.CheckBoxContainer>
           <S.CheckBox />
           <S.SmallParagraph
-            dangerouslySetInnerHTML={{ __html: checkboxes[0] }}
+            dangerouslySetInnerHTML={{ __html: checkboxes[0].text }}
           />
         </S.CheckBoxContainer>
         <S.CheckBoxContainer>
           <S.CheckBox />
           <S.SmallParagraph
-            dangerouslySetInnerHTML={{ __html: checkboxes[1] }}
+            dangerouslySetInnerHTML={{ __html: checkboxes[1].text }}
           />
         </S.CheckBoxContainer>
       </S.CheckBoxsContainer>

@@ -1,33 +1,33 @@
 import * as S from './elements';
-
+import { extractDimensionsFromUrl } from 'functions';
+import { SbBlokData, storyblokEditable } from '@storyblok/react';
 import type { HTMLHeaderProps } from 'types';
 
 export interface HeaderProps {
+  blok: ISbHeader;
+}
+
+export interface ISbHeader extends SbBlokData {
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   buttonText: string;
 }
 
-export const Header = ({
-  image,
-  buttonText,
-  ...props
-}: HeaderProps & HTMLHeaderProps) => {
+export const Header = ({ blok, ...props }: HeaderProps & HTMLHeaderProps) => {
+  const { height, width } = extractDimensionsFromUrl(blok.image.filename);
   return (
-    <S.Header {...props}>
+    <S.Header {...props} {...storyblokEditable(blok)}>
       <S.HeaderContainer>
         <S.Image
-          src={image.src}
-          width={image.width}
-          height={image.height}
-          alt={image.alt}
+          src={blok.image.filename}
+          width={width}
+          height={height}
+          alt={blok.image.alt}
           layout='intrinsic'
         />
-        <S.Button>{buttonText}</S.Button>
+        <S.Button>{blok.buttonText}</S.Button>
       </S.HeaderContainer>
     </S.Header>
   );

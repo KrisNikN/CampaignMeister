@@ -1,8 +1,13 @@
 import * as S from './elements';
 import { HTMLSectionProps } from 'types';
 import { DiagramCardProps } from 'collections/Card';
+import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface DiagramProps {
+  blok: ISbDiagram;
+}
+
+interface ISbDiagram extends SbBlokData {
   title: string;
   paragraphs: string;
   cards: DiagramCardProps[];
@@ -10,35 +15,32 @@ export interface DiagramProps {
 }
 
 export const Diagram = ({
-  title,
-  paragraphs,
-  mobileParagraph,
-  cards,
+  blok,
   ...props
 }: DiagramProps & HTMLSectionProps) => {
   return (
-    <S.SectionContainer {...props}>
+    <S.SectionContainer {...props} {...storyblokEditable(blok)}>
       <S.TitleContainer>
-        <S.TitleMain dangerouslySetInnerHTML={{ __html: title }} />
+        <S.TitleMain dangerouslySetInnerHTML={{ __html: blok.title }} />
       </S.TitleContainer>
 
       <S.ElementContainer>
         <S.DesktopParagraphsContainer>
           <S.SpecialParagraph
-            dangerouslySetInnerHTML={{ __html: paragraphs }}
+            dangerouslySetInnerHTML={{ __html: blok.paragraphs }}
           />
         </S.DesktopParagraphsContainer>
 
         <S.MobParagraphsContainer>
           <S.SpecialParagraph
-            dangerouslySetInnerHTML={{ __html: mobileParagraph }}
+            dangerouslySetInnerHTML={{ __html: blok.mobileParagraph }}
           />
         </S.MobParagraphsContainer>
       </S.ElementContainer>
 
       <S.ContainerBig>
         <S.DiagramContainer>
-          {cards.map((card) => {
+          {blok.cards.map((card) => {
             return <S.DiagramCard key={card.image.alt} {...card} />;
           })}
         </S.DiagramContainer>

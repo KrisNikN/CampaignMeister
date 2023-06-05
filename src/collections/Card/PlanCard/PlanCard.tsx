@@ -1,11 +1,10 @@
 import * as S from './elements';
+import { extractDimensionsFromUrl } from 'functions';
 
 export interface PlanCardProps {
   number: number;
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   title: string;
@@ -21,14 +20,15 @@ export const PlanCard = ({
   paragraph,
   ...props
 }: PlanCardProps) => {
+  const { height, width } = extractDimensionsFromUrl(image.filename);
   return (
     <S.ElementContainer {...props}>
       <S.Element>
         <S.ImageContainer>
           <S.Image
-            src={image.src}
-            width={image.width}
-            height={image.height}
+            src={image.filename}
+            width={width}
+            height={height}
             alt={image.alt}
             layout='fixed'
           />

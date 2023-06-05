@@ -1,19 +1,16 @@
 import * as S from './elements';
+import { extractDimensionsFromUrl } from 'functions';
 
 export interface DiagramCardProps {
   variant: string;
   title: string;
   text: string;
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   diagramImage?: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
 }
@@ -25,6 +22,7 @@ export const DiagramCard = ({
   image,
   diagramImage,
 }: DiagramCardProps) => {
+  const { height, width } = extractDimensionsFromUrl(image.filename);
   if (variant === 'center')
     return (
       <S.Column variant='center'>
@@ -34,18 +32,18 @@ export const DiagramCard = ({
         </S.DiagramBlock>
         <S.ImageContainer>
           <S.Image
-            src={image.src}
-            width={image.width}
-            height={image.height}
+            src={image.filename}
+            width={width}
+            height={height}
             alt={image.alt}
             layout='intrinsic'
           />
         </S.ImageContainer>
         <S.ImageDiagramContainer>
           <S.DImage
-            src={diagramImage?.src || ''}
-            width={diagramImage?.width}
-            height={diagramImage?.height}
+            src={diagramImage?.filename || ''}
+            width={575}
+            height={575}
             objectFit='cover'
             alt={diagramImage?.alt}
           />
@@ -57,9 +55,9 @@ export const DiagramCard = ({
     <S.Column>
       <S.ImageContainer>
         <S.Image
-          src={image}
-          width={image.width}
-          height={image.height}
+          src={image.filename}
+          width={width}
+          height={height}
           alt={image.alt}
           layout='intrinsic'
         />

@@ -1,35 +1,39 @@
 import * as S from './elements';
 import { HTMLSectionProps } from 'types';
 import { JoinFormProps } from 'collections';
+import { extractDimensionsFromUrl } from 'functions';
+import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface StartProps {
+  blok: ISbStart;
+}
+
+interface ISbStart extends SbBlokData {
   desktopTitle: string;
   mobileTitle: string;
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
+    alt: string;
   };
-  joinFormProps: JoinFormProps;
+  forms: JoinFormProps[];
 }
 
-export const Start = ({
-  desktopTitle,
-  mobileTitle,
-  image,
-  joinFormProps,
-  ...props
-}: HTMLSectionProps & StartProps) => {
+export const Start = ({ blok, ...props }: HTMLSectionProps & StartProps) => {
+  const { height, width } = extractDimensionsFromUrl(blok.image.filename);
   return (
-    <S.SectionContainer>
+    <S.SectionContainer {...props} {...storyblokEditable(blok)}>
       <S.TitleContainer>
         <S.ImageContainer>
-          <S.Image src={image.src} width={image.width} height={image.height} />
+          <S.Image src={blok.image.filename} width={width} height={height} />
         </S.ImageContainer>
-        <S.TitleMainDektop dangerouslySetInnerHTML={{ __html: desktopTitle }} />
-        <S.TitleMainMobile dangerouslySetInnerHTML={{ __html: mobileTitle }} />
+        <S.TitleMainDektop
+          dangerouslySetInnerHTML={{ __html: blok.desktopTitle }}
+        />
+        <S.TitleMainMobile
+          dangerouslySetInnerHTML={{ __html: blok.mobileTitle }}
+        />
       </S.TitleContainer>
-      <S.JoinForm {...joinFormProps} />
+      <S.JoinForm {...blok.forms[0]} />
     </S.SectionContainer>
   );
 };

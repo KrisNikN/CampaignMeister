@@ -10,6 +10,7 @@ export const Container = styled.div(
     max-width: 1440px;
     margin: 0 auto;
     overflow-x: hidden;
+    overflow-y: hidden;
     @media ${breakpoint.max.M} {
       padding-left: 20px;
       padding-right: 20px;

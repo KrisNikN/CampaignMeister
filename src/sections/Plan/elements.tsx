@@ -41,6 +41,7 @@ export const TitleMain = styled(_H1)(
 export const SectionContainer = styled.section(
   ({ theme: { colors, breakpoint } }) => css`
     width: 100%;
+    position: relative;
     background-color: ${colors.blue};
     border-radius: 16px;
     margin-top: 80px;

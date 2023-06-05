@@ -1,61 +1,58 @@
 import * as S from './elements';
 import type { HTMLFooterProps } from 'types';
 import { LinkProps } from 'next/link';
+import { extractDimensionsFromUrl } from 'functions';
+import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface FooterProps {
+  blok: ISbFooter;
+}
+
+export interface ISbFooter extends SbBlokData {
   image: {
-    src: string;
-    width: number;
-    height: number;
+    filename: string;
     alt: string;
   };
   quoteDestop: string;
   quoteMobile: string;
 
-  columns: { title: string; links: (LinkProps & { text: string })[] }[];
+  columns: {
+    title: string;
+    links: { text: string; href: LinkProps & { url: string } }[];
+  }[];
 
   copyRightDesktop: string;
   copyRightMobile: string;
 }
 
-/*export interface FooterProps extends HTMLFooterProps {}*/
-
-export const Footer = ({
-  image,
-  quoteDestop,
-  quoteMobile,
-  columns,
-  copyRightDesktop,
-  copyRightMobile,
-  ...props
-}: FooterProps & HTMLFooterProps) => {
+export const Footer = ({ blok, ...props }: FooterProps & HTMLFooterProps) => {
+  const { height, width } = extractDimensionsFromUrl(blok.image.filename);
   return (
-    <S.Footer {...props}>
+    <S.Footer {...props} {...storyblokEditable(blok)}>
       <S.ContainerFooter>
         <S.LogoQueteContainer>
           <S.LogoContainer>
             <S.Image
-              src={image.src}
-              width={image.width}
-              height={image.height}
-              alt={image.alt}
+              src={blok.image.filename}
+              width={width}
+              height={height}
+              alt={blok.image.alt}
               layout='intrinsic'
             />
           </S.LogoContainer>
 
-          <S.QuoteContainer>{quoteDestop}</S.QuoteContainer>
-
-          <S.MobileQueteContainer>{quoteMobile}</S.MobileQueteContainer>
+          <S.QuoteContainer>{blok.quoteDestop}</S.QuoteContainer>
+          <S.MobileQueteContainer>{blok.quoteMobile}</S.MobileQueteContainer>
         </S.LogoQueteContainer>
         <S.LegalNavContainer>
-          {columns.map((column) => {
+          {blok.columns.map((column) => {
             return (
               <S.Block key={column.title}>
                 <S.BlockTitle>{column.title}</S.BlockTitle>
                 <S.LinksContainer>
                   {column.links.map(({ text, ...props }) => {
                     return (
-                      <S.Link href={props.href.toString()} key={text}>
+                      <S.Link href={props.href.url} key={text}>
                         {text}
                       </S.Link>
                     );
@@ -68,13 +65,13 @@ export const Footer = ({
 
         <S.CopyRightDestop
           dangerouslySetInnerHTML={{
-            __html: copyRightDesktop,
+            __html: blok.copyRightDesktop,
           }}
         />
 
         <S.CopyRightMobile
           dangerouslySetInnerHTML={{
-            __html: copyRightMobile,
+            __html: blok.copyRightMobile,
           }}
         />
       </S.ContainerFooter>

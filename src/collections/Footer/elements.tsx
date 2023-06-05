@@ -20,17 +20,6 @@ export const Footer = styled(({ ...props }: HTMLFooterProps) => (
   position: relative;
 `;
 
-/*export const Footer = styled('footer')<FooterProps>(
-  ({ theme: { colors, breakpoint } }) => css`
-    width: 100%;
-    padding-bottom: 90px;
-    background-color: ${colors.footerBlue};
-    display: flex;
-    justify-content: center;
-    position: relative;
-  `,
-);*/
-
 export const ContainerFooter = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: relative;
@@ -94,8 +83,10 @@ export const MobileQueteContainer = styled.div(
     padding: 0;
     padding-top: 16px;
     color: ${colors.white};
-    @media ${breakpoint.min.M} {
-      display: none;
+
+    display: none;
+    @media ${breakpoint.max.M} {
+      display: block;
     }
   `,
 );
@@ -199,6 +190,13 @@ export const CopyRightDestop = styled.div(
     @media ${breakpoint.max.M} {
       display: none;
     }
+    a {
+      color: ${colors.yellow};
+      font-weight: 500;
+    }
+    span {
+      border-bottom: 1px solid ${colors.yellow};
+    }
   `,
 );
 
@@ -214,6 +212,13 @@ export const CopyRightMobile = styled.div(
     @media ${breakpoint.max.M} {
       display: flex;
       flex-direction: column;
+    }
+    a {
+      color: ${colors.yellow};
+      font-weight: 500;
+    }
+    span {
+      border-bottom: 1px solid ${colors.yellow};
     }
   `,
 );

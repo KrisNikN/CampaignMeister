@@ -1,47 +1,45 @@
 import * as S from './elements';
 import { HTMLSectionProps } from 'types';
 import { JoinFormProps } from 'collections';
+import { extractDimensionsFromUrl } from 'functions';
+import { SbBlokData, storyblokEditable } from '@storyblok/react';
 
 export interface HeroProps {
-  title: string;
-  subHeading: string[];
-  image: {
-    src: string;
-    width: number;
-    height: number;
-  };
-  joinFormProps: JoinFormProps;
+  blok: ISbHero;
 }
 
-export const Hero = ({
-  title,
-  subHeading,
-  image,
-  joinFormProps,
-  ...props
-}: HTMLSectionProps & HeroProps) => {
+interface ISbHero extends SbBlokData {
+  title: string;
+  subHeading: string;
+  image: {
+    filename: string;
+    alt: string;
+  };
+  forms: JoinFormProps[];
+}
+
+export const Hero = ({ blok, ...props }: HTMLSectionProps & HeroProps) => {
+  // console.log(blok);
+
+  const { height, width } = extractDimensionsFromUrl(blok.image?.filename);
   return (
-    <S.HeroContainer {...props}>
+    <S.HeroContainer {...props} {...storyblokEditable(blok)}>
       <S.ContainerText>
         <S.DivElement>
-          <S.NormalHeading dangerouslySetInnerHTML={{ __html: title }} />
+          <S.NormalHeading dangerouslySetInnerHTML={{ __html: blok.title }} />
         </S.DivElement>
         <S.DivElement variant='gap'>
-          <S.Paragraph>
-            {subHeading[0]}
-            <br /> <br />
-            {subHeading[1]}
-          </S.Paragraph>
+          <S.Paragraph dangerouslySetInnerHTML={{ __html: blok.subHeading }} />
         </S.DivElement>
-        <S.JoinForm {...joinFormProps} />
+        <S.JoinForm {...blok.forms[0]} />
       </S.ContainerText>
 
       <S.ImageContainer>
         <S.Image
-          src={image.src}
-          width={image.width}
-          height={image.height}
-          alt='Hero Image'
+          src={blok.image.filename}
+          width={width}
+          height={height}
+          alt={blok.image.alt}
           layout='intrinsic'
           priority
         />
@@ -49,10 +47,3 @@ export const Hero = ({
     </S.HeroContainer>
   );
 };
-/*<Image
-  src='/imgs/logo.png'
-  width={220}
-  height={28}
-  alt='logo'
-  layout='intrinsic'
-/> */
