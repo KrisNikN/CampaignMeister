@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { HTMLHeaderProps } from 'types';
 import { Image as _Image, Button as _Button } from 'components';
+import { Register as _Register, Login as _Login } from 'collections/PopUps';
 
 export const Header = styled('header')<HTMLHeaderProps>(
   ({ theme: { colors } }) => css`
@@ -61,3 +62,7 @@ export const ImageContainer = styled.div(
     min-width: 100px;
   `,
 );
+
+export const Login = styled(_Login)(() => css``);
+
+export const Register = styled(_Register)(() => css``);

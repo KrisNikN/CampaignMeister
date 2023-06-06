@@ -1,13 +1,22 @@
+import React, { MouseEventHandler } from 'react';
 import * as S from './elements';
 
-interface ButtonTypes {
+interface ButtonProps {
   variant?: string;
-  children: any;
+  children: React.ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  type?: 'submit' | 'button' | 'reset';
 }
 
-export const Button = ({ children, variant, ...props }: ButtonTypes) => {
+export const Button = ({
+  children,
+  variant,
+  onClick,
+  type = 'button',
+  ...props
+}: ButtonProps) => {
   return (
-    <S.Button {...props} variant={variant}>
+    <S.Button {...props} variant={variant} onClick={onClick} type={type}>
       {children}
     </S.Button>
   );

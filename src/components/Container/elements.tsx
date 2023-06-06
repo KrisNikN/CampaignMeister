@@ -9,7 +9,7 @@ export const Container = styled.div(
     flex-direction: column;
     max-width: 1440px;
     margin: 0 auto;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     @media ${breakpoint.max.M} {
       padding-left: 20px;
       padding-right: 20px;

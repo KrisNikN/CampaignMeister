@@ -32,6 +32,18 @@ export const Input = styled.input<{ variant?: string }>(
         &:focus {
           border-color: ${colors.redAlert};
         }
+        &::after {
+          content: 'l';
+          background-image: url('/imgs/icons/err.png');
+          background-size: contain;
+          display: block;
+          z-index: 100;
+          position: absolute;
+          top: 20px;
+          right: 22px;
+          width: 12px;
+          height: 12px;
+        }
       `) ||
     (variant === 'confirm' &&
       css`
