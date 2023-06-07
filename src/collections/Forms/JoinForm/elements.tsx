@@ -26,7 +26,7 @@ export const Input = styled(_Input)<{ variant: string; placeholder: string }>(
     @media ${breakpoint.max.S} {
     }
   `,
-);
+) as typeof _Input;
 
 export const Title = styled(_Paragraph)(
   ({ theme: { colors, breakpoint } }) => css`
@@ -112,7 +112,7 @@ export const CheckBox = styled(_CheckBox)<{}>(
       min-width: 32px;
     }
   `,
-);
+) as typeof _CheckBox;
 
 export const CheckBoxContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`

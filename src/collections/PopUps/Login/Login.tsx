@@ -1,10 +1,12 @@
 import * as S from './elements';
+import { LoginFormProps } from 'collections/Forms';
 
 interface LoginProps {
   setOpenLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  formProps: LoginFormProps;
 }
 
-export const Login = ({ setOpenLogin }: LoginProps) => {
+export const Login = ({ setOpenLogin, formProps }: LoginProps) => {
   const handleContainerClick = (
     e:
       | React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -36,16 +38,7 @@ export const Login = ({ setOpenLogin }: LoginProps) => {
           }}
           role='presentation'
         >
-          <S.formContainer>
-            <S.H2>Login</S.H2>
-            <S.Input name='email' type='email' placeholder='Enter email' />
-            <S.Input
-              name='password'
-              type='password'
-              placeholder='Enter password'
-            />
-            <S.Button variant='dark'>Confirm</S.Button>
-          </S.formContainer>
+          <S.LoginForm {...formProps} />
         </div>
       </S.Overlay>
     </>

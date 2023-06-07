@@ -1,10 +1,12 @@
 import * as S from './elements';
+import { RegisterFormProps } from 'collections/Forms';
 
 interface RegisterProps {
   setOpenRegister: React.Dispatch<React.SetStateAction<boolean>>;
+  formProps: RegisterFormProps;
 }
 
-export const Register = ({ setOpenRegister }: RegisterProps) => {
+export const Register = ({ setOpenRegister, formProps }: RegisterProps) => {
   const handleContainerClick = (
     e:
       | React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -35,21 +37,7 @@ export const Register = ({ setOpenRegister }: RegisterProps) => {
         }}
         role='presentation'
       >
-        <S.formContainer>
-          <S.H2>Register</S.H2>
-          <S.Input placeholder='Enter email' name='email' type='email' />
-          <S.Input
-            placeholder='Enter password'
-            name='password'
-            type='password'
-          />
-          <S.Input
-            placeholder='Confirm password'
-            name='confirmPassword'
-            type='password'
-          />
-          <S.Button variant='dark'>Register</S.Button>
-        </S.formContainer>
+        <S.RegisterForm {...formProps} />
       </div>
     </S.Overlay>
   );

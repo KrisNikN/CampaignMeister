@@ -6,3 +6,5 @@ export * from './startSectionProps';
 export * from './headerProps';
 export * from './footerProps';
 export * from './joinFormProps';
+export * from './loginFormProps';
+export * from './registerFormProps';

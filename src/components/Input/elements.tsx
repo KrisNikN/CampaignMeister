@@ -29,6 +29,10 @@ export const Input = styled.input<{ variant?: string }>(
         border: 2px solid ${colors.redAlert};
         color: ${colors.redAlert};
         background-color: ${colors.white};
+        &::placeholder {
+          color: ${colors.redAlert};
+        }
+
         &:focus {
           border-color: ${colors.redAlert};
         }

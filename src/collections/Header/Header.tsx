@@ -1,6 +1,7 @@
 import * as S from './elements';
 import { useState } from 'react';
 import type { HTMLHeaderProps } from 'types';
+import { RegisterFormProps, LoginFormProps } from 'collections/Forms';
 
 export interface HeaderProps {
   image: {
@@ -11,12 +12,14 @@ export interface HeaderProps {
   };
   buttonText1: string;
   buttonText2: string;
+  forms: [RegisterFormProps, LoginFormProps];
 }
 
 export const Header = ({
   image,
   buttonText1,
   buttonText2,
+  forms,
   ...props
 }: HeaderProps & HTMLHeaderProps) => {
   const [openLogin, setOpenLogin] = useState<boolean>(false);
@@ -54,8 +57,12 @@ export const Header = ({
           </S.ButtonsContainer>
         </S.HeaderContainer>
       </S.Header>
-      {openRegister && <S.Register setOpenRegister={setOpenRegister} />}
-      {openLogin && <S.Login setOpenLogin={setOpenLogin} />}
+      {openRegister && (
+        <S.Register setOpenRegister={setOpenRegister} formProps={forms[0]} />
+      )}
+      {openLogin && (
+        <S.Login setOpenLogin={setOpenLogin} formProps={forms[1]} />
+      )}
     </>
   );
 };

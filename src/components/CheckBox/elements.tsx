@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-export const CheckBox = styled.input<{ variant?: string; typeM?: string }>(
-  ({ theme: { colors }, variant, typeM }) => css`
+export const CheckBox = styled.input<{ variant?: string }>(
+  ({ theme: { colors }, variant }) => css`
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -45,11 +45,6 @@ export const CheckBox = styled.input<{ variant?: string; typeM?: string }>(
         38% 75%,
         17% 54%
       );
-      ${typeM === 'mobile' &&
-      css`
-        width: 10px;
-        height: 10px;
-      `}
     }
     &:checked::before {
       transform: scale(1);
