@@ -5,15 +5,12 @@ export const formContainer = styled.form(
   ({ theme: { colors, breakpoint } }) => css`
     position: relative;
     z-index: 102;
-    padding: 20px;
     background-color: ${colors.blue};
     border-radius: 10px;
-    min-width: 350px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: 100ms ease-in-out;
-    transform: translateX(20px);
   `,
 );
 

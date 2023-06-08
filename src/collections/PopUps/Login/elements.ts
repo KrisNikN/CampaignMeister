@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Input as _Input, H2 as _H2, Button as _Button } from 'components';
+import { Button as _Button, Paragraph as _Paragraph } from 'components';
 import { LoginForm as _LoginForm } from 'collections/Forms';
 
 export const Overlay = styled.div(
@@ -18,3 +18,36 @@ export const Overlay = styled.div(
 );
 
 export const LoginForm = styled(_LoginForm)(() => css``);
+
+export const Button = styled(_Button)(
+  () => css`
+    margin-top: 20px;
+  `,
+);
+
+export const formContainer = styled.div(
+  ({ theme: { colors, breakpoint } }) => css`
+    position: relative;
+    z-index: 102;
+    padding: 20px;
+    background-color: ${colors.blue};
+    border-radius: 10px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 100ms ease-in-out;
+    transform: translateX(20px);
+    min-width: 350px;
+  `,
+);
+
+export const Paragraph = styled(_Paragraph)(
+  ({ theme: { colors, breakpoint } }) => css`
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: ${colors.white};
+    margin-top: 20px;
+  `,
+);

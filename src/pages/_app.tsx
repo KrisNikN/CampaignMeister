@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyles } from 'styles';
 import { Header, Footer } from 'collections';
-
+import { SessionProvider } from 'next-auth/react';
 import { headerProps, footerProps } from 'data';
 
 function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
@@ -19,9 +19,11 @@ function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <GlobalStyles />
-      <Header {...headerProps} />
-      <Component {...pageProps} />
-      <Footer {...footerProps} />
+      <SessionProvider>
+        <Header {...headerProps} />
+        <Component {...pageProps} />
+        <Footer {...footerProps} />
+      </SessionProvider>
     </ThemeProvider>
   );
 }

@@ -5,7 +5,9 @@ export const joinWaitListSchema = z.object({
   agreeToTOS: z
     .boolean()
     .refine((value) => value === true, 'Trvqbva da e true'),
-  newsLetter: z.boolean(),
+  newsLetter: z
+    .boolean()
+    .refine((value) => value === true, 'Trvqbva da e true'),
 });
 
 export type JoinWaitListFormValues = z.infer<typeof joinWaitListSchema>;
