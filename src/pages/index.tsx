@@ -9,8 +9,12 @@ import {
   startSectionProps,
   joinFormProps,
 } from 'data';
+import { useSession } from 'next-auth/react';
 
 const Home: NextPage = () => {
+  const session = useSession();
+  console.log(session);
+
   return (
     <main>
       <Container>

@@ -1,6 +1,7 @@
 import { useZodForm } from 'hooks';
 import * as S from './elements';
 import { loginSchema } from 'schemas';
+import { signIn, useSession } from 'next-auth/react';
 
 export interface LoginFormProps {
   title: string;
@@ -21,9 +22,22 @@ export const LoginForm = ({
     password: '',
   });
 
-  const submitHandler = handleSubmit(({ email, password }) => {
-    console.log(email);
-    console.log(password);
+  const submitHandler = handleSubmit(async ({ email, password }) => {
+    try {
+      const user = await signIn('credentials', {
+        email,
+        password,
+        action: 'login',
+        redirect: false,
+      });
+
+      console.log('login successful');
+
+      console.log(user);
+    } catch (error) {
+      // Handle registration error
+      console.error('login failed:', error);
+    }
   });
 
   return (
