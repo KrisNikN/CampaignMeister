@@ -54,9 +54,6 @@ export default NextAuth({
             throw new Error('Missing credentials');
           }
 
-          // Perform custom authentication here
-          // For example, you can validate the credentials against a database
-
           // Register the user if the action is 'register'
           if (credentials.action === 'register') {
             await createUserWithEmailAndPassword(

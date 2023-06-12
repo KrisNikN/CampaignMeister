@@ -1,6 +1,6 @@
 import { useZodForm } from 'hooks';
 import * as S from './elements';
-import { loginSchema } from 'schemas';
+import { loginFormSchema } from 'schemas';
 import { signIn, useSession } from 'next-auth/react';
 
 export interface LoginFormProps {
@@ -17,7 +17,7 @@ export const LoginForm = ({
   passwordInputText,
   ...props
 }: LoginFormProps) => {
-  const { control, handleSubmit } = useZodForm(loginSchema, {
+  const { control, handleSubmit } = useZodForm(loginFormSchema, {
     email: '',
     password: '',
   });
