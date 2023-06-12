@@ -30,13 +30,10 @@ export const LoginForm = ({
         action: 'login',
         redirect: false,
       });
-
-      console.log('login successful');
-
-      console.log(user);
     } catch (error) {
       // Handle registration error
       console.error('login failed:', error);
+      console.log('error');
     }
   });
 

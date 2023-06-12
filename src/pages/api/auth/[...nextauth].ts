@@ -8,11 +8,9 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
 } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
-import { getSession } from 'next-auth/react';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
