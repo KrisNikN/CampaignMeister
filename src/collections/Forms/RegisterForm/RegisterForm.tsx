@@ -2,6 +2,9 @@ import { useZodForm } from 'hooks';
 import * as S from './elements';
 import { registerFormSchema } from 'schemas';
 import { signIn } from 'next-auth/react';
+import axios from 'axios';
+import { useState } from 'react';
+import { redirect } from 'next/dist/server/api-utils';
 
 export interface RegisterFormProps {
   title: string;
@@ -19,6 +22,7 @@ export const RegisterForm = ({
   title,
   ...props
 }: RegisterFormProps) => {
+  const [hasError, sethasError] = useState<boolean>(false);
   const { control, handleSubmit } = useZodForm(registerFormSchema, {
     email: '',
     password: '',
@@ -27,19 +31,22 @@ export const RegisterForm = ({
 
   const submitHandler = handleSubmit(async ({ email, password }) => {
     try {
-      // Call the signIn function with the registration action
-      await signIn('credentials', {
+      const response = await axios.post('/api/auth/register', {
         email,
         password,
-        action: 'register',
-        redirect: false, // Prevent default redirect behavior
       });
-      // Registration successful, you can redirect the user to a success page
-      // or display a success message in the current page
-      console.log('Registration successful');
-    } catch (error) {
-      // Handle registration error
-      console.error('Registration failed:', error);
+
+      if (response.status === 200) {
+        await signIn('credentials', {
+          email,
+          password,
+          redirect: false,
+        });
+        sethasError(false);
+      } // Registration successful
+    } catch (error: any) {
+      // console.log('Registration error:', error);
+      sethasError(true);
     }
   });
 
@@ -67,6 +74,7 @@ export const RegisterForm = ({
       <S.Button variant='dark' type='submit'>
         {buttonText}
       </S.Button>
+      {hasError && <S.ErrorP>User already exist</S.ErrorP>}
     </S.formContainer>
   );
 };

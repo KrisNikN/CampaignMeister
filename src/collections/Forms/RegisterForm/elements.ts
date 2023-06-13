@@ -1,5 +1,10 @@
 import styled, { css } from 'styled-components';
-import { Input as _Input, H2 as _H2, Button as _Button } from 'components';
+import {
+  Input as _Input,
+  H2 as _H2,
+  Button as _Button,
+  Paragraph as _Paragraph,
+} from 'components';
 
 export const formContainer = styled.form(
   ({ theme: { colors, breakpoint } }) => css`
@@ -38,5 +43,14 @@ export const H2 = styled(_H2)(
 export const Button = styled(_Button)(
   () => css`
     margin-top: 20px;
+  `,
+);
+
+export const ErrorP = styled(_Paragraph)(
+  ({ theme: { colors, breakpoint } }) => css`
+    margin: 0;
+    margin-top: 20px;
+    text-align: center;
+    color: ${colors.redAlert};
   `,
 );

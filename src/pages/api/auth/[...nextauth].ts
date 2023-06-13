@@ -4,29 +4,10 @@ import GoogleProvider from 'next-auth/providers/google';
 import DiscordProvider from 'next-auth/providers/discord';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { cert } from 'firebase-admin/app';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import { initializeApp } from 'firebase/app';
-
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKED,
-  messagingSenderId: process.env.FIREBASE_MASSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID,
-};
-
-initializeApp(firebaseConfig);
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../../firebase';
 
 const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
-
-const auth = getAuth();
-const db = getFirestore();
 
 export default NextAuth({
   session: {
@@ -42,11 +23,6 @@ export default NextAuth({
           placeholder: 'Enter your email',
         },
         password: { label: 'Password', type: 'password' },
-        action: {
-          label: 'Action',
-          type: 'text',
-          placeholder: 'register or login',
-        },
       },
       authorize: async (credentials) => {
         try {
@@ -54,37 +30,17 @@ export default NextAuth({
             throw new Error('Missing credentials');
           }
 
-          // Register the user if the action is 'register'
-          if (credentials.action === 'register') {
-            await createUserWithEmailAndPassword(
-              auth,
-              credentials.email,
-              credentials.password,
-            );
+          await signInWithEmailAndPassword(
+            auth,
+            credentials.email,
+            credentials.password,
+          );
 
-            // Store additional user data in Firestore
-            await setDoc(doc(db, 'users', credentials.email), {
-              email: credentials.email,
-              // Add more fields as needed
-            });
-          }
-
-          // Login the user if the action is 'login'
-          if (credentials.action === 'login') {
-            await signInWithEmailAndPassword(
-              auth,
-              credentials.email,
-              credentials.password,
-            );
-          }
-
-          // Get the user data from Firestore or any other source
           const user = { id: 'unique-user-id', email: credentials.email };
 
           return user;
-        } catch (error) {
-          console.error('Authentication error:', error);
-          throw new Error('Authentication failed');
+        } catch (error: any) {
+          throw new Error(error);
         }
       },
     }),

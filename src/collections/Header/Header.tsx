@@ -1,9 +1,9 @@
 import * as S from './elements';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { HTMLHeaderProps } from 'types';
 import { RegisterFormProps, LoginFormProps } from 'collections/Forms';
 import { LoginProps } from 'collections/PopUps';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 
 export interface HeaderProps {
   image: {
@@ -28,6 +28,14 @@ export const Header = ({
 }: HeaderProps & HTMLHeaderProps) => {
   const [openLogin, setOpenLogin] = useState<boolean>(false);
   const [openRegister, setOpenRegister] = useState<boolean>(false);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session !== null) {
+      setOpenRegister(false);
+      setOpenLogin(false);
+    }
+  }, [session]);
 
   const handleLoginClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
@@ -40,7 +48,6 @@ export const Header = ({
     e.preventDefault();
     setOpenRegister(true);
   };
-  const { data: session } = useSession();
 
   return (
     <>

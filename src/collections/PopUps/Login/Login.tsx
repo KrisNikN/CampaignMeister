@@ -1,6 +1,7 @@
 import * as S from './elements';
 import { LoginFormProps } from 'collections/Forms';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { redirect } from 'next/dist/server/api-utils';
 
 export interface LoginProps {
   paragraphText: string;

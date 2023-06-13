@@ -7,13 +7,11 @@ import {
   blocksSectionProps,
   planSectionProps,
   startSectionProps,
-  joinFormProps,
 } from 'data';
 import { useSession } from 'next-auth/react';
 
 const Home: NextPage = () => {
-  const session = useSession();
-  console.log(session);
+  // const session = useSession();
 
   return (
     <main>

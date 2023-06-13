@@ -2,6 +2,7 @@ import { useZodForm } from 'hooks';
 import * as S from './elements';
 import { loginFormSchema } from 'schemas';
 import { signIn, useSession } from 'next-auth/react';
+import { useState } from 'react';
 
 export interface LoginFormProps {
   title: string;
@@ -17,6 +18,8 @@ export const LoginForm = ({
   passwordInputText,
   ...props
 }: LoginFormProps) => {
+  const [hasError, sethasError] = useState<boolean>(false);
+  const [nError, setError] = useState<string>('');
   const { control, handleSubmit } = useZodForm(loginFormSchema, {
     email: '',
     password: '',
@@ -30,10 +33,24 @@ export const LoginForm = ({
         action: 'login',
         redirect: false,
       });
-    } catch (error) {
-      // Handle registration error
-      console.error('login failed:', error);
-      console.log('error');
+
+      if (user?.error) {
+        if (
+          user?.error ===
+          'FirebaseError: Firebase: Error (auth/wrong-password).'
+        ) {
+          throw new Error('Wrong password');
+        } else if (
+          user?.error ===
+          'FirebaseError: Firebase: Error (auth/user-not-found).'
+        ) {
+          throw new Error("Such user doesn't exist ");
+        }
+        throw new Error('Authentication failed');
+      }
+    } catch (error: any) {
+      sethasError(true);
+      setError(error.message);
     }
   });
 
@@ -55,6 +72,7 @@ export const LoginForm = ({
       <S.Button variant='dark' type='submit'>
         {buttonText}
       </S.Button>
+      {hasError && <S.ErrorP>{nError}</S.ErrorP>}
     </S.formContainer>
   );
 };

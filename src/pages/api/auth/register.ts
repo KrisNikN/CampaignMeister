@@ -2,16 +2,16 @@ import nc from 'next-connect';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { registerSchema } from 'schemas';
 import { ApiResponseBase } from 'types';
-import { initializeApp } from 'firebase/app';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  updateProfile,
-} from 'firebase/auth';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import bcrypt from 'bcrypt';
-
-const saltRounds = 10; // Number of salt rounds for bcrypt
+  doc,
+  setDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from 'firebase/firestore';
+import { db, auth } from '../../../../firebase';
 
 export interface RegisterRequest extends NextApiRequest {
   body: { email: string; password: string };
@@ -38,21 +38,22 @@ const handler = nc<
 
     const { email, password } = req.body;
 
-    // Initialize Firebase app
-    const firebaseConfig = {
-      // Your Firebase config options
-    };
-    initializeApp(firebaseConfig);
+    // Check if user with the given email already exists
+    const usersCollectionRef = collection(db, 'users');
+    const usersQuery = query(usersCollectionRef, where('email', '==', email));
+    const usersSnapshot = await getDocs(usersQuery);
 
-    const auth = getAuth();
-
-    // Encrypt the password using bcrypt
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    // console.log(usersSnapshot.empty);
+    if (usersSnapshot.empty === false) {
+      return res
+        .status(400)
+        .json({ message: 'User with this email already exists' });
+    }
 
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
-      hashedPassword, // Save the hashed password instead of plain text
+      password,
     );
 
     if (userCredential.user) {
@@ -60,22 +61,19 @@ const handler = nc<
         displayName: email,
       });
 
-      // Save additional user information to Firestore
-      const db = getFirestore();
+      // Save additional user information
       await setDoc(doc(db, 'users', userCredential.user.uid), {
         email: email,
-        password: hashedPassword,
       });
 
       return res
         .status(200)
         .json({ message: `Registration successful for ${email}!` });
     } else {
-      throw new Error('User registration failed');
+      return res.status(400).json({ message: 'User registration failed' });
     }
   } catch (error: any) {
-    console.error('Registration error:', error);
-    return res.status(400).json({ error: error.message });
+    return res.status(400).json({ error });
   }
 });
 
