@@ -1,12 +1,18 @@
 import * as S from './elements';
 import { RegisterFormProps } from 'collections/Forms';
 
-interface RegisterProps {
-  setOpenRegister: React.Dispatch<React.SetStateAction<boolean>>;
+export interface RegisterProps {
   formProps: RegisterFormProps;
 }
 
-export const Register = ({ setOpenRegister, formProps }: RegisterProps) => {
+interface HooksProps {
+  setOpenRegister: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Register = ({
+  setOpenRegister,
+  formProps,
+}: RegisterProps & HooksProps) => {
   const handleContainerClick = (
     e:
       | React.MouseEvent<HTMLDivElement, MouseEvent>

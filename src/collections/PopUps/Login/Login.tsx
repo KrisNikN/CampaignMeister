@@ -7,11 +7,11 @@ export interface LoginProps {
   paragraphText: string;
   googleButtonText: string;
   discordButtonText: string;
+  formProps: LoginFormProps;
 }
 
 interface HooksProps {
   setOpenLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  formProps: LoginFormProps;
 }
 
 export const Login = ({

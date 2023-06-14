@@ -4,7 +4,6 @@ import { registerFormSchema } from 'schemas';
 import { signIn } from 'next-auth/react';
 import axios from 'axios';
 import { useState } from 'react';
-import { redirect } from 'next/dist/server/api-utils';
 
 export interface RegisterFormProps {
   title: string;
@@ -22,7 +21,7 @@ export const RegisterForm = ({
   title,
   ...props
 }: RegisterFormProps) => {
-  const [hasError, sethasError] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
   const { control, handleSubmit } = useZodForm(registerFormSchema, {
     email: '',
     password: '',
@@ -42,16 +41,15 @@ export const RegisterForm = ({
           password,
           redirect: false,
         });
-        sethasError(false);
+        setHasError(false);
       } // Registration successful
     } catch (error: any) {
-      // console.log('Registration error:', error);
-      sethasError(true);
+      setHasError(true);
     }
   });
 
   return (
-    <S.formContainer {...props} onSubmit={submitHandler}>
+    <S.FormContainer {...props} onSubmit={submitHandler}>
       <S.H2>{title}</S.H2>
       <S.Input
         control={control}
@@ -75,6 +73,6 @@ export const RegisterForm = ({
         {buttonText}
       </S.Button>
       {hasError && <S.ErrorP>User already exist</S.ErrorP>}
-    </S.formContainer>
+    </S.FormContainer>
   );
 };

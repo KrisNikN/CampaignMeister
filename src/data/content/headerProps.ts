@@ -1,6 +1,6 @@
 import { HeaderProps } from 'collections';
-import { registerFormProps } from './registerFormProps';
-import { loginFormProps } from './loginFormProps';
+
+import { registerPopupProps } from './registerPopupProps';
 import { loginPopupProps } from './loginPopupProps';
 
 export const headerProps: HeaderProps = {
@@ -10,8 +10,9 @@ export const headerProps: HeaderProps = {
     height: 28,
     alt: 'logo',
   },
-  buttonText1: 'Login',
-  buttonText2: 'Register',
-  forms: [registerFormProps, loginFormProps],
+  loginButtonText: 'Login',
+  registerButtonText: 'Register',
+  signOutButtonText: 'Sign out',
   loginPopupProps: loginPopupProps,
+  registerPopupProps: registerPopupProps,
 };

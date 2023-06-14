@@ -18,7 +18,7 @@ export const LoginForm = ({
   passwordInputText,
   ...props
 }: LoginFormProps) => {
-  const [hasError, sethasError] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
   const [nError, setError] = useState<string>('');
   const { control, handleSubmit } = useZodForm(loginFormSchema, {
     email: '',
@@ -49,13 +49,13 @@ export const LoginForm = ({
         throw new Error('Authentication failed');
       }
     } catch (error: any) {
-      sethasError(true);
+      setHasError(true);
       setError(error.message);
     }
   });
 
   return (
-    <S.formContainer {...props} onSubmit={submitHandler}>
+    <S.FormContainer {...props} onSubmit={submitHandler}>
       <S.H2>{title}</S.H2>
       <S.Input
         control={control}
@@ -73,6 +73,6 @@ export const LoginForm = ({
         {buttonText}
       </S.Button>
       {hasError && <S.ErrorP>{nError}</S.ErrorP>}
-    </S.formContainer>
+    </S.FormContainer>
   );
 };

@@ -6,7 +6,7 @@ import {
   Paragraph as _Paragraph,
 } from 'components';
 
-export const formContainer = styled.form(
+export const FormContainer = styled.form(
   ({ theme: { colors, breakpoint } }) => css`
     position: relative;
     z-index: 102;

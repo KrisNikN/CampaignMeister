@@ -8,11 +8,8 @@ import {
   planSectionProps,
   startSectionProps,
 } from 'data';
-import { useSession } from 'next-auth/react';
 
 const Home: NextPage = () => {
-  // const session = useSession();
-
   return (
     <main>
       <Container>

@@ -1,8 +1,7 @@
 import * as S from './elements';
 import { useState, useEffect } from 'react';
 import type { HTMLHeaderProps } from 'types';
-import { RegisterFormProps, LoginFormProps } from 'collections/Forms';
-import { LoginProps } from 'collections/PopUps';
+import { LoginProps, RegisterProps } from 'collections/PopUps';
 import { useSession, signOut } from 'next-auth/react';
 
 export interface HeaderProps {
@@ -12,17 +11,19 @@ export interface HeaderProps {
     height: number;
     alt: string;
   };
-  buttonText1: string;
-  buttonText2: string;
-  forms: [RegisterFormProps, LoginFormProps];
+  loginButtonText: string;
+  registerButtonText: string;
+  signOutButtonText: string;
   loginPopupProps: LoginProps;
+  registerPopupProps: RegisterProps;
 }
 
 export const Header = ({
   image,
-  buttonText1,
-  buttonText2,
-  forms,
+  loginButtonText: buttonText1,
+  registerButtonText: buttonText2,
+  registerPopupProps,
+  signOutButtonText,
   loginPopupProps,
   ...props
 }: HeaderProps & HTMLHeaderProps) => {
@@ -31,7 +32,7 @@ export const Header = ({
   const { data: session } = useSession();
 
   useEffect(() => {
-    if (session !== null) {
+    if (session) {
       setOpenRegister(false);
       setOpenLogin(false);
     }
@@ -49,6 +50,13 @@ export const Header = ({
     setOpenRegister(true);
   };
 
+  const handleSignOut: React.MouseEventHandler<HTMLButtonElement> = async (
+    e,
+  ) => {
+    e.preventDefault();
+    await signOut();
+  };
+
   return (
     <>
       <S.Header {...props}>
@@ -63,31 +71,21 @@ export const Header = ({
             />
           </S.ImageContainer>
 
-          {(session === null && (
+          {session ? (
+            <S.Button onClick={handleSignOut}>{signOutButtonText}</S.Button>
+          ) : (
             <S.ButtonsContainer>
               <S.Button onClick={handleLoginClick}>{buttonText1}</S.Button>
               <S.Button onClick={handleRegisterClick}>{buttonText2}</S.Button>
             </S.ButtonsContainer>
-          )) || (
-            <S.Button
-              onClick={() => {
-                signOut();
-              }}
-            >
-              Sign Out
-            </S.Button>
           )}
         </S.HeaderContainer>
       </S.Header>
       {openRegister && (
-        <S.Register setOpenRegister={setOpenRegister} formProps={forms[0]} />
+        <S.Register setOpenRegister={setOpenRegister} {...registerPopupProps} />
       )}
       {openLogin && (
-        <S.Login
-          setOpenLogin={setOpenLogin}
-          formProps={forms[1]}
-          {...loginPopupProps}
-        />
+        <S.Login setOpenLogin={setOpenLogin} {...loginPopupProps} />
       )}
     </>
   );
