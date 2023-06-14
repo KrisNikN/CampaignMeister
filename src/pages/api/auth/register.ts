@@ -61,7 +61,6 @@ const handler = nc<
         displayName: email,
       });
 
-      // Save additional user information
       await setDoc(doc(db, 'users', userCredential.user.uid), {
         email: email,
       });

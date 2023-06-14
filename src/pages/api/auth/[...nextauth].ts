@@ -36,6 +36,7 @@ export default NextAuth({
             credentials.password,
           );
 
+          //returns
           const user = { id: 'unique-user-id', email: credentials.email };
 
           return user;
