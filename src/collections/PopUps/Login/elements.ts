@@ -25,7 +25,7 @@ export const Button = styled(_Button)(
   `,
 );
 
-export const formContainer = styled.div(
+export const FormContainer = styled.div(
   ({ theme: { colors, breakpoint } }) => css`
     position: relative;
     z-index: 102;

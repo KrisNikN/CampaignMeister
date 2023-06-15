@@ -1,8 +1,9 @@
 import * as S from './elements';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { HTMLHeaderProps } from 'types';
 import { LoginProps, RegisterProps } from 'collections/PopUps';
-import { useSession, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import { UserDropDownProps } from 'collections/DropDowns';
 
 export interface HeaderProps {
   image: {
@@ -11,25 +12,32 @@ export interface HeaderProps {
     height: number;
     alt: string;
   };
+  defaultUserImage: {
+    src: string;
+    alt: string;
+  };
   loginButtonText: string;
   registerButtonText: string;
-  signOutButtonText: string;
+  dropDownProps: UserDropDownProps;
   loginPopupProps: LoginProps;
   registerPopupProps: RegisterProps;
 }
 
 export const Header = ({
   image,
-  loginButtonText: buttonText1,
-  registerButtonText: buttonText2,
+  loginButtonText,
+  registerButtonText,
   registerPopupProps,
-  signOutButtonText,
+  dropDownProps,
+  defaultUserImage,
   loginPopupProps,
   ...props
 }: HeaderProps & HTMLHeaderProps) => {
   const [openLogin, setOpenLogin] = useState<boolean>(false);
   const [openRegister, setOpenRegister] = useState<boolean>(false);
+  const [openDropDown, setOpenDropDown] = useState<boolean>(false);
   const { data: session } = useSession();
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (session) {
@@ -50,11 +58,11 @@ export const Header = ({
     setOpenRegister(true);
   };
 
-  const handleSignOut: React.MouseEventHandler<HTMLButtonElement> = async (
+  const handleUserImageClick: React.MouseEventHandler<HTMLImageElement> = (
     e,
   ) => {
     e.preventDefault();
-    await signOut();
+    setOpenDropDown(!openDropDown);
   };
 
   return (
@@ -72,11 +80,22 @@ export const Header = ({
           </S.ImageContainer>
 
           {session ? (
-            <S.Button onClick={handleSignOut}>{signOutButtonText}</S.Button>
+            <>
+              <S.UserImage
+                src={session?.user?.image || defaultUserImage.src}
+                width={64}
+                height={64}
+                alt={defaultUserImage.alt || 'User image'}
+                layout='intrinsic'
+                onClick={handleUserImageClick}
+              />
+            </>
           ) : (
             <S.ButtonsContainer>
-              <S.Button onClick={handleLoginClick}>{buttonText1}</S.Button>
-              <S.Button onClick={handleRegisterClick}>{buttonText2}</S.Button>
+              <S.Button onClick={handleLoginClick}>{loginButtonText}</S.Button>
+              <S.Button onClick={handleRegisterClick}>
+                {registerButtonText}
+              </S.Button>
             </S.ButtonsContainer>
           )}
         </S.HeaderContainer>
@@ -86,6 +105,13 @@ export const Header = ({
       )}
       {openLogin && (
         <S.Login setOpenLogin={setOpenLogin} {...loginPopupProps} />
+      )}
+      {openDropDown && (
+        <S.UserDropDown
+          setOpenDropDown={setOpenDropDown}
+          openDropDown={openDropDown}
+          {...dropDownProps}
+        />
       )}
     </>
   );

@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { HTMLHeaderProps } from 'types';
 import { Image as _Image, Button as _Button } from 'components';
 import { Register as _Register, Login as _Login } from 'collections/PopUps';
+import { UserDropDown as _UserDropDown } from 'collections/DropDowns';
 
 export const Header = styled('header')<HTMLHeaderProps>(
   ({ theme: { colors } }) => css`
@@ -66,3 +67,12 @@ export const ImageContainer = styled.div(
 export const Login = styled(_Login)(() => css``);
 
 export const Register = styled(_Register)(() => css``);
+
+export const UserDropDown = styled(_UserDropDown)(() => css``);
+
+export const UserImage = styled(_Image)(
+  () => css`
+    border-radius: 50%;
+    cursor: pointer;
+  `,
+);

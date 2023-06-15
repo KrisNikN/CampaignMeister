@@ -10,9 +10,16 @@ export const headerProps: HeaderProps = {
     height: 28,
     alt: 'logo',
   },
+  defaultUserImage: {
+    alt: 'Default user image',
+    src: '/imgs/profile.png',
+  },
   loginButtonText: 'Login',
   registerButtonText: 'Register',
-  signOutButtonText: 'Sign out',
+  dropDownProps: {
+    signOutButtonText: 'Sign out',
+    title: 'User info',
+  },
   loginPopupProps: loginPopupProps,
   registerPopupProps: registerPopupProps,
 };

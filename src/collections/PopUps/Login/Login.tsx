@@ -1,7 +1,6 @@
 import * as S from './elements';
 import { LoginFormProps } from 'collections/Forms';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import { redirect } from 'next/dist/server/api-utils';
 
 export interface LoginProps {
   paragraphText: string;
@@ -46,7 +45,7 @@ export const Login = ({
         role='button'
         tabIndex={0}
       >
-        <S.formContainer
+        <S.FormContainer
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -70,7 +69,7 @@ export const Login = ({
           >
             {discordButtonText}
           </S.Button>
-        </S.formContainer>
+        </S.FormContainer>
       </S.Overlay>
     </>
   );
